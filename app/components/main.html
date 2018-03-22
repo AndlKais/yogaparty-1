@@ -1,10 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+<div class="wrapper">
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="glyphicon glyphicon-arrow-left"></i>
+        </div>
 
-</body>
-</html>
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Dummy Heading</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li><a href="#">Home 1</a></li>
+                    <li><a href="#">Home 2</a></li>
+                    <li><a href="#">Home 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+
+    </nav>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                    <i class="glyphicon glyphicon-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="resources/blume-des-lebens.jpg">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').fadeOut();
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').fadeIn();
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>
