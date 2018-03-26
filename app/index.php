@@ -41,9 +41,9 @@
   </head>
 
   <body layout="column" ng-cloak>
-    <md-content class="md-padding">
+
       <main></main>
-    </md-content>
+
   </body>
 
 </html>
