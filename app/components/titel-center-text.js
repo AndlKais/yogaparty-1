@@ -2,10 +2,10 @@
 
 app.component("titel-center-text", {
     templateUrl: "components/titel-center-text.html",
-    controller: "titel-center-text"
+    controller: "titel-center-textController"
 
 });
 
-app.controller("titel-center-text", function () {
+app.controller("titel-center-textController", function () {
 
 });

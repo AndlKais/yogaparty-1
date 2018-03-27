@@ -2,10 +2,10 @@
 
 app.component("map", {
     templateUrl: "components/map.html",
-    controller: "map"
+    controller: "mapController"
 
 });
 
-app.controller("map", function () {
+app.controller("mapController", function () {
 
 });

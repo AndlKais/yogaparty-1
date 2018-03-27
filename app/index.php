@@ -36,14 +36,23 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script src="app.js"></script>
-      <script src="main.js"></script>
-      <script src="components/main.js"></script>
+    <script src="main.js"></script>
+    <script src="components/main.js"></script>
+    <script src="components/bildcentertext.js"></script>
+    <script src="components/titel-center-text.js"></script>
+    <script src="components/map.js"></script>
+    <script src="components/bild-text.js"></script>
+      <script src="components/bildtextleft.js"></script>
+      <script src="components/bildtextright.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
 
       <main></main>
-
+      <div class="container">
+          <bildtextleft></bildtextleft>
+          <bildtextright></bildtextright>
+      </div>
   </body>
 
 </html>
