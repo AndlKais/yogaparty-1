@@ -1,6 +1,6 @@
 "use strict";
 
-app.component("bild-text", {
+app.component("bildText", {
     templateUrl: "components/bild-text.html",
     controller: "bild-textController"
 

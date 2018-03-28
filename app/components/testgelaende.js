@@ -6,7 +6,7 @@ app.component("testgelaende", {
 
 });
 
-app.controller("testgelaendeController", function ($http, $log) {
+app.controller("testgelaendeController", ['$http', '$log', '$compile', '$scope', function ($http, $log, $compile, $scope) {
     let $ctrl = this;
 
     this.$onInit = function(){
@@ -15,14 +15,25 @@ app.controller("testgelaendeController", function ($http, $log) {
             "profil": 1
         }).then(function(data){
             $ctrl.ausgabe = data.data;
+            $log.debug(data.data);
 
             for(let i = 0; i < $ctrl.ausgabe.length; i++){
-                let node = document.createElement($ctrl.ausgabe[i].blockart);
-                let att1 = document.createAttribute("text");
-                att1.value = $ctrl.ausgabe[i].text;
-                //document.getElementById('test').appendChild(node);
+                let node = $compile($ctrl.ausgabe[i])($scope);
                 $log.debug($ctrl.ausgabe[i]);
+                angular.element(document.getElementById("test")).append(node);
+              /*  let node = document.createElement($ctrl.ausgabe[i].blockart);
+
+                for(let key in $ctrl.ausgabe[i]) {
+                    if(key !== "blockart") {
+                        let attribut = document.createAttribute(key);
+                        attribut.value = $ctrl.ausgabe[i][key];
+                        node.setAttributeNode(attribut);
+                    }
+                    document.getElementById("test").appendChild(node);
+                }
+                //document.getElementById('test').appendChild(node);
+                $log.debug($ctrl.ausgabe[i]);*/
             }
         });
     }
-});
+}]);
