@@ -45,15 +45,18 @@
       <script src="components/bildtextleft.js"></script>
       <script src="components/bildtextright.js"></script>
       <script src="components/testgelaende.js"></script>
+      <script src="components/sliderprofile.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
-
       <main></main>
+      <slider-profile></slider-profile>
+      <map></map>
       <div class="container">
-          <!--<bildtextleft></bildtextleft>
-          <bild-text-right></bild-text-right>-->
-          <testgelaende></testgelaende>
+          <bildtextleft></bildtextleft>
+          <bild-text-right></bild-text-right>
+          <!--<testgelaende></testgelaende>-->
+          <bild-text></bild-text>
       </div>
   </body>
 
