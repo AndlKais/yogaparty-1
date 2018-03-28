@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
     <title>yogaparty</title>
     <link rel="icon" href="favicon.ico">
-  
+
     <link rel="stylesheet" href="vendor/material-icons-2.2.0/material-icons.css">
     <link rel="stylesheet" href="vendor/roboto/roboto.css">
-  
+
     <link rel="stylesheet" href="vendor/angular-material-1.1.7/angular-material.min.css">
-  
+
     <link rel="stylesheet" href="app.css">
       <link rel="stylesheet" href="styles.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
-    
+
     <script src="vendor/jquery-3.2.1/jquery.min.js"></script>
     <script src="vendor/moment.js-2.21.0/moment.min.js"></script>
     <script src="vendor/moment.js-2.21.0/locale/de.js" charset="UTF-8"></script>
@@ -44,14 +44,16 @@
     <script src="components/bild-text.js"></script>
       <script src="components/bildtextleft.js"></script>
       <script src="components/bildtextright.js"></script>
+      <script src="components/testgelaende.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
 
       <main></main>
       <div class="container">
-          <bildtextleft></bildtextleft>
-          <bildtextright></bildtextright>
+          <!--<bildtextleft></bildtextleft>
+          <bild-text-right></bild-text-right>-->
+          <testgelaende></testgelaende>
       </div>
   </body>
 

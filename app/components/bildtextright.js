@@ -1,8 +1,12 @@
 "use strict";
 
-app.component("bildtextright", {
+app.component("bildTextRight", {
     templateUrl: "components/bildtextright.html",
-    controller: "bildtextrightController"
+    controller: "bildtextrightController",
+    bindings: {
+        text: "@",
+        bild: "@"
+    }
 
 });
 
