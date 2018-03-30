@@ -47,15 +47,16 @@
       <script src="components/sliderprofile.js"></script>
   </head>
 
-  <body layout="column" ng-cloak>
+  <body layout="column" ng-cloak background="resources/background.jpg">
       <main></main>
       <slider-profile></slider-profile>
       <map></map>
-      <div class="container">
-         <!--<bildtextleft></bildtextleft>
+      <div class="container" style="width: 100%">
+          <bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>
-          <bild-text></bild-text>-->
-          <testgelaende></testgelaende>
+          <bild-center-text></bild-center-text>
+          <!--<testgelaende></testgelaende>-->
+          <titel-center-text></titel-center-text>
 
       </div>
   </body>
