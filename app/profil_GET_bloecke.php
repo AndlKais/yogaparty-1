@@ -47,7 +47,7 @@ if(count($data) > 0){
 
                 if (mysqli_num_rows($result) > 0) {
                     $row2 = mysqli_fetch_array($result2);
-                    //array_push($output, "<bild-center-text titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-center-text>");
+                    array_push($output, "<titel-center-text titel='" . $row2['titel'] . "' text='". $row2['text'] . "'></titel-center-text>");
                 }
             }
         }

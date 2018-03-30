@@ -2,7 +2,12 @@
 
 app.component("bildCenterText", {
     templateUrl: "components/bildcentertext.html",
-    controller: "bildcentertextController"
+    controller: "bildcentertextController",
+    bindings: {
+        titel: "@",
+        text: "@",
+        bild: "@"
+    }
 
 });
 

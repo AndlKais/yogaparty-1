@@ -41,7 +41,6 @@
     <script src="components/bildcentertext.js"></script>
     <script src="components/titel-center-text.js"></script>
     <script src="components/map.js"></script>
-    <script src="components/bild-text.js"></script>
       <script src="components/bildtextleft.js"></script>
       <script src="components/bildtextright.js"></script>
       <script src="components/testgelaende.js"></script>
@@ -53,10 +52,11 @@
       <slider-profile></slider-profile>
       <map></map>
       <div class="container">
-          <bildtextleft></bildtextleft>
+         <!--<bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>
-          <!--<testgelaende></testgelaende>-->
-          <bild-text></bild-text>
+          <bild-text></bild-text>-->
+          <testgelaende></testgelaende>
+
       </div>
   </body>
 
