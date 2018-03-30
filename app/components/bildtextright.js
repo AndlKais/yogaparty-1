@@ -4,6 +4,7 @@ app.component("bildTextRight", {
     templateUrl: "components/bildtextright.html",
     controller: "bildtextrightController",
     bindings: {
+        titel: "@",
         text: "@",
         bild: "@"
     }

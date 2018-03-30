@@ -5,12 +5,12 @@
         <div class="row__parallel-sm row__parallel-md row__parallel-lg">
             <div class="col-sm-5 col-md-4" style="border-right: solid black 1px">
                 <div>
-                    <img class="image-right" src="resources/yoga.png">
+                    <img class="image-right" ng-src="$ctrl.bild">
                 </div>
             </div>
             <div class="col-sm-7 col-md-8">
-                <h2 class="title-color">Lorem ipsum</h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <h2 class="title-color" ng-bind="$ctrl.titel"></h2>
+                <p ng-bind="$ctrl.text"></p>
             </div>
         </div>
         </div>
