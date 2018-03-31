@@ -52,12 +52,11 @@
       <slider-profile></slider-profile>
       <map></map>
       <div class="container" style="width: 100%">
-          <bildtextleft></bildtextleft>
+          <!--<bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>
           <bild-center-text></bild-center-text>
-          <!--<testgelaende></testgelaende>-->
-          <titel-center-text></titel-center-text>
-
+          <titel-center-text></titel-center-text>-->
+          <testgelaende></testgelaende>
       </div>
   </body>
 
