@@ -45,17 +45,19 @@
       <script src="components/bildtextright.js"></script>
       <script src="components/testgelaende.js"></script>
       <script src="components/sliderprofile.js"></script>
+      <script src="components/calendarcontact.js"></script>
   </head>
 
-  <body layout="column" ng-cloak background="resources/background.jpg">
+  <body layout="column" ng-cloak>
       <main></main>
       <slider-profile></slider-profile>
       <map></map>
-      <div class="container" style="width: 100%">
+      <div class="container hintergrundbild" style="width: 100%">
           <!--<bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>
           <bild-center-text></bild-center-text>
           <titel-center-text></titel-center-text>-->
+          <!--<calendarcontact></calendarcontact>-->
           <testgelaende></testgelaende>
       </div>
   </body>

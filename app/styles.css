@@ -24,6 +24,13 @@ p {
     border-color: #f39c12;
 }
 
+.hintergrundbild{
+    opacity: 1;
+    background-image: url("resources/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
@@ -45,9 +52,10 @@ p {
 
 .flaeche{
     border-radius: 5px;
-    background-color: rgb(239, 239, 239);
+    /**background-color: rgb(239, 239, 239);**/
     width: 100%;
     margin-left: 0px;
+    opacity: 0.6;
 }
 
 .title-color{
