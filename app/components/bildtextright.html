@@ -1,16 +1,17 @@
-<md-card>
+<md-card style="background-color: #fffaef;">
 <div class="row flaeche" style="margin-left: 0px">
     <div class="col-sm-12 col-lg-10 col-lg-push-1">
         <div style="text-align: right; margin: 50px 0 50px">
         <div class="row">
         <div class="row__parallel-sm row__parallel-md row__parallel-lg">
-            <div class="col-sm-7 col-md-8">
+            <div class="col-sm-7 col-md-8" >
                 <h2 class="title-color" ng-bind="$ctrl.titel"></h2>
                 <p ng-bind="$ctrl.text"></p>
             </div>
-            <div class="col-sm-5 col-md-4" style="border-left: solid rgba(0,0,0, 1) 1px">
+            <div style="height: 100%; border-right: solid rgba(0,0,0, 1) 1px;"></div>
+            <div class="col-sm-5 col-md-4">
                 <div>
-                    <img class="image-right" src="{{$ctrl.bild}}">
+                    <img class="image-right" style="object-fit: cover" src="{{$ctrl.bild}}">
                 </div>
             </div>
         </div>

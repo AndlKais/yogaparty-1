@@ -35,6 +35,10 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
+      <script src="components/calendar/fullcalendar.js"></script>
+      <script src="components/calendar/gcal.js"></script>
+      <script src="components/calendar/calendar.js"></script>
+
     <script src="app.js"></script>
     <script src="main.js"></script>
     <script src="components/main.js"></script>
@@ -46,18 +50,22 @@
       <script src="components/testgelaende.js"></script>
       <script src="components/sliderprofile.js"></script>
       <script src="components/calendarcontact.js"></script>
+      <script src="components/aktuell.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
       <main></main>
       <slider-profile></slider-profile>
-      <map></map>
-      <div class="container hintergrundbild" style="width: 100%">
+      <div class="container hintergrundbild" style="width: 100%; height: 100%">
+          <div layout="row" style="margin-top: 10px">
+              <map flex style="width: 50% !important;"></map>
+              <aktuell flex></aktuell>
+          </div>
           <!--<bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>
           <bild-center-text></bild-center-text>
           <titel-center-text></titel-center-text>-->
-          <!--<calendarcontact></calendarcontact>-->
+          <calendarcontact></calendarcontact>
           <testgelaende></testgelaende>
       </div>
   </body>

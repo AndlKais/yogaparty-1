@@ -2,7 +2,7 @@
 
 // Einziges Modul dieser App und seine Abhängigkeiten
 var app = angular.module("yogaparty", [ "ngResource", "ngMessages", "ngSanitize",
-    "ngAnimate", "ngMaterial", "ui.router"]);
+    "ngAnimate", "ngMaterial", "ui.router","ui.calendar"]);
 
 // Einstellungen für Debugging
 app.config(function($logProvider, $compileProvider, $mdAriaProvider, $qProvider) {
