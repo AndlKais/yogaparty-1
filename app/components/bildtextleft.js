@@ -1,6 +1,6 @@
 "use strict";
 
-app.component("bildTextLeft^1w", {
+app.component("bildTextLeft", {
     templateUrl: "components/bildtextleft.html",
     controller: "bildtextleftController",
     bindings: {
