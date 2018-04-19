@@ -51,9 +51,11 @@
     <script src="components/sliderprofile.js"></script>
     <script src="components/calendarcontact.js"></script>
     <script src="components/aktuell.js"></script>
+    <script src="components/auswahl.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
+      <auswahl></auswahl>
       <main></main>
       <slider-profile></slider-profile>
       <div class="container hintergrundbild" style="width: 100%; height: 100%">
