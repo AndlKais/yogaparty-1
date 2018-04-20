@@ -1,4 +1,42 @@
-<div layout="row" layout-align="center center">
+<style>
+    auswahl > div {
+        width: 100%;
+        height: 250px;
+        background-color: #FFE1C7;
+    }
+
+    auswahl img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    auswahl > div > div {
+        height: 70%;
+        -webkit-box-shadow: 2px 2px 5px 0px rgba(122,122,122,0.55);
+        -moz-box-shadow: 2px 2px 5px 0px rgba(122,122,122,0.55);
+        box-shadow: 2px 2px 5px 0px rgba(122,122,122,0.55);
+        border-top: 4px solid #A63333;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: #DFFFDF;
+        text-align: center;
+    }
+</style>
+
+<div layout="row" layout-align="space-around center">
+    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BTCT');">
+        <img flex src="resources/icons/Titel Text.svg">
+    </div>
+    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBCT')">
+        <img flex src="resources/icons/Titel Bild Text.svg">
+    </div>
+    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBTR')">
+        <img flex src="resources/icons/BildLTextR.svg">
+    </div>
+    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBTL')">
+        <img flex src="resources/icons/BildRTextL.svg">
+    </div>
     <!--
     <titel-center-text titel="Andreas jojojo" text="Template Titel-Text Block"></titel-center-text>
     <bild-center-text titel="Andreas jojojo" text="Template Titel-Text Block" bild="https://cdn1.medicalnewstoday.com/content/images/articles/318/318774/a-woman-practicing-yoga-on-the-beach.jpg" ></bild-center-text>
