@@ -10,12 +10,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="80mm"
-   height="80mm"
-   viewBox="0 0 80 80"
+   height="58mm"
+   viewBox="0 0 80 58"
    version="1.1"
    id="svg8"
    sodipodi:docname="BildRTextL.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="350.50313"
-     inkscape:cy="682.40859"
+     inkscape:zoom="1.4"
+     inkscape:cx="-91.067889"
+     inkscape:cy="46.633946"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -35,7 +35,8 @@
      inkscape:window-height="1017"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:snap-global="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -52,7 +53,7 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-217)">
+     transform="translate(0,-239)">
     <rect
        style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4504"
@@ -62,7 +63,7 @@
        y="107.01032" />
     <g
        id="g4686"
-       transform="matrix(1.3578375,0,0,1.3578375,-102.81363,75.383552)">
+       transform="matrix(1.3578375,0,0,1.3578375,-102.81363,86.383552)">
       <g
          id="g4603">
         <text
