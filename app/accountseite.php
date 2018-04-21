@@ -1,6 +1,13 @@
+<?php
+
+session_start();
+require_once  "database_connection.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="de" ng-app="yogaparty">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,8 +20,8 @@
     <link rel="stylesheet" href="vendor/angular-material-1.1.7/angular-material.min.css">
 
     <link rel="stylesheet" href="app.css">
-      <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
 
     <script src="vendor/jquery-3.2.1/jquery.min.js"></script>
@@ -33,11 +40,11 @@
     <script src="vendor/angular-ui-router-1.0.8/angular-ui-router.min.js"></script>
     <script src="vendor/js/bootstrap.min.js"></script>
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-     <script src="components/calendar/fullcalendar.js"></script>
-     <script src="components/calendar/gcal.js"></script>
-     <script src="components/calendar/calendar.js"></script>
+    <script src="components/calendar/fullcalendar.js"></script>
+    <script src="components/calendar/gcal.js"></script>
+    <script src="components/calendar/calendar.js"></script>
 
     <script src="app.js"></script>
     <script src="main.js"></script>
@@ -53,27 +60,10 @@
     <script src="components/aktuell.js"></script>
     <script src="components/auswahl.js"></script>
     <script src="components/edit.js"></script>
-  </head>
-
-  <body layout="column" ng-cloak>
-      <auswahl></auswahl>
-      <main></main>
-      <ui-view>
-      <slider-profile></slider-profile>
-      <div class="container hintergrundbild" style="width: 100%; height: 100%">
-          <div layout="row" style="margin-top: 10px">
-              <map flex style="width: 50% !important;"></map>
-              <aktuell flex></aktuell>
-          </div>
-          <!--<bildtextleft></bildtextleft>
-          <bild-text-right></bild-text-right>
-          <bild-center-text></bild-center-text>
-          <titel-center-text></titel-center-text>-->
-          <!--<calendarcontact></calendarcontact>-->
-          <testgelaende></testgelaende>
-      </ui-view>
-          <md-button href="accountseite.php">Zur Accountseite</md-button>
-      </div>
-  </body>
-
+</head>
+<body>
+    <main></main>
+    <auswahl></auswahl>
+    <edit></edit>
+</body>
 </html>
