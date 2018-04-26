@@ -63,7 +63,6 @@ require_once  "database_connection.php";
 </head>
 <body>
     <main></main>
-    <auswahl></auswahl>
     <edit></edit>
 </body>
 </html>
