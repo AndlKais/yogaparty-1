@@ -3,47 +3,52 @@
         <a href="#" class="list-group-item active">
             EDIT
             <a href="#" class="list-group-item">
-        </a>
+            </a>
 
-    <md-content>
-        <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="Hinzufügen">
-                <md-content class="md-padding">
-                    <h1 class="md-display-2">Hinzufügen</h1>
-                    <auswahl></auswahl>
-                    <div>
-                        <md-input-container flex="60" layout="row">
-                            <span style="margin-bottom: auto; margin-top: auto">Titel:</span>
-                            <input type="text">
-                        </md-input-container>
-                        <md-input-container layout="row">
-                            <span>Beschreibung:</span>
-                            <textarea></textarea>
-                        </md-input-container>
-                        <file-chooser></file-chooser>
-                    </div>
-                    <md-button class="md-primary">Speichern</md-button>
-                    <md-button class="md-primary">Abbrechen</md-button>
-                </md-content>
-            </md-tab>
-            <md-tab label="Bearbeiten">
-                <md-content class="md-padding">
-                    <h1 class="md-display-2">Bearbeiten</h1>
-                    <div>
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Hinzufügen">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Hinzufügen</h1>
+                            <auswahl ausgewaehlt="$ctrl.getBlock(ausgewaehlt)"></auswahl>
+                            <div ng-show="$ctrl.ausgewaehlt">
+                                <div>
+                                    <md-input-container flex="60" layout="row">
+                                        <span style="margin-bottom: auto; margin-top: auto">Titel:</span>
+                                        <input type="text">
+                                    </md-input-container>
+                                    <md-input-container layout="row">
+                                        <span>Beschreibung:</span>
+                                        <textarea></textarea>
+                                    </md-input-container>
+                                </div>
+                                <file-chooser ng-show="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>
+                            </div>
+                            <div ng-hide="$ctrl.ausgewaehlt">
+                                <h3>Bitte wählen Sie einen Vorlagenblock aus</h3>
+                            </div>
+                            <md-button ng-show="$ctrl.ausgewaehlt" class="md-primary">Speichern</md-button>
+                            <md-button class="md-primary">Abbrechen</md-button>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Bearbeiten">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Bearbeiten</h1>
+                            <div>
 
-                    </div>
-                </md-content>
-            </md-tab>
-            <md-tab label="Löschen">
-                <md-content class="md-padding">
-                    <h1 class="md-display-2">Löschen</h1>
-                    <div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Löschen">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">Löschen</h1>
+                            <div>
 
-                    </div>
-                </md-content>
-            </md-tab>
-        </md-tabs>
-    </md-content>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
         </a>
     </div>
 </div>

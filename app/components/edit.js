@@ -8,5 +8,12 @@ app.component("edit", {
 
 
 app.controller("EditController", function ($log) {
+    this.getFile = function (file) {
+        $log.debug(file);
+    };
 
+    this.getBlock = function (ausgewaehlt) {
+        this.ausgewaehlt = ausgewaehlt;
+        this.showFileChooser = this.ausgewaehlt !== "BTCT";
+    };
 });
