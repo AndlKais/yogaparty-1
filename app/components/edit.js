@@ -8,7 +8,5 @@ app.component("edit", {
 
 
 app.controller("EditController", function () {
-
-
-
+    
 });

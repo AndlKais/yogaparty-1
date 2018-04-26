@@ -71,9 +71,10 @@
           <titel-center-text></titel-center-text>-->
           <!--<calendarcontact></calendarcontact>-->
           <testgelaende></testgelaende>
+      </div>
       </ui-view>
           <md-button href="accountseite.php">Zur Accountseite</md-button>
-      </div>
+
   </body>
 
 </html>
