@@ -7,8 +7,6 @@ app.component("edit", {
 });
 
 
-app.controller("EditController", function () {
-
-
+app.controller("EditController", function ($log) {
 
 });

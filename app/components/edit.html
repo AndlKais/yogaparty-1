@@ -690,14 +690,7 @@
                         </script>
                         <material-picker ng-model="color"></material-picker>
                         <material-picker ng-model="color" format="'hex'" size="10" hover-model="hoverColor" size="15"></material-picker>
-                        <div class="form-group">
-                            <div class="input-group input-file" name="Fichier1">
-			                <span class="input-group-btn">
-        		            <button class="btn btn-default btn-choose" type="button">Choose</button>
-    		                    </span>
-                                <input type="text" class="form-control" placeholder='Choose a file...' />
-                            </div>
-                        </div>
+                        <file-chooser></file-chooser>
                     </div>
                     <md-button class="md-primary">Speichern</md-button>
                     <md-button class="md-primary">Abbrechen</md-button>

@@ -53,10 +53,12 @@
     <script src="components/aktuell.js"></script>
     <script src="components/auswahl.js"></script>
     <script src="components/edit.js"></script>
+    <script src="components/fileChooser.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
       <auswahl></auswahl>
+      <file-chooser></file-chooser>
       <main></main>
       <ui-view>
       <slider-profile></slider-profile>
@@ -71,9 +73,9 @@
           <titel-center-text></titel-center-text>-->
           <!--<calendarcontact></calendarcontact>-->
           <testgelaende></testgelaende>
+      </div>
       </ui-view>
           <md-button href="accountseite.php">Zur Accountseite</md-button>
-      </div>
   </body>
 
 </html>
