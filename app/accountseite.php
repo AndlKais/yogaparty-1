@@ -60,6 +60,7 @@ require_once  "database_connection.php";
     <script src="components/aktuell.js"></script>
     <script src="components/auswahl.js"></script>
     <script src="components/edit.js"></script>
+    <script src="components/fileChooser.js"></script>
 </head>
 <body>
     <main></main>

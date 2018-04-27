@@ -1,5 +1,3 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
 @font-face {
     font-family: 'HansKendrick';
     src: url('resources/fonts/HansKendrick-Regular.ttf');
@@ -18,7 +16,6 @@ body, html{
     height: auto !important;
     font-family: HansKendrick !important;
 }
-
 
 
 p {
@@ -203,19 +200,6 @@ a.article, a.article:hover {
     color: #fff !important;
 }
 
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-#content {
-    width: 100%;
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
 
 .materialpicker-colors {
     -webkit-user-select: none;

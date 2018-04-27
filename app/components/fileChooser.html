@@ -1,8 +1,14 @@
 <div class="form-group">
+    <span>Erlaubte Datentypen: <b>alle Bildformate</b></span>
     <div class="input-group input-file" name="Fichier1">
 			                <span class="input-group-btn">
         		            <button class="btn btn-default btn-choose" type="button">Choose</button>
     		                    </span>
-        <input type="text" class="form-control" ng-change="$ctrl.showFile();" ng-model="$ctrl.file" placeholder='Choose a file...' />
+
+        <input type="file" class="form-control" accept="image/*" ng-hide="true">
+        <input type="text" class="form-control" readonly placeholder='Choose a file...'>
     </div>
 </div>
+<section class="errorSection" hidden style="background-color: rgba(195, 47, 45, .15); color: #c32f2d; padding: 15px; margin-top: 5px;">
+    <span>Bitte wählen Sie eine Datei aus, die den darüber stehenden Vorgaben entspricht!</span>
+</section>
