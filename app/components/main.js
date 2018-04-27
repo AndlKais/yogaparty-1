@@ -7,7 +7,6 @@ app.component("main", {
 });
 
 app.controller("mainController", function () {
-
 });
 
 
