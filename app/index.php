@@ -62,8 +62,8 @@
       <slider-profile></slider-profile>
       <div class="container hintergrundbild" style="width: 100%; height: 100%">
           <div layout="row" style="margin-top: 10px">
-              <map flex style="width: 50% !important;"></map>
               <aktuell flex></aktuell>
+              <map flex style="width: 50% !important;"></map>
           </div>
           <!--<bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>
@@ -74,6 +74,7 @@
       </div>
       </ui-view>
           <md-button href="accountseite.php">Zur Accountseite</md-button>
+
   </body>
 
 </html>

@@ -67,3 +67,4 @@ app.controller("EditController", function ($log, $mdDialog) {
         this.updateValidity();
     };
 });
+
