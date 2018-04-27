@@ -7,28 +7,40 @@
 
             <md-content>
                 <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab label="Hinzufügen">
+                    <md-tab label="Hinzufügen" id="popupContainer">
                         <md-content class="md-padding">
                             <h1 class="md-display-2">Hinzufügen</h1>
                             <div ng-hide="$ctrl.ausgewaehlt" layout="row">
                                 <h2><b>Bitte wählen Sie einen Vorlagenblock aus</b></h2>
                             </div>
                             <auswahl ausgewaehlt="$ctrl.getBlock(ausgewaehlt)"></auswahl>
-                            <div ng-show="$ctrl.ausgewaehlt">
-                                <div>
-                                    <md-input-container flex="60" layout="row">
-                                        <span style="margin-bottom: auto; margin-top: auto">Titel:</span>
-                                        <input type="text">
-                                    </md-input-container>
-                                    <md-input-container layout="row">
-                                        <span>Beschreibung:</span>
-                                        <textarea></textarea>
+                            <form name="$ctrl.formular" ng-show="$ctrl.ausgewaehlt">
+                                <div flex="60" layout="row">
+                                    <span style="margin-bottom: auto; margin-top: auto">Titel:</span>
+                                    <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
+                                        <input type="text" ng-model="$ctrl.titel" ng-change="$ctrl.updateValidity()" name="titel" required minlength="3">
+                                        <div ng-messages="$ctrl.formular.titel.$error">
+                                            <div ng-message="required">Wecken Sie mit einem auffälligen Titel das Interesse.</div>
+                                            <div ng-message="minlength">Ihr Titel sollte mindestens 3 Zeichen lang sein.</div>
+                                        </div>
                                     </md-input-container>
                                 </div>
-                                <file-chooser ng-show="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>
-                            </div>
-                            <md-button ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
+                                <div flex="60" layout="row" style="margin-bottom: 20px;">
+                                    <span style="margin-bottom: auto; margin-top: auto">Beschreibung:</span>
+                                    <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
+                                        <textarea ng-model="$ctrl.beschreibung" ng-change="$ctrl.updateValidity()" name="beschreibung" required minlength="5"></textarea>
+                                        <div ng-messages="$ctrl.formular.beschreibung.$error">
+                                            <div ng-message="required">Ein Titel alleine fällt doch etwas mager aus, nicht?</div>
+                                            <div ng-message="minlength">Die Beschreibung sollte mindestens 5 Zeichen lang sein (Mehr wären besser).</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <span ng-if="$ctrl.showFileChooser">Erlaubte Datentypen: <b>alle Bildformate</b></span>
+                                <file-chooser ng-if="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>
+
+                            <md-button style="margin-top: 15px;" ng-click="$ctrl.checkFormular();" ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
                             <md-button ng-show="$ctrl.ausgewaehlt" class="md-warn md-raised">Abbrechen</md-button>
+                            </form>
                         </md-content>
                     </md-tab>
                     <md-tab label="Bearbeiten">
