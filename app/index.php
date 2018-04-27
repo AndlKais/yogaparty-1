@@ -57,8 +57,6 @@
   </head>
 
   <body layout="column" ng-cloak>
-      <auswahl></auswahl>
-      <file-chooser></file-chooser>
       <main></main>
       <ui-view>
       <slider-profile></slider-profile>
