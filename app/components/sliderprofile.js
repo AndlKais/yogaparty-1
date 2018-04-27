@@ -10,5 +10,7 @@ app.component("sliderProfile", {
 });
 
 app.controller("sliderprofileController", function () {
-
+    $('.carousel').carousel({
+        interval: 4000
+    })
 });
