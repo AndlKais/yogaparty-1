@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("testgelaende", {
-    templateUrl: "components/testgelaende.html",
+    templateUrl: "components/profilseite/testgelaende.html",
     controller: "testgelaendeController"
 
 });

@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("map", {
-    templateUrl: "components/map.html",
+    templateUrl: "components/profilseite/map.html",
     controller: "mapController"
 
 });

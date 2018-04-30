@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("titelCenterText", {
-    templateUrl: "components/titel-center-text.html",
+    templateUrl: "components/bloecke/titel-center-text.html",
     controller: "titelCenterTextController",
     bindings: {
         titel: "@",

@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("sliderProfile", {
-    templateUrl: "components/sliderprofile.html",
+    templateUrl: "components/profilseite/sliderprofile.html",
     controller: "sliderprofileController",
     bindings: {
 
@@ -10,7 +10,5 @@ app.component("sliderProfile", {
 });
 
 app.controller("sliderprofileController", function () {
-    $('.carousel').carousel({
-        interval: 4000
-    })
+
 });
