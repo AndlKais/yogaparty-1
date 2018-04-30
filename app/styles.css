@@ -1,3 +1,6 @@
+/*
+Generell?
+ */
 @font-face {
     font-family: 'HansKendrick';
     src: url('resources/fonts/HansKendrick-Regular.ttf');
@@ -17,13 +20,14 @@ body, html{
     font-family: HansKendrick !important;
 }
 
-
 p {
     font-size: 1.5em;
     line-height: 1.7em;
     font-weight: 600;
 }
 
+/*
+Andis experemetelle slideshow
 .carousel-control{
     top: 50% !important;
     width: 50px !important;
@@ -37,6 +41,7 @@ p {
     margin-right: 2.5rem;
     margin-left: 2.5rem;
 }
+*/
 
 .carousel-indicators > li {
     background-color: #f39c12;
@@ -99,9 +104,11 @@ p {
 
 .btn.btn-circle { border-radius: 50px; }
 .btn.btn-outline { background-color: transparent; }
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
+
 #sidebar {
     width: 250px;
     position: fixed;
@@ -231,11 +238,9 @@ a.article, a.article:hover {
     color: #fff !important;
 }
 
-
-
-
-
-
+/*
+Color Picker? ich weiß nicht, ANDI!!!
+ */
 
 md-color-picker .md-color-picker-input-container,
 [md-color-picker] .md-color-picker-input-container {
