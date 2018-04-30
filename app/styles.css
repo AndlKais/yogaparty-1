@@ -3,6 +3,13 @@
     src: url('resources/fonts/HansKendrick-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'MobiriseIcons';
+    src: url('resources/fonts/mobirise.ttf?5dqoim') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 div > nav > div >div > a > img {
     height: 100%;
 
@@ -36,14 +43,27 @@ p {
     transition: all .3s;
     margin-right: 2.5rem;
     margin-left: 2.5rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: .5;
 }
 
-.carousel-indicators > li {
-    background-color: #f39c12;
-    border-color: #f39c12;
+.carousel-indicators-farbe{
+    background-color: #000000;
+    border-color: #000000;
 }
 
-.test{
+.pfeil_links{
     font-family: MobiriseIcons !important;
     speak: none;
     font-style: normal;
@@ -53,12 +73,29 @@ p {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     font-size: 1.5rem;
-
 }
 
-.test:before{
-    content: "\e966";
+.pfeil_rechts{
+    font-family: MobiriseIcons !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.5rem;
 }
+
+.pfeil_links:before{
+    content: "\e943";
+}
+
+.pfeil_rechts:before{
+    content: "\e967";
+}
+
+
 
 .hintergrundbild{
     opacity: 1;
