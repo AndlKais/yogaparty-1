@@ -28,6 +28,8 @@
     <script src="vendor/angularjs-1.6.9/angular-animate.min.js"></script>
     <script src="vendor/angularjs-1.6.9/angular-aria.min.js"></script>
     <script src="vendor/angularjs-1.6.9/i18n/angular-locale_de.js"></script>
+     <script src="tinycolor.js"></script>
+    <script src="vendor/mdColorPicker.js"></script>
 
     <script src="vendor/angular-material-1.1.7/angular-material.min.js"></script>
     <script src="vendor/angular-ui-router-1.0.8/angular-ui-router.min.js"></script>
@@ -41,23 +43,23 @@
 
     <script src="app.js"></script>
     <script src="main.js"></script>
-    <script src="components/main.js"></script>
-    <script src="components/bildcentertext.js"></script>
-    <script src="components/titel-center-text.js"></script>
-    <script src="components/map.js"></script>
-    <script src="components/bildtextleft.js"></script>
-    <script src="components/bildtextright.js"></script>
-    <script src="components/testgelaende.js"></script>
-    <script src="components/sliderprofile.js"></script>
-    <script src="components/calendarcontact.js"></script>
-    <script src="components/aktuell.js"></script>
-    <script src="components/auswahl.js"></script>
-    <script src="components/edit.js"></script>
-    <script src="components/fileChooser.js"></script>
+    <script src="components/navigation.js"></script>
+    <script src="components/bloecke/bildcentertext.js"></script>
+    <script src="components/bloecke/titel-center-text.js"></script>
+    <script src="components/profilseite/map.js"></script>
+    <script src="components/bloecke/bildtextleft.js"></script>
+    <script src="components/bloecke/bildtextright.js"></script>
+    <script src="components/profilseite/testgelaende.js"></script>
+    <script src="components/profilseite/sliderprofile.js"></script>
+    <script src="components/profilseite/calendarcontact.js"></script>
+    <script src="components/profilseite/aktuell.js"></script>
+    <script src="components/accountseite/auswahl.js"></script>
+    <script src="components/accountseite/edit.js"></script>
+    <script src="components/accountseite/fileChooser.js"></script>
   </head>
 
   <body layout="column" ng-cloak>
-      <main></main>
+      <navigation></navigation>
       <ui-view>
       <slider-profile></slider-profile>
       <div class="container hintergrundbild" style="width: 100%; height: 100%">

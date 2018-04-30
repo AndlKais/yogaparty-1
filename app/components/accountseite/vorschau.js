@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("vorschau", {
-    templateUrl: "components/vorschau.html",
+    templateUrl: "components/accountseite/vorschau.html",
     controller: "VorschauController",
     bindings: {}
 });

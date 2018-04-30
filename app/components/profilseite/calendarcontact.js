@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("calendarcontact", {
-    templateUrl: "components/calendarcontact.html",
+    templateUrl: "components/profilseite/calendarcontact.html",
     controller: "calendarcontactController"
 
 });

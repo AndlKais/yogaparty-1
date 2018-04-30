@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("edit", {
-    templateUrl: "components/edit.html",
+    templateUrl: "components/accountseite/edit.html",
     controller: "EditController",
     bindings: {}
 });
@@ -36,7 +36,7 @@ app.controller("EditController", function ($log, $mdDialog) {
                         left: 1500
                     })
             );
-        }else{
+        }else if(this.formInvalid){
             $mdDialog.show(
                 $mdDialog.alert()
                     .clickOutsideToClose(true)
@@ -65,6 +65,10 @@ app.controller("EditController", function ($log, $mdDialog) {
         this.showFileChooser = this.ausgewaehlt !== "BTCT";
         this.file = null;
         this.updateValidity();
+    };
+
+    this.nonInput = {
+        color: ''
     };
 });
 

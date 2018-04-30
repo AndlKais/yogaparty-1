@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("aktuell", {
-    templateUrl: "components/aktuell.html",
+    templateUrl: "components/profilseite/aktuell.html",
     controller: "aktuellController"
 
 });
