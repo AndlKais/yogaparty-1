@@ -7,8 +7,11 @@ app.component("edit", {
 });
 
 
-app.controller("EditController", function ($log, $mdDialog) {
+app.controller("EditController", function ($log, $mdDialog, $http) {
     this.formInvalid = true;
+    this.titel = "dsafsdfasfd";
+    this.beschreibung = "dsafsaffd";
+    this.backgroundC = "#ffffff";
 
     this.updateValidity = function () {
         $log.debug(" formular.$valid: " + this.formular.$valid + " file: " + this.file);
@@ -20,6 +23,7 @@ app.controller("EditController", function ($log, $mdDialog) {
     };
 
     this.checkFormular = function () {
+        $log.debug(this.file);
         if(this.formInvalid && this.showFileChooser){
             $mdDialog.show(
                 $mdDialog.alert()
@@ -52,6 +56,23 @@ app.controller("EditController", function ($log, $mdDialog) {
                         left: 1500
                     })
             );
+        }else{
+            let that = this;
+            that.fd = new FormData();
+            $log.debug(that.file);
+            that.fd.append("file", that.file[0]);
+            that.fd.append("titel", that.titel);
+            that.fd.append("beschreibung", that.beschreibung);
+            $log.debug(that.fd);
+            $http({
+                method: 'post',
+                url: 'profil_INSERT_block.php',
+                data: that.fd,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity
+            }).then(response => {
+                $log.debug(response);
+            });
         }
     };
 
@@ -63,12 +84,8 @@ app.controller("EditController", function ($log, $mdDialog) {
     this.getBlock = function (ausgewaehlt) {
         this.ausgewaehlt = ausgewaehlt;
         this.showFileChooser = this.ausgewaehlt !== "BTCT";
-        this.file = null;
         this.updateValidity();
     };
 
-    this.nonInput = {
-        color: ''
-    };
 });
 
