@@ -29,7 +29,7 @@
     <script src="vendor/angularjs-1.6.9/angular-animate.min.js"></script>
     <script src="vendor/angularjs-1.6.9/angular-aria.min.js"></script>
     <script src="vendor/angularjs-1.6.9/i18n/angular-locale_de.js"></script>
-     <script src="tinycolor.js"></script>
+      <script src="tinycolor.js"></script>
     <script src="vendor/mdColorPicker.js"></script>
 
     <script src="vendor/angular-material-1.1.7/angular-material.min.js"></script>

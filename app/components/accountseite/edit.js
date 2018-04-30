@@ -36,7 +36,7 @@ app.controller("EditController", function ($log, $mdDialog) {
                         left: 1500
                     })
             );
-        }else{
+        }else if(this.formInvalid){
             $mdDialog.show(
                 $mdDialog.alert()
                     .clickOutsideToClose(true)
