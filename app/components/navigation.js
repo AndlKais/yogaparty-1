@@ -1,7 +1,7 @@
 "use strict";
 
-app.component("main", {
-    templateUrl: "components/main.html",
+app.component("navigation", {
+    templateUrl: "components/navigation.html",
     controller: "mainController"
 
 });

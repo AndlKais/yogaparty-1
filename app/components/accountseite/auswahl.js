@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("auswahl", {
-    templateUrl: "components/auswahl.html",
+    templateUrl: "components/accountseite/auswahl.html",
     controller: "auswahlController",
     bindings: {
         ausgewaehlt: "&"

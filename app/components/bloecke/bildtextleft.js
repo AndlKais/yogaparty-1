@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("bildTextLeft", {
-    templateUrl: "components/bildtextleft.html",
+    templateUrl: "components/bloecke/bildtextleft.html",
     controller: "bildtextleftController",
     bindings: {
         titel: "@",

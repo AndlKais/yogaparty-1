@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("fileChooser", {
-    templateUrl: "components/fileChooser.html",
+    templateUrl: "components/accountseite/fileChooser.html",
     controller: "fileChooserController",
     bindings: {
         fileChosen: "&"
