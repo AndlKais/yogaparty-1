@@ -61,6 +61,7 @@ Accountseite css?
     border-top-right-radius: 0px !important;
     background-color: #E2B6FF !important;
     border-color: #E2B6FF !important;
+    color: black !important;
 }
 
 /* -----------------------
@@ -304,6 +305,10 @@ a.download {
 a.article, a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
+}
+
+ul > li > a{
+    color: black !important;
 }
 
 /*--------------------------------------
