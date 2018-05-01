@@ -1,3 +1,7 @@
+/* -----------------------------
+Allgemein css?
+----------------------------- */
+
 @font-face {
     font-family: 'HansKendrick';
     src: url('resources/fonts/HansKendrick-Regular.ttf');
@@ -30,6 +34,38 @@ p {
     line-height: 1.7em;
     font-weight: 600;
 }
+
+@media screen and (max-width: 600px){
+    #mapdiv{
+        width: 100% !important;
+        height: 100% !important;
+        /*
+        flex: 100;
+        max-height: 400px !important;
+        */
+    }
+    #aktuelldiv{
+        margin-top: 10px !important;
+        /*
+        height: 18%;
+        */
+    }
+}
+
+/*--------------------
+Accountseite css?
+-------------------- */
+
+.list-group-item.active{
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    background-color: #E2B6FF !important;
+    border-color: #E2B6FF !important;
+}
+
+/* -----------------------
+Slideshow css?
+ -----------------------*/
 
 .carousel-control{
     top: 50% !important;
@@ -103,12 +139,6 @@ p {
     width: 100%;
 }
 
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}
-
 .image-right {
     position: relative;
     max-width: 100%;
@@ -134,29 +164,19 @@ p {
     margin: 0px;
 }
 
-
-@media screen and (max-width: 600px){
-    #mapdiv{
-        width: 100% !important;
-        height: 100% !important;
-        /*
-        flex: 100;
-        max-height: 400px !important;
-        */
-    }
-    #aktuelldiv{
-        margin-top: 10px !important;
-        /*
-        height: 18%;
-        */
-    }
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
 }
 
 .btn.btn-circle { border-radius: 50px; }
 .btn.btn-outline { background-color: transparent; }
+
 /* ---------------------------------------------------
-    SIDEBAR STYLE
+    Navigation css?
 ----------------------------------------------------- */
+
 #sidebar {
     width: 250px;
     position: fixed;
@@ -286,11 +306,9 @@ a.article, a.article:hover {
     color: #fff !important;
 }
 
-
-
-
-
-
+/*--------------------------------------
+Colorpicker css?
+ --------------------------------------*/
 
 md-color-picker .md-color-picker-input-container,
 [md-color-picker] .md-color-picker-input-container {
