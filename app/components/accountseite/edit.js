@@ -59,11 +59,15 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
         }else{
             let that = this;
             that.fd = new FormData();
-            $log.debug(that.file);
-            that.fd.append("file", that.file[0]);
+            if(that.file){
+                that.fd.append("file", that.file[0]);
+            }else{
+                that.fd.append("file", null);
+            }
             that.fd.append("titel", that.titel);
             that.fd.append("beschreibung", that.beschreibung);
-            $log.debug(that.fd);
+            that.fd.append("ausgewaehlt", that.ausgewaehlt);
+            that.fd.append("backgroundC", that.backgroundC);
             $http({
                 method: 'post',
                 url: 'profil_INSERT_block.php',
@@ -71,6 +75,7 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
                 headers: {'Content-Type': undefined},
                 transformRequest: angular.identity
             }).then(response => {
+                $log.debug("response");
                 $log.debug(response);
             });
         }
