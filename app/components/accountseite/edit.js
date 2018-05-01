@@ -76,7 +76,28 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
                 transformRequest: angular.identity
             }).then(response => {
                 $log.debug("response");
-                $log.debug(response);
+                $log.debug(response.data);
+                $mdDialog.show(
+                    $mdDialog.alert()
+                        .clickOutsideToClose(true)
+                        .title('Status')
+                        .textContent(response.data.everythingOk ?
+                            "Ihr Eingaben wuden erfolgreich hochgeladen - schauen Sie sich die Änderungen gleich auf Ihrer Profilseite an." :
+                            "Es ist ein Fehler aufgetreten - überprüfen Sie, ob Ihr die Große von 5 MB nicht überschreitet und aktualisieren Sie die Seite."
+                        )
+                        .ariaLabel('OffscreenAlert')
+                        .ok('Okay')
+                        .openFrom({
+                            top: -50,
+                            width: 30,
+                            height: 80
+                        })
+                        .closeTo({
+                            left: 1500
+                        })
+                ).then(result => {
+                    window.location.href = "accountseite.php";
+                });
             });
         }
     };

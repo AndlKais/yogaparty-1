@@ -59,7 +59,7 @@ if($response['everythingOk'] && ($ausgewaehlt == "BTCT" || $ausgewaehlt == "BBCT
     if($ausgewaehlt == "BTCT"){
         $query = "INSERT INTO B_Titel_C_Text (`BTCText_ID`, `titel`, `text`) VALUES ($psBlockID, '$titel', '$beschreibung')";
         $insertSpecificBlock = mysqli_query($mysqli, $query);
-        echo $query;
+
         /*
          * FÜR Blöcke mit Bildern soll der Upload stattfinden
          */
