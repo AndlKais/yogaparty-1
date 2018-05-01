@@ -134,6 +134,17 @@ p {
     margin: 0px;
 }
 
+
+@media screen and (max-width: 600px){
+    #mapdiv{
+        width: 100% !important;
+        height: 100vh !important;
+    }
+    #aktuelldiv{
+        margin-top: 10px !important;
+    }
+}
+
 .btn.btn-circle { border-radius: 50px; }
 .btn.btn-outline { background-color: transparent; }
 /* ---------------------------------------------------
