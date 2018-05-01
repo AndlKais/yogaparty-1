@@ -2,7 +2,7 @@
 <div class="row flaeche" style="margin-left: 0px">
     <div class="col-sm-12 col-lg-10 col-lg-push-1">
         <div style="text-align: left; margin: 50px 0 50px">
-            <h2 class="title-color" style="text-align: center; margin-bottom: 10px" ng-bind="$ctrl.titel"></h2>
+            <h2 class="title-color toph2" style="text-align: center; margin-bottom: 10px" ng-bind="$ctrl.titel"></h2>
             <div class="row">
                 <div class="row__parallel-sm row__parallel-md row__parallel-lg">
 
@@ -10,7 +10,7 @@
                         <img class="image-center" style="object-fit: cover;" src="{{$ctrl.bild}}">
                     </div>
                     <div style="margin: 10px">
-                        <p ng-bind="$ctrl.text"></p>
+                        <p class="topp" ng-bind="$ctrl.text"></p>
                     </div>
                 </div>
             </div>
@@ -18,3 +18,14 @@
     </div>
 </div>
 </md-card>
+
+<style>
+    @media screen and (max-width: 600px){
+        .toph2{
+            font-size: 40px !important;
+        }
+        .topp{
+            font-size: 1.3em !important;
+        }
+    }
+</style>

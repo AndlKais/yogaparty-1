@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="yogaparty, yoga">
 
     <title>yogaparty</title>
     <link rel="icon" href="favicon.ico">
@@ -13,8 +14,8 @@
     <link rel="stylesheet" href="vendor/angular-material-1.1.7/angular-material.min.css">
 
     <link rel="stylesheet" href="app.css">
-      <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
 
     <script src="vendor/jquery-3.2.1/jquery.min.js"></script>
@@ -63,9 +64,9 @@
       <ui-view>
       <slider-profile></slider-profile>
       <div class="container hintergrundbild" style="width: 100%; height: 100%">
-          <div layout="row" style="margin-top: 10px">
+          <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
               <aktuell flex></aktuell>
-              <map flex style="width: 50% !important;"></map>
+              <map id="mapdiv" flex flex-xs="95" style="width: 50%;"></map>
           </div>
           <!--<bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>

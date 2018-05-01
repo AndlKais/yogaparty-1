@@ -42,6 +42,8 @@ require_once  "database_connection.php";
     <script src="vendor/angular-ui-router-1.0.8/angular-ui-router.min.js"></script>
     <script src="vendor/js/bootstrap.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
     <script src="components/calendar/fullcalendar.js"></script>
     <script src="components/calendar/gcal.js"></script>
     <script src="components/calendar/calendar.js"></script>
