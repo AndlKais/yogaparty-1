@@ -14,6 +14,8 @@ if(count($data) > 0){
         $output = array();
 
         while($row = mysqli_fetch_array($result)) {
+            $backgroundColor = $row['bgcolor'] ? $row['bgcolor'] : "#fffaef";
+            $color = $row['color'] ? $row['color'] : "#000000";
             $query2 = "";
 
             if ($row['blockart'] === "BBT") {
@@ -28,9 +30,9 @@ if(count($data) > 0){
                         "bild" => $row2['bPfad'].$row2['bName'],
                         "blockart" => "bild-text-right"));*/
                     if($row2['bildR']) {
-                        array_push($output, "<bild-text-right titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-right>");
+                        array_push($output, "<bild-text-right style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-right>");
                     }else{
-                        array_push($output, "<bild-text-left titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-left>");
+                        array_push($output, "<bild-text-left style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-left>");
                     }
                 }
             }elseif ($row['blockart'] === "BBCT"){
@@ -39,7 +41,7 @@ if(count($data) > 0){
 
                 if (mysqli_num_rows($result) > 0) {
                     $row2 = mysqli_fetch_array($result2);
-                    array_push($output, "<bild-center-text titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-center-text>");
+                    array_push($output, "<bild-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-center-text>");
                 }
             }else{
                 $query2 = "SELECT * FROM B_Titel_C_Text where BTCText_ID = " . $row['Block_ID'];
@@ -47,7 +49,7 @@ if(count($data) > 0){
 
                 if (mysqli_num_rows($result) > 0) {
                     $row2 = mysqli_fetch_array($result2);
-                    array_push($output, "<titel-center-text titel='" . $row2['titel'] . "' text='". $row2['text'] . "'></titel-center-text>");
+                    array_push($output, "<titel-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='". $row2['text'] . "'></titel-center-text>");
                 }
             }
         }

@@ -6,6 +6,7 @@ $titel = htmlspecialchars($_POST['titel']);
 $beschreibung = htmlspecialchars($_POST['beschreibung']);
 $ausgewaehlt = htmlspecialchars($_POST['ausgewaehlt']);
 $backgroundC = htmlspecialchars($_POST['backgroundC']);
+$color = htmlspecialchars($_POST['color']);
 $response['everythingOk'] = true;
 
 if(strlen($backgroundC) < 4 || strlen($backgroundC) > 30){
@@ -49,10 +50,11 @@ if($ausgewaehlt == "BBCT" || $ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL"){
 
 if($response['everythingOk'] && ($ausgewaehlt == "BTCT" || $ausgewaehlt == "BBCT" || $ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL")) {
     if ($ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL") {
-        $query = "INSERT INTO psblock (`blockart`, `position`, `FK_Seiten_ID`) VALUES ('" . substr($ausgewaehlt, 0, -1) . "', $position, $seitenID)";
+        $query = "INSERT INTO psblock (`blockart`, `position`, `FK_Seiten_ID`, `bgcolor`, `color`) VALUES ('" . substr($ausgewaehlt, 0, -1) . "', $position, $seitenID, '$backgroundC', '$color')";
     } else {
-        $query = "INSERT INTO psblock (`blockart`, `position`, `FK_Seiten_ID`) VALUES ('$ausgewaehlt', $position, $seitenID)";
+        $query = "INSERT INTO psblock (`blockart`, `position`, `FK_Seiten_ID`, `bgcolor`, `color`) VALUES ('$ausgewaehlt', $position, $seitenID, '$backgroundC', '$color')";
     }
+
     $insertPDBlock = mysqli_query($mysqli, $query);
     $psBlockID = mysqli_insert_id($mysqli);
 
