@@ -138,10 +138,17 @@ p {
 @media screen and (max-width: 600px){
     #mapdiv{
         width: 100% !important;
-        height: 100vh !important;
+        height: 100% !important;
+        /*
+        flex: 100;
+        max-height: 400px !important;
+        */
     }
     #aktuelldiv{
         margin-top: 10px !important;
+        /*
+        height: 18%;
+        */
     }
 }
 

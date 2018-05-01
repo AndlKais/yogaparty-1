@@ -66,7 +66,7 @@
       <div class="container hintergrundbild" style="width: 100%; height: 100%">
           <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
               <aktuell flex></aktuell>
-              <map id="mapdiv" flex style="width: 50%;"></map>
+              <map id="mapdiv" flex flex-xs="95" style="width: 50%;"></map>
           </div>
           <!--<bildtextleft></bildtextleft>
           <bild-text-right></bild-text-right>
