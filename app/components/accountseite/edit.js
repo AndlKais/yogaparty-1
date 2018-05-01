@@ -9,12 +9,11 @@ app.component("edit", {
 
 app.controller("EditController", function ($log, $mdDialog, $http) {
     this.formInvalid = true;
-    this.titel = "dsafsdfasfd";
-    this.beschreibung = "dsafsaffd";
     this.backgroundC = "#ffffff";
+    this.color = "#000000";
 
     this.updateValidity = function () {
-        $log.debug(" formular.$valid: " + this.formular.$valid + " file: " + this.file);
+        //$log.debug(" formular.$valid: " + this.formular.$valid + " file: " + this.file);
         if (this.showFileChooser) {
             this.formInvalid = !this.file || !this.formular.$valid;
         } else {
@@ -23,7 +22,6 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
     };
 
     this.checkFormular = function () {
-        $log.debug(this.file);
         if(this.formInvalid && this.showFileChooser){
             $mdDialog.show(
                 $mdDialog.alert()
@@ -58,6 +56,9 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
             );
         }else{
             let that = this;
+            this.backgroundC = this.backgroundC ? this.backgroundC : "#ffffff";
+            this.color = this.color ? this.color : "#000000";
+            //console.log(this.backgroundC + " " + this.color);
             that.fd = new FormData();
             if(that.file){
                 that.fd.append("file", that.file[0]);
@@ -68,6 +69,7 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
             that.fd.append("beschreibung", that.beschreibung);
             that.fd.append("ausgewaehlt", that.ausgewaehlt);
             that.fd.append("backgroundC", that.backgroundC);
+            that.fd.append("color", that.color);
             $http({
                 method: 'post',
                 url: 'profil_INSERT_block.php',
