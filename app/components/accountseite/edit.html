@@ -17,7 +17,7 @@
 
                             <form name="$ctrl.formular" ng-show="$ctrl.ausgewaehlt">
                                 <div flex="60" layout="row">
-                                    <span style="margin-bottom: auto; margin-top: auto">Titel:</span>
+                                    <span style="margin-bottom: auto; margin-top: auto; font-size: 2rem"><b>Titel:</b></span>
                                     <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
                                         <input type="text" ng-model="$ctrl.titel" ng-change="$ctrl.updateValidity()" name="titel" required minlength="3">
                                         <div ng-messages="$ctrl.formular.titel.$error">
@@ -27,7 +27,7 @@
                                     </md-input-container>
                                 </div>
                                 <div flex="60" layout="row" style="margin-bottom: 20px;">
-                                    <span style="margin-bottom: auto; margin-top: auto">Beschreibung:</span>
+                                    <span style="margin-bottom: auto; margin-top: auto; font-size: 2rem"><b>Beschreibung:</b></span>
                                     <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
                                         <textarea ng-model="$ctrl.beschreibung" ng-change="$ctrl.updateValidity()" name="beschreibung" required minlength="5"></textarea>
                                         <div ng-messages="$ctrl.formular.beschreibung.$error">
@@ -36,12 +36,16 @@
                                         </div>
                                     </md-input-container>
                                 </div>
+                                <span style="font-size: 2rem"><b>Schriftfarbe auswählen:</b></span>
+                                <div md-color-picker ng-model="valueObj"></div>
+                                <span style="font-size: 2rem"><b>Hintergrundfarbe auswählen:</b></span>
                                 <div md-color-picker ng-model="valueObj"></div>
                                 <span ng-if="$ctrl.showFileChooser">Erlaubte Datentypen: <b>alle Bildformate</b></span>
                                 <file-chooser ng-if="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>
-
+                            <div align="center">
                             <md-button style="margin-top: 15px;" ng-click="$ctrl.checkFormular();" ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
                             <md-button ng-show="$ctrl.ausgewaehlt" class="md-warn md-raised">Abbrechen</md-button>
+                            </div>
                             </form>
                         </md-content>
                     </md-tab>
