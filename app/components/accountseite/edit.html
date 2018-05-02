@@ -16,8 +16,10 @@
                             <auswahl ausgewaehlt="$ctrl.getBlock(ausgewaehlt)"></auswahl>
 
                             <form name="$ctrl.formular" ng-show="$ctrl.ausgewaehlt">
+                                <div layout="column">
                                 <div flex="60" layout="row">
                                     <span style="margin-bottom: auto; margin-top: auto; font-size: 2rem"><b>Titel:</b></span>
+                                    <div flex="5"></div>
                                     <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
                                         <input type="text" ng-model="$ctrl.titel" ng-change="$ctrl.updateValidity()" name="titel" required minlength="3">
                                         <div ng-messages="$ctrl.formular.titel.$error">
@@ -46,6 +48,7 @@
                             <md-button style="margin-top: 15px;" ng-click="$ctrl.checkFormular();" ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
                             <md-button ng-show="$ctrl.ausgewaehlt" class="md-warn md-raised">Abbrechen</md-button>
                             </div>
+                                </div>
                             </form>
                         </md-content>
                     </md-tab>
