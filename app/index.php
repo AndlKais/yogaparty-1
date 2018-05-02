@@ -68,12 +68,8 @@
               <aktuell flex></aktuell>
               <map id="mapdiv" flex flex-xs="95" style="width: 50%;"></map>
           </div>
-          <bildtextleft></bildtextleft>
-          <bild-text-right></bild-text-right>
-          <bild-center-text></bild-center-text>
-          <titel-center-text></titel-center-text>
           <!--<calendarcontact></calendarcontact>-->
-          <!--<testgelaende></testgelaende>-->
+          <testgelaende></testgelaende>
       </div>
       </ui-view>
           <md-button href="accountseite.php">Zur Accountseite</md-button>
