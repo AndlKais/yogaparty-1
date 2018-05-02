@@ -10,7 +10,7 @@ $color = htmlspecialchars($_POST['color']);
 $response['everythingOk'] = true;
 
 if(strlen($backgroundC) < 4 || strlen($backgroundC) > 30){
-    $backgroundC = "#ffffff";
+    $backgroundC = "#fffaef";
 }
 
 /*

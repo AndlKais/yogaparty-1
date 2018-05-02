@@ -6,7 +6,7 @@
         <div class="row__parallel-sm row__parallel-md row__parallel-lg" style="color: inherit;">
             <div class="col-sm-5 col-md-4">
                 <div>
-                    <img class="image-right" style="object-fit: cover" src="{{$ctrl.bild}}">
+                    <img class="image-right preview-image" style="object-fit: cover" onerror="this.src='resources/pictures/no_preview.jpg'" src="{{$ctrl.bild}}">
                 </div>
             </div>
             <div style="height: 100%; border-right: solid rgba(0,0,0, 1) 1px;"></div>
