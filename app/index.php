@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de" ng-app="yogaparty">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="yogaparty, yoga">
@@ -29,18 +29,18 @@
     <script src="vendor/angularjs-1.6.9/angular-animate.min.js"></script>
     <script src="vendor/angularjs-1.6.9/angular-aria.min.js"></script>
     <script src="vendor/angularjs-1.6.9/i18n/angular-locale_de.js"></script>
-      <script src="tinycolor.js"></script>
+    <script src="tinycolor.js"></script>
     <script src="vendor/mdColorPicker.js"></script>
 
     <script src="vendor/angular-material-1.1.7/angular-material.min.js"></script>
     <script src="vendor/angular-ui-router-1.0.8/angular-ui-router.min.js"></script>
     <script src="vendor/js/bootstrap.min.js"></script>
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-     <script src="components/calendar/fullcalendar.js"></script>
-     <script src="components/calendar/gcal.js"></script>
-     <script src="components/calendar/calendar.js"></script>
+    <script src="components/calendar/fullcalendar.js"></script>
+    <script src="components/calendar/gcal.js"></script>
+    <script src="components/calendar/calendar.js"></script>
 
     <script src="app.js"></script>
     <script src="main.js"></script>
@@ -57,23 +57,34 @@
     <script src="components/accountseite/auswahl.js"></script>
     <script src="components/accountseite/edit.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
-  </head>
+    <script src="components/profilseite/aktuell-text.js"></script>
+</head>
 
-  <body layout="column" ng-cloak>
-      <navigation></navigation>
-      <ui-view>
-      <slider-profile></slider-profile>
-      <div class="container hintergrundbild" style="width: 100%; height: auto">
-          <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
-              <aktuell flex></aktuell>
-              <map id="mapdiv" flex flex-xs="95" style="width: 50%;"></map>
-          </div>
-          <!--<calendarcontact></calendarcontact>-->
-          <testgelaende></testgelaende>
-      </div>
-      </ui-view>
-          <md-button href="accountseite.php">Zur Accountseite</md-button>
+<body layout="column" ng-cloak>
+<navigation></navigation>
+<ui-view>
+    <slider-profile></slider-profile>
+    <div class="container hintergrundbild" style="width: 100%; height: auto">
 
-  </body>
+        <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
+            <aktuell flex></aktuell>
+            <map id="mapdiv" flex flex-xs="95" style="width: 50%; padding-bottom: 7.5%"></map>
+        </div>
+        <div layout-gt-xs="row" layout-xs="column">
+            <div style="width: 50%; margin-left: 15px" class="newsdiv">
+                <aktuell-text></aktuell-text>
+            </div>
+            <div style="width: 50%;" layout-align="center center" class="newsdiv">
+                <h1 style="width: 100%; margin: auto; text-align: center">Hier könnte Ihre Werbung stehen</h1>
+            </div>
+        </div>
+
+        <!--<calendarcontact></calendarcontact>-->
+        <testgelaende></testgelaende>
+    </div>
+</ui-view>
+<md-button href="accountseite.php">Zur Accountseite</md-button>
+
+</body>
 
 </html>
