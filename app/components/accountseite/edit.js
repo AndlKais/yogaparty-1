@@ -25,8 +25,9 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
         let tempBeschreibung = this.beschreibung ? this.beschreibung : "Beschreibung";
 
         if(this.ausgewaehlt === "BTCT"){
+            $log.debug("this.ausgewaehlt = BTCT");
             $log.debug(document.getElementsByClassName("preview-image"));
-            if(document.getElementsByClassName("preview-image")) {
+            if(document.getElementsByClassName("preview-image")[0]) {
                 document.getElementsByClassName("preview-image")[0].src = "resources/pictures/no_preview.jpg";
                 this.file = null;
             }
@@ -75,6 +76,9 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
             this.tempBlock = "<bild-text-left style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-text-left>";
         }
     };
+
+
+
 
     this.checkFormular = function () {
         if(this.formInvalid && this.showFileChooser){
