@@ -31,7 +31,7 @@
                                 <div flex="60" layout="row" style="margin-bottom: 20px;">
                                     <span style="margin-bottom: auto; margin-top: auto; font-size: 2rem"><b>Beschreibung:</b></span>
                                     <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
-                                        <textarea ng-model="$ctrl.beschreibung" ng-change="$ctrl.updateValidity()" name="beschreibung" required minlength="5"></textarea>
+                                        <textarea ng-model="$ctrl.beschreibung" ng-change="$ctrl.updateValidity()" name="beschreibung" md-maxlength="500" style="font-size: large" required minlength="5" md-select-on-focus></textarea>
                                         <div ng-messages="$ctrl.formular.beschreibung.$error">
                                             <div ng-message="required">Ein Titel alleine fällt doch etwas mager aus, nicht?</div>
                                             <div ng-message="minlength">Die Beschreibung sollte mindestens 5 Zeichen lang sein (Mehr wären besser).</div>
