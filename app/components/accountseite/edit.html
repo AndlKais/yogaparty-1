@@ -16,8 +16,10 @@
                             <auswahl ausgewaehlt="$ctrl.getBlock(ausgewaehlt)"></auswahl>
 
                             <form name="$ctrl.formular" ng-show="$ctrl.ausgewaehlt">
+                                <div layout="column">
                                 <div flex="60" layout="row">
                                     <span style="margin-bottom: auto; margin-top: auto; font-size: 2rem"><b>Titel:</b></span>
+                                    <div flex="5"></div>
                                     <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
                                         <input type="text" ng-model="$ctrl.titel" ng-change="$ctrl.updateValidity()" maxlength="30" name="titel" required minlength="3">
                                         <div ng-messages="$ctrl.formular.titel.$error">
@@ -30,7 +32,7 @@
                                 <div flex="60" layout="row" style="margin-bottom: 20px;">
                                     <span style="margin-bottom: auto; margin-top: auto; font-size: 2rem"><b>Beschreibung:</b></span>
                                     <md-input-container style="margin-bottom: 0; width: 100%; height: auto;">
-                                        <textarea ng-model="$ctrl.beschreibung" ng-change="$ctrl.updateValidity()" maxlength="500" name="beschreibung" required minlength="5"></textarea>
+                                        <textarea ng-model="$ctrl.beschreibung" ng-change="$ctrl.updateValidity()" name="beschreibung" md-maxlength="500" style="font-size: large" required minlength="5" md-select-on-focus></textarea>
                                         <div ng-messages="$ctrl.formular.beschreibung.$error">
                                             <div ng-message="required">Ein Titel alleine fällt doch etwas mager aus, nicht?</div>
                                             <div ng-message="minlength">Die Beschreibung sollte mindestens 5 Zeichen lang sein (Mehr wären besser).</div>
@@ -43,9 +45,10 @@
                                 <div md-color-picker ng-model="$ctrl.backgroundC" ng-change="$ctrl.updateValidity()"></div>
                                 <span ng-if="$ctrl.showFileChooser">Erlaubte Datentypen: <b>alle Bildformate</b></span>
                                 <file-chooser ng-if="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>
-                                <div align="center">
-                                    <md-button style="margin-top: 15px;" ng-click="$ctrl.checkFormular();" ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
-                                    <md-button ng-show="$ctrl.ausgewaehlt" class="md-warn md-raised">Abbrechen</md-button>
+                            <div align="center">
+                            <md-button style="margin-top: 15px;" ng-click="$ctrl.checkFormular();" ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
+                            <md-button ng-show="$ctrl.ausgewaehlt" class="md-warn md-raised">Abbrechen</md-button>
+                            </div>
                                 </div>
                             </form>
                             <vorschau vorschau="$ctrl.tempBlock"></vorschau>

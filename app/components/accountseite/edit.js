@@ -19,13 +19,14 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
         } else {
             this.formInvalid = this.formular.$invalid;
         }
+
         this.backgroundC = this.backgroundC ? this.backgroundC : "#fffaef";
         this.color = this.color ? this.color : "#000000";
         let tempTitel = this.titel ? this.titel : "Titel";
         let tempBeschreibung = this.beschreibung ? this.beschreibung : "Beschreibung";
 
         if(this.ausgewaehlt === "BTCT"){
-            $log.debug("this.ausgewaehlt = BTCT");
+
             $log.debug(document.getElementsByClassName("preview-image"));
             if(document.getElementsByClassName("preview-image")[0]) {
                 document.getElementsByClassName("preview-image")[0].src = "resources/pictures/no_preview.jpg";
@@ -75,6 +76,7 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
             }
             this.tempBlock = "<bild-text-left style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-text-left>";
         }
+
     };
 
 
