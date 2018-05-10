@@ -52,6 +52,13 @@ p {
     }
 }
 
+@media screen and (max-width: 600px){
+    .newsdiv{
+        width: 100% !important;
+    }
+}
+
+
 /*--------------------
 Accountseite css?
 -------------------- */

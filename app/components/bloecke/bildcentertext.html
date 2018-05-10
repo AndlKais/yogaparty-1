@@ -7,7 +7,7 @@
                 <div class="row__parallel-sm row__parallel-md row__parallel-lg" style="color: inherit;">
 
                     <div style="text-align: center; border-bottom: solid rgba(0,0,0, 1) 1px">
-                        <img class="image-center" style="object-fit: cover;" src="{{$ctrl.bild}}">
+                        <img class="image-center preview-image" onerror="this.src='resources/pictures/no_preview.jpg'" style="object-fit: cover;" src="{{$ctrl.bild}}">
                     </div>
                     <div style="margin: 10px; color: inherit;">
                         <p class="topp" style="color: inherit;" ng-bind="$ctrl.text"></p>

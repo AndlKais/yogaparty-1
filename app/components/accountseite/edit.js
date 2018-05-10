@@ -9,7 +9,7 @@ app.component("edit", {
 
 app.controller("EditController", function ($log, $mdDialog, $http) {
     this.formInvalid = true;
-    this.backgroundC = "#ffffff";
+    this.backgroundC = "#fffaef";
     this.color = "#000000";
 
     this.updateValidity = function () {
@@ -19,7 +19,68 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
         } else {
             this.formInvalid = this.formular.$invalid;
         }
+
+        this.backgroundC = this.backgroundC ? this.backgroundC : "#fffaef";
+        this.color = this.color ? this.color : "#000000";
+        let tempTitel = this.titel ? this.titel : "Titel";
+        let tempBeschreibung = this.beschreibung ? this.beschreibung : "Beschreibung";
+
+        if(this.ausgewaehlt === "BTCT"){
+
+            $log.debug(document.getElementsByClassName("preview-image"));
+            if(document.getElementsByClassName("preview-image")[0]) {
+                document.getElementsByClassName("preview-image")[0].src = "resources/pictures/no_preview.jpg";
+                this.file = null;
+            }
+            this.tempBlock = "<titel-center-text style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "'></titel-center-text>";
+        }else if(this.ausgewaehlt === "BBCT"){
+            if(this.file) {
+                let reader = new FileReader();
+                reader.readAsDataURL(this.file[0]);
+                //$log.debug(reader);
+                reader.addEventListener("load", function () {
+                    //$log.debug(reader);
+                    if(document.getElementsByClassName("preview-image")) {
+                        document.getElementsByClassName("preview-image")[0].src = reader.result;
+                    }
+                });
+                //$log.debug(that.tempBlock);
+            }
+            this.tempBlock = "<bild-center-text style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-center-text>";
+        }else if(this.ausgewaehlt === "BBTR"){
+            if(this.file) {
+                let reader = new FileReader();
+                reader.readAsDataURL(this.file[0]);
+                //$log.debug(reader);
+                reader.addEventListener("load", function () {
+                    //$log.debug(reader);
+                    if(document.getElementsByClassName("preview-image")) {
+                        document.getElementsByClassName("preview-image")[0].src = reader.result;
+                    }
+                });
+                //$log.debug(that.tempBlock);
+            }
+            this.tempBlock = "<bild-text-right style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-text-right>";
+        }else if(this.ausgewaehlt === "BBTL"){
+            if(this.file) {
+                let reader = new FileReader();
+                reader.readAsDataURL(this.file[0]);
+                //$log.debug(reader);
+                reader.addEventListener("load", function () {
+                    //$log.debug(reader);
+                    if(document.getElementsByClassName("preview-image")) {
+                        document.getElementsByClassName("preview-image")[0].src = reader.result;
+                    }
+                });
+                //$log.debug(that.tempBlock);
+            }
+            this.tempBlock = "<bild-text-left style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-text-left>";
+        }
+
     };
+
+
+
 
     this.checkFormular = function () {
         if(this.formInvalid && this.showFileChooser){
@@ -56,7 +117,7 @@ app.controller("EditController", function ($log, $mdDialog, $http) {
             );
         }else{
             let that = this;
-            this.backgroundC = this.backgroundC ? this.backgroundC : "#ffffff";
+            this.backgroundC = this.backgroundC ? this.backgroundC : "#fffaef";
             this.color = this.color ? this.color : "#000000";
             //console.log(this.backgroundC + " " + this.color);
             that.fd = new FormData();

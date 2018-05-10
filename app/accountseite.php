@@ -63,6 +63,7 @@ require_once  "database_connection.php";
     <script src="components/accountseite/auswahl.js"></script>
     <script src="components/accountseite/edit.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
+    <script src="components/accountseite/vorschau.js"></script>
 </head>
 <body>
     <navigation></navigation>

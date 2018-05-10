@@ -6,7 +6,7 @@ app.component("bildCenterText", {
     bindings: {
         titel: "@",
         text: "@",
-        bild: "@"
+        bild: "@?"
     }
 
 });

@@ -6,7 +6,7 @@ app.component("bildTextRight", {
     bindings: {
         titel: "@",
         text: "@",
-        bild: "@"
+        bild: "@?"
     }
 
 });
