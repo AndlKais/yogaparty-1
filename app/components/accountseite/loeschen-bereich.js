@@ -3,7 +3,9 @@
 app.component("loeschenbereich", {
     templateUrl: "components/accountseite/loeschen-bereich.html",
     controller: "LoeschenBereichController",
-    bindings: {}
+    bindings: {
+
+    }
 });
 
 
