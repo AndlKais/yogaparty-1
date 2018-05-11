@@ -12,7 +12,7 @@ require_once  "database_connection.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>yogaparty</title>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="resources/icons/bdl.ico">
 
     <link rel="stylesheet" href="vendor/material-icons-2.2.0/material-icons.css">
     <link rel="stylesheet" href="vendor/roboto/roboto.css">
