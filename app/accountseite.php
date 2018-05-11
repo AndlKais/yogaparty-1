@@ -61,12 +61,14 @@ require_once  "database_connection.php";
     <script src="components/profilseite/calendarcontact.js"></script>
     <script src="components/profilseite/aktuell.js"></script>
     <script src="components/accountseite/auswahl.js"></script>
-    <script src="components/accountseite/edit.js"></script>
+    <script src="components/accountseite/blockkomponente.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
     <script src="components/accountseite/vorschau.js"></script>
+    <script src="components/accountseite/bearbeiten-bereich.js"></script>
+    <script src="components/accountseite/loeschen-bereich.js"></script>
 </head>
 <body>
     <navigation></navigation>
-    <edit></edit>
+    <blockkomponente></blockkomponente>
 </body>
 </html>

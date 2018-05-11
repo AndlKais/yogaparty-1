@@ -1,13 +1,13 @@
 "use strict";
 
-app.component("edit", {
-    templateUrl: "components/accountseite/edit.html",
-    controller: "EditController",
+app.component("blockkomponente", {
+    templateUrl: "components/accountseite/blockkomponente.html",
+    controller: "blockKomponenteController",
     bindings: {}
 });
 
 
-app.controller("EditController", function ($log, $mdDialog, $http) {
+app.controller("blockKomponenteController", function ($log, $mdDialog, $http) {
     this.formInvalid = true;
     this.backgroundC = "#fffaef";
     this.color = "#000000";
