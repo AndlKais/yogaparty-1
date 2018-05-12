@@ -2,7 +2,10 @@
 
 app.component("testgelaende", {
     templateUrl: "components/profilseite/testgelaende.html",
-    controller: "testgelaendeController"
+    controller: "testgelaendeController",
+    bindings:{
+        deleteButton: '@'
+    }
 
 });
 
