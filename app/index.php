@@ -6,7 +6,7 @@
     <meta name="keywords" content="yogaparty, yoga">
 
     <title>yogaparty</title>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="resources/icons/bdl.ico">
 
     <link rel="stylesheet" href="vendor/material-icons-2.2.0/material-icons.css">
     <link rel="stylesheet" href="vendor/roboto/roboto.css">
