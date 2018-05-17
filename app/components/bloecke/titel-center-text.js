@@ -5,11 +5,15 @@ app.component("titelCenterText", {
     controller: "titelCenterTextController",
     bindings: {
         titel: "@",
-        text: "@"
+        text: "@",
+        id: "@",
+        loescheBlock: "&?"
     }
 
 });
 
 app.controller("titelCenterTextController", function () {
-
+    this.removeBlock = function () {
+        this.loescheBlock({"id": this.id});
+    };
 });

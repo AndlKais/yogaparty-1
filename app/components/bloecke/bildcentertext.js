@@ -6,11 +6,15 @@ app.component("bildCenterText", {
     bindings: {
         titel: "@",
         text: "@",
-        bild: "@?"
+        bild: "@?",
+        id: "@?",
+        loescheBlock: "&?"
     }
 
 });
 
 app.controller("bildcentertextController", function () {
-
+    this.removeBlock = function () {
+        this.loescheBlock({"id": this.id});
+    };
 });

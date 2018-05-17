@@ -6,10 +6,14 @@ app.component("bildTextLeft", {
     bindings: {
         titel: "@",
         text: "@",
-        bild: "@?"
+        bild: "@?",
+        id: "@?",
+        loescheBlock: "&?"
     }
 });
 
 app.controller("bildtextleftController", function () {
-
+    this.removeBlock = function () {
+        this.loescheBlock({"id": this.id});
+    };
 });

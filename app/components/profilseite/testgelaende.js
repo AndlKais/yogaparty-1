@@ -4,13 +4,19 @@ app.component("testgelaende", {
     templateUrl: "components/profilseite/testgelaende.html",
     controller: "testgelaendeController",
     bindings:{
-        deleteButton: '@'
+        deleteButton: '@',
+        ueberbringeZuLoeschendenBlock: " &?"
     }
 
 });
 
 app.controller("testgelaendeController", ['$http', '$log', '$compile', '$scope', function ($http, $log, $compile, $scope) {
     let $ctrl = this;
+
+    this.loescheBlock = function (id) {
+        $('*[id="' + id + '"]').empty();
+        this.ueberbringeZuLoeschendenBlock({"id": id});
+    };
 
     this.$onInit = function(){
         $ctrl.ausgabe = "";
