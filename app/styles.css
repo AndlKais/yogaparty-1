@@ -643,6 +643,7 @@ div#test > * > *{
 }
 
 .x {
+    z-index: 1000000;
     position: absolute;
     top: -16px;
     right: -22px;
@@ -654,7 +655,6 @@ div#test > * > *{
 }
 
 .x::before, .x::after {
-    z-index: 1000000;
     position: absolute;
     top: 17px;
     left: 3px;
