@@ -1,3 +1,13 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Jean
+ * Date: 17.05.2018
+ * Time: 10:40
+ */
+
+?>
+
 <!DOCTYPE html>
 <html lang="de" ng-app="yogaparty">
 <head>
@@ -62,30 +72,6 @@
 </head>
 
 <body layout="column" ng-cloak>
-<navigation></navigation>
-<ui-view>
-    <slider-profile></slider-profile>
-    <div class="container hintergrundbild" style="width: 100%; height: auto">
-
-        <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
-            <aktuell flex></aktuell>
-            <map id="mapdiv" flex flex-xs="95" style="width: 50%; padding-bottom: 7.5%"></map>
-        </div>
-        <div layout-gt-xs="row" layout-xs="column">
-            <div style="width: 50%; margin-left: 15px" class="newsdiv">
-                <aktuell-text></aktuell-text>
-            </div>
-            <div style="width: 50%;" layout-align="center center" class="newsdiv">
-                <h1 style="width: 100%; margin: auto; text-align: center">Hier könnte Ihre Werbung stehen</h1>
-            </div>
-        </div>
-
-        <!--<calendarcontact></calendarcontact>-->
-        <testgelaende></testgelaende>
-    </div>
-</ui-view>
-<md-button href="accountseite.php">Zur Accountseite</md-button>
-
+<impressum></impressum>
 </body>
-
 </html>
