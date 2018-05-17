@@ -20,7 +20,15 @@ app.controller("LoeschenBereichController", function ($log, $http, $mdDialog) {
     this.loeschenBestaetigen = function () {
         if (this.loescheBloecke.length) {
             $mdDialog.show(
-                $mdDialog.confirm()
+                $mdDialog.confirm({onComplete: function afterShowAnimation() {
+                        let $dialog = angular.element(document.querySelector('md-dialog'));
+                        let $actionsSection = $dialog.find('md-dialog-actions');
+                        let $cancelButton = $actionsSection.children()[0];
+                        let $confirmButton = $actionsSection.children()[1];
+                        angular.element($confirmButton).removeClass('md-focused');
+                        angular.element($cancelButton).addClass('md-focused');
+                        $cancelButton.focus();
+                    }})
                     .clickOutsideToClose(true)
                     .title('Löschen bestätigen?')
                     .htmlContent("<h3>Möchten Sie die entfernten Blöcke für immer löschen?</h3> <br> <h4>Sie können bei \"Hinzufügen\" gleich einen neuen Block erstellen oder bei \"Bearbeiten\" einen vorhandenen Block ändern - probieren Sie es gleich aus! :)</h4>")
