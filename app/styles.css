@@ -636,8 +636,12 @@ div#test > * > *{
     width: 96%;
 }
 
-.md-cancel-button{
-    color: rgba(255,255,255,0.87);
+.md-cancel-button:hover, .md-cancel-button:focus {
+    color: rgb(63,81,181) !important;
+}
+
+.md-cancel-button {
+    color: rgba(255,255,255,0.87) !important;
     background-color: rgb(63,81,181);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
