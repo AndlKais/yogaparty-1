@@ -60,6 +60,9 @@
     <script src="components/profilseite/aktuell-text.js"></script>
     <script src="components/accountseite/bearbeiten-bereich.js"></script>
     <script src="components/accountseite/loeschen-bereich.js"></script>
+    <script src="components/infoseite/info-bearbeiten.js"></script>
+    <script src="components/infoseite/info-content-bearbeiten.js"></script>
+    <script src="components/infoseite/info-header-bearbeiten.js"></script>
 </head>
 
 <body layout="column" ng-cloak>
