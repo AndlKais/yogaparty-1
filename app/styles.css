@@ -632,9 +632,6 @@ md-color-picker .md-color-picker-input-container .md-color-picker-clear,
     background-position: 0 0, 4px 4px;
 }
 
-div#test > * > *{
-    width: 96%;
-}
 
 .md-cancel-button:hover, .md-cancel-button:focus {
     color: rgb(63,81,181) !important;
@@ -646,16 +643,27 @@ div#test > * > *{
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
 
+:not(loeschenbereich) > div > div > testgelaende > div > * > md-card > div > div[ng-click='$ctrl.removeBlock()'] {
+    display: none;
+}
+
+bearbeitenbereich > div > div > testgelaende > div{
+    height: 95vh;
+    overflow: auto;
+    width: 100%;
+}
+
+
 .x {
     z-index: 1000000;
-    position: absolute;
+    position: relative;
     top: -16px;
-    right: -22px;
     width: 45px;
     height: 45px;
     border: 3px solid #000;
     background-color: #fff;
     border-radius: 50%;
+    left: 97%;
 }
 
 .x::before, .x::after {

@@ -16,4 +16,6 @@ app.controller("titelCenterTextController", function () {
     this.removeBlock = function () {
         this.loescheBlock({"id": this.id});
     };
+
+    this.istLoeschenbereich = true;
 });
