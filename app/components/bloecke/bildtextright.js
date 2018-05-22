@@ -28,4 +28,6 @@ app.controller("bildtextrightController", function ($element) {
     this.removeBlock = function () {
         this.loescheBlock({"id": this.id});
     };
+
+    this.istLoeschenbereich = true;
 });
