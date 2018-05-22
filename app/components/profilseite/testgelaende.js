@@ -5,7 +5,8 @@ app.component("testgelaende", {
     controller: "testgelaendeController",
     bindings:{
         deleteButton: '@',
-        ueberbringeZuLoeschendenBlock: " &?"
+        ueberbringeZuLoeschendenBlock: " &?",
+        reihenfolge: "@"
     }
 
 });
@@ -29,7 +30,8 @@ app.controller("testgelaendeController", ['$http', '$log', '$compile', '$scope',
             for(let i = 0; i < $ctrl.ausgabe.length; i++){
                 let node = $compile($ctrl.ausgabe[i])($scope);
                 $log.debug($ctrl.ausgabe[i]);
-                angular.element(document.getElementById("test")).append(node);
+                angular.element(document.getElementsByClassName("bloeckeAnzeigen")[$ctrl.reihenfolge ? $ctrl.reihenfolge - 1 : 0]).append(node);
+
               /*  let node = document.createElement($ctrl.ausgabe[i].blockart);
 
                 for(let key in $ctrl.ausgabe[i]) {
