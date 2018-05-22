@@ -8,12 +8,23 @@ app.component("bildTextRight", {
         text: "@",
         bild: "@?",
         id: "@?",
-        loescheBlock: "&?"
+        loescheBlock: "&?",
+        bearbeiteBlock: "&?"
     }
 
 });
 
-app.controller("bildtextrightController", function () {
+app.controller("bildtextrightController", function ($element) {
+
+    this.$onInit = function () {
+        let that = this;
+        if(this.bearbeiteBlock) {
+            $element.on("click", function () {
+                that.bearbeiteBlock({ "id": that.id});
+            });
+        }
+    };
+
     this.removeBlock = function () {
         this.loescheBlock({"id": this.id});
     };
