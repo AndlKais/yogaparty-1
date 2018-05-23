@@ -4,12 +4,20 @@ app.component("fileChooser", {
     templateUrl: "components/accountseite/fileChooser.html",
     controller: "fileChooserController",
     bindings: {
+        bearbeitenBereich: "<?",
         fileChosen: "&"
     }
 
 });
 
 app.controller("fileChooserController", function ($element) {
+
+    this.$onChanges = function () {
+        if(this.bearbeitenBereich) {
+            this.file = "";
+            document.getElementsByClassName("form-control")[1].value = "";
+        }
+    };
 
     this.$onInit = function () {
         let that = this;
