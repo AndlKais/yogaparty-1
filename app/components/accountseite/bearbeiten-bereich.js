@@ -7,7 +7,7 @@ app.component("bearbeitenbereich", {
 });
 
 
-app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast) {
+app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, $mdDialog, $http) {
 
     $scope.htmlVerbindungen = {};
 
@@ -58,6 +58,7 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast) 
 
 
     $scope.updateBlock = function (id, blockArt, inhalt) {
+        $scope.temp.file = !$scope.temp.file;
         $log.debug(id + " " + blockArt);
         $scope.$apply(function(){
             $scope.htmlVerbindungen = {
@@ -180,9 +181,9 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast) 
     $scope.getFile = function (file) {
         let alreadyInFiles = false;
         let pos = 0;
-        $scope.files.push({ "id": $scope.htmlVerbindungen.id, "file": file });
         for(let i = 0; i < $scope.files.length; i++){
             if($scope.files[i].id === $scope.htmlVerbindungen.id){
+                $log.debug("ID = ID");
                 $scope.files[i].file = file;
                 alreadyInFiles = true;
                 pos = i;
@@ -214,11 +215,86 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast) 
         });
     };
 
+    $scope.changesMade = function (){
+        let changesMade = false;
+        $scope.changes = {"inhalt": false, "pos": false, "files": false};
+        for(let i = 0; i < ursprung.length; i++){
+            let curUrsprung = ursprung[i];
+            let curAenderungen = $scope.aenderungen[i];
+
+            if(curUrsprung.titel !== curAenderungen.titel ||
+               curUrsprung.beschreibung !== curAenderungen.beschreibung ||
+               curUrsprung.color !== curAenderungen.color ||
+               curUrsprung.backgroundC !== curAenderungen.backgroundC){
+                //$log.debug("CHANGE INHALT OHNE BILD");
+                changesMade = true;
+                $scope.changes.inhalt = true;
+            }
+        }
+
+        for(let i = 1; i <= $scope.posAenderungen.length; i++){
+            if(i !== parseInt($scope.posAenderungen[i-1])){
+                //$log.debug("CHANGE POSAENDERUNGEN");
+                changesMade = true;
+                $scope.changes.pos = true;
+                break;
+            }
+        }
+
+        if($scope.files.length !== 0){
+            //$log.debug("CHANGE FILES");
+            changesMade = true;
+            $scope.changes.files = true;
+        }
+
+        return changesMade;
+    };
+
     $scope.saveAllChanges = function () {
-        $log.debug(ursprung);
+        /*$log.debug(ursprung);
         $log.debug($scope.aenderungen);
         $log.debug($scope.posAenderungen);
         $log.debug($scope.files);
+        $log.debug("-----------------");
+        $log.debug($scope.changesMade());*/
+        if(!$scope.changesMade()) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Problem')
+                    .htmlContent('<h4>Führen Sie zumindest eine Änderung durch, um zu speichern. <br> Für mehr Infos klicken Sie auf das Info Feld.</h4>')
+                    .ariaLabel('Keine Änderung BearbeitenBereich')
+                    .ok('Okay!')
+            );
+        }else{
+            /*$scope.fd = new FormData();
+            if($scope.files){
+                $scope.fd.append("files", $scope.files);
+            }else{
+                $scope.fd.append("files", null);
+            }
+            $scope.fd.append("aenderungen", $scope.aenderungen);
+            $scope.fd.append("ursprung", $scope.ursprung);
+            $scope.fd.append("pos", $scope.posAenderungen);
+            $scope.fd.append("changes", $scope.changes);
+            $http({
+                method: 'post',
+                url: 'profil_INSERT_block.php',
+                data: $scope.fd,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity
+            })*/
+            $http.post("profil_REPLACE_bloecke.php", {
+                "aenderungen": $scope.aenderungen,
+                "ursprung": ursprung,
+                "pos": $scope.posAenderungen,
+                "files": $scope.files,
+                "changes": $scope.changes
+            }).then(function (response) {
+                $log.debug(response);
+            });
+        }
+
     };
 
 });

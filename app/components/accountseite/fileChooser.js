@@ -13,7 +13,8 @@ app.component("fileChooser", {
 app.controller("fileChooserController", function ($element) {
 
     this.$onChanges = function () {
-        if(this.bearbeitenBereich) {
+        if(this.bearbeitenBereich !== undefined && this.bearbeitenBereich !== null) {
+            console.log("$onChanges if bearbeitenBereich");
             this.file = "";
             document.getElementsByClassName("form-control")[1].value = "";
         }
