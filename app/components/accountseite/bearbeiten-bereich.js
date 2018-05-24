@@ -17,10 +17,11 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         $log.debug("WIRD AUSGEFÜHRT");
         let elemente = angular.element(document.querySelector("testgelaende[reihenfolge='1'] > div"))[0];
         $scope.files = [];
+        $scope.fileToId = [];
         $scope.anfangspos = [];
         $scope.posAenderungen = [];
         $scope.aenderungen = [];
-        $scope.temp = { "file": true};
+        $scope.temp = { "file": true };
         for(let i = 0; i < elemente.childNodes.length; i++){
             let blockArt;
             if(elemente.childNodes[i].tagName === "TITEL-CENTER-TEXT"){
@@ -192,6 +193,10 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
 
         if(!alreadyInFiles){
             $scope.files.push({ "id": $scope.htmlVerbindungen.id, "file": file });
+            $scope.fileToId.push({
+                "id": $scope.htmlVerbindungen.id,
+                "blockArt": $scope.htmlVerbindungen.blockArt
+            });
             pos = $scope.files.length - 1;
         }
 
@@ -205,7 +210,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
 
 
         let reader = new FileReader();
-        $scope.temp.file = !$scope.temp.file;
         reader.readAsDataURL($scope.files[pos].file[0]);
 
         reader.addEventListener("load", function () {
@@ -267,23 +271,26 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                     .ok('Okay!')
             );
         }else{
-            /*$scope.fd = new FormData();
-            if($scope.files){
-                $scope.fd.append("files", $scope.files);
-            }else{
-                $scope.fd.append("files", null);
+            $scope.fd = new FormData();
+            for(let i = 0; i < $scope.files.length; i++){
+                $scope.fd.append("file"+i, $scope.files[i].file[0]);
             }
-            $scope.fd.append("aenderungen", $scope.aenderungen);
-            $scope.fd.append("ursprung", $scope.ursprung);
-            $scope.fd.append("pos", $scope.posAenderungen);
-            $scope.fd.append("changes", $scope.changes);
+
+            $scope.fd.append("fileToId", JSON.stringify($scope.fileToId));
+            $scope.fd.append("aenderungen", JSON.stringify($scope.aenderungen));
+            $scope.fd.append("ursprung", JSON.stringify(ursprung));
+            $scope.fd.append("pos", JSON.stringify($scope.posAenderungen));
+            $scope.fd.append("changes", JSON.stringify($scope.changes));
             $http({
                 method: 'post',
-                url: 'profil_INSERT_block.php',
+                url: 'profil_REPLACE_bloecke.php',
                 data: $scope.fd,
                 headers: {'Content-Type': undefined},
                 transformRequest: angular.identity
-            })*/
+            }).then(function (response) {
+                $log.debug(response);
+            });
+            /*
             $http.post("profil_REPLACE_bloecke.php", {
                 "aenderungen": $scope.aenderungen,
                 "ursprung": ursprung,
@@ -292,7 +299,7 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                 "changes": $scope.changes
             }).then(function (response) {
                 $log.debug(response);
-            });
+            });*/
         }
 
     };
