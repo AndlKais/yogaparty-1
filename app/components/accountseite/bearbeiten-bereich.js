@@ -7,7 +7,7 @@ app.component("bearbeitenbereich", {
 });
 
 
-app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, $mdDialog, $http) {
+app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, $mdDialog, $http, $timeout) {
 
     $scope.htmlVerbindungen = {};
 
@@ -272,16 +272,75 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             );
         }else{
             $scope.fd = new FormData();
+            $scope.fdFiles = new FormData();
             for(let i = 0; i < $scope.files.length; i++){
-                $scope.fd.append("file"+i, $scope.files[i].file[0]);
+                    $scope.fdFiles.append("file" + (i % 3), $scope.files[i].file[0]);
+                    if((i+1) % 3 === 0){
+                        let tempFileToId = [];
+                        tempFileToId.push($scope.fileToId[i-2]);
+                        tempFileToId.push($scope.fileToId[i-1]);
+                        tempFileToId.push($scope.fileToId[i]);
+                        //$scope.fdFiles.append("fileToId", JSON.stringify($scope.fileToId[i]));
+                        $scope.fdFiles.append("fileToId", JSON.stringify(tempFileToId));
+                        $http({
+                            method: 'post',
+                            url: 'profil_REPLACE_bloecke.php',
+                            data: $scope.fdFiles,
+                            headers: {'Content-Type': undefined},
+                            transformRequest: angular.identity
+                        }).then(function (response) {
+                            $mdDialog.show(
+                                $mdDialog.alert()
+                                    .clickOutsideToClose(true)
+                                    .title(response.data.everythingOk ? 'Yeah' : 'Oh nein')
+                                    .htmlContent(response.data.everythingOk ? '<h4>Ihre Blöcke wurden erfolgreich aktualisiert!</h4>' : '<h4>:( Es ist ein Fehler aufgetreten. Dev. Error - Console</h4>')
+                                    .ariaLabel('StatusMeldung BearbeitenBereich')
+                                    .ok('Okay')
+                            );
+                            $log.debug(response);
+                        });
+                        $scope.fdFiles = new FormData();
+                        tempFileToId = [];
+                    }
+                    //$scope.fdFiles.delete("file0");
+                    //$scope.fdFiles.delete("fileToId");
             }
 
-            $scope.fd.append("fileToId", JSON.stringify($scope.fileToId));
+            if($scope.files.length % 3 !== 0){
+                let tempFileToId = [];
+                let laenge = $scope.files.length;
+                if(laenge % 3 === 1){
+                    tempFileToId.push($scope.fileToId[laenge-1]);
+                }else if(laenge % 3 === 2){
+                    tempFileToId.push($scope.fileToId[laenge-2]);
+                    tempFileToId.push($scope.fileToId[laenge-1]);
+                }
+                $scope.fdFiles.append("fileToId", JSON.stringify(tempFileToId));
+                $http({
+                    method: 'post',
+                    url: 'profil_REPLACE_bloecke.php',
+                    data: $scope.fdFiles,
+                    headers: {'Content-Type': undefined},
+                    transformRequest: angular.identity
+                }).then(function (response) {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                            .clickOutsideToClose(true)
+                            .title(response.data.everythingOk ? 'Yeah' : 'Oh nein')
+                            .htmlContent(response.data.everythingOk ? '<h4>Ihre Blöcke wurden erfolgreich aktualisiert!</h4>' : '<h4>:( Es ist ein Fehler aufgetreten. Dev. Error - Console</h4>')
+                            .ariaLabel('StatusMeldung BearbeitenBereich')
+                            .ok('Okay')
+                    );
+                    $log.debug(response);
+                });
+            }
+
+            //$scope.fd.append("fileToId", JSON.stringify($scope.fileToId));
             $scope.fd.append("aenderungen", JSON.stringify($scope.aenderungen));
             $scope.fd.append("ursprung", JSON.stringify(ursprung));
             $scope.fd.append("pos", JSON.stringify($scope.posAenderungen));
             $scope.fd.append("changes", JSON.stringify($scope.changes));
-            $http({
+/*            $http({
                 method: 'post',
                 url: 'profil_REPLACE_bloecke.php',
                 data: $scope.fd,
@@ -290,7 +349,8 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             }).then(function (response) {
                 $log.debug(response);
             });
-            /*
+  */        $timeout(function (){ $scope.showLoadingScreen(); }, 20);
+
             $http.post("profil_REPLACE_bloecke.php", {
                 "aenderungen": $scope.aenderungen,
                 "ursprung": ursprung,
@@ -299,9 +359,22 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                 "changes": $scope.changes
             }).then(function (response) {
                 $log.debug(response);
-            });*/
+            });
         }
 
+    };
+
+    $scope.showLoadingScreen = function () {
+        $log.debug($http.pendingRequests.length);
+        if ($http.pendingRequests.length != 0) {
+            $scope.serverConnection = { "changing": true };
+            $scope.timeout = $timeout(function () {
+                $scope.showLoadingScreen();
+            }, 2000);
+        }else{
+            $timeout.cancel($scope.timeout);
+            $scope.serverConnection = { "changing": false };
+        }
     };
 
 });
