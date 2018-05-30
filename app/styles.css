@@ -191,7 +191,7 @@ Slideshow css?
     width: 250px;
     position: fixed;
     top: 0;
-    left: -250px;
+    right: -250px;
     height: 100vh;
     z-index: 999;
     background: #98ff98;
@@ -202,7 +202,7 @@ Slideshow css?
 }
 
 #sidebar.active {
-    left: 0;
+    right: 0;
 }
 
 #dismiss {
@@ -643,11 +643,19 @@ md-color-picker .md-color-picker-input-container .md-color-picker-clear,
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
 
+/*-------------------------------------------
+löschen x in der blockkomponente
+------------------------------------------- */
+
 :not(loeschenbereich) > div > div > testgelaende > div > * > md-card > div > div[ng-click='$ctrl.removeBlock()'] {
     display: none;
 }
 
-testgelaende > div > * > md-card > div > div.x {
+ui-view > div > testgelaende > div > * > md-card > div > div.x {
+    display: none;
+}
+
+vorschau > div > * > md-card > div > div.x {
     display: none;
 }
 
