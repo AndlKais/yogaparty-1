@@ -44,7 +44,7 @@
                                 <span style="font-size: 2rem"><b>Hintergrundfarbe auswählen:</b></span>
                                 <div md-color-picker ng-model="$ctrl.backgroundC" ng-change="$ctrl.updateValidity()"></div>
                                 <span ng-if="$ctrl.showFileChooser">Erlaubte Datentypen: <b>alle Bildformate</b></span>
-                                <file-chooser ng-if="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>
+                                <!--<file-chooser ng-if="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>-->
                             <div align="center">
                             <md-button style="margin-top: 15px;" ng-click="$ctrl.checkFormular();" ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
                             <md-button ng-show="$ctrl.ausgewaehlt" class="md-warn md-raised">Abbrechen</md-button>
@@ -58,17 +58,16 @@
                         <md-content class="md-padding">
                             <h1 class="md-display-2">Bearbeiten</h1>
                             <div>
-
+                                <bearbeitenbereich></bearbeitenbereich>
                             </div>
                         </md-content>
-                    </md-tab>>
+                    </md-tab>
+                    <md-tab label="Löschen" ng-click="$ctrl.geklickt">
                     <md-content class="md-padding">
                         <h1 class="md-display-2">Löschen</h1>
                         <div>
-
+                            <loeschenbereich></loeschenbereich>
                         </div>
-
-                        <md-tab label="Löschen"</md-content>
                     </md-tab>
                 </md-tabs>
             </md-content>

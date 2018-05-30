@@ -2,6 +2,7 @@
 
 describe("Vorlage", function() {
 
+    /*
     beforeAll(function() {
         browser.get("angularjs-vorlage/app/index.html");
     });
@@ -15,5 +16,5 @@ describe("Vorlage", function() {
     it("hat die richtige Überschrift", function() {
         expect(element(by.tagName("h1")).getText()).toContain("AngularJS Material-Projekt");
     });
-
+    */
 });

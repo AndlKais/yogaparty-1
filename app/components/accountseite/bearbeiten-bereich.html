@@ -1,0 +1,56 @@
+<style>
+    @media screen and (max-width: 960px){
+        #inputform1, #inputform2, #inputform3{
+            width: 100% !important;
+        }
+        #inputform3{
+            padding-top: 1%;
+        }
+    }
+</style>
+<div ng-show="serverConnection.changing">
+    <h1>Daten werden gespeichert</h1>
+</div>
+<div layout="row" layout-sm="column" layout-xs="column" style="height: 50%; padding: 1%;  border: 1px solid #ddd" ng-hide="serverConnection.changing">
+    <div id="inputform1" style="width: 40%; margin-right: 1%" align="center" ng-if="!htmlVerbindungen.showUpdateWindow" layout="column">
+        <h2>Klicken Sie auf einen Block um ihn zu bearbeiten</h2>
+    </div>
+    <span ng-bind="titel"></span>
+    <div style="width: 40%; margin-right: 2%" id="inputform2" name="formular" ng-if="htmlVerbindungen.showUpdateWindow" layout="column" layout-sm="column" layout-align="center center">
+        <!--<auswahl></auswahl>-->
+        <md-input-container style="width: 100%;">
+            <span><b>Titel</b></span>
+            <div flex="5"></div>
+            <input type="text" ng-model="htmlVerbindungen.titel" ng-change="updateChanges('titel')" maxlength="30" name="titel" required minlength="3">
+        </md-input-container>
+        <md-input-container style="width: 100%;">
+            <span><b>Beschreibung</b></b></span>
+            <textarea ng-model="htmlVerbindungen.beschreibung" ng-change="updateChanges('beschreibung')" name="beschreibung" md-maxlength="500" style="font-size: large" required minlength="5" md-select-on-focus></textarea>
+        </md-input-container>
+        <span><b>Schriftfarbe</b></span>
+        <div md-color-picker ng-model="htmlVerbindungen.color" style="width: 100%;" ng-change="updateChanges('color')"></div>
+        <span><b>Hintergrundfarbe</b></span>
+        <div md-color-picker ng-model="htmlVerbindungen.backgroundC" style="width: 100%;" ng-change="updateChanges('backgroundC')"></div>
+        <span ng-if="htmlVerbindungen.showFileChooser">Erlaubte Datentypen: <b>alle Bildformate</b></span>
+        <file-chooser ng-if="htmlVerbindungen.showFileChooser" bearbeiten-bereich="temp.file" file-chosen="getFile(file)"></file-chooser>
+        <div layout="row">
+            <div style="margin-right: auto; margin-left: auto; margin-top: 2%">
+                <md-button class="md-raised md-primary" ng-click="saveAllChanges()">Speichern</md-button>
+                <md-button class="md-raised md-warn">Abbrechen</md-button>
+            </div>
+        </div>
+    </div>
+
+    <!--<md-button class="md-raised glyphicon glyphicon-info-sign" style="border-radius: 50%; height: 100px; width: 100px"></md-button>-->
+
+
+    <div layout="column" layout-sm="row" layout-xs="row" layout-align="center center">
+        <md-button class="md-raised glyphicon glyphicon-triangle-top" ng-click="moveUp()" style="height: 12vh; width: 10vh;"></md-button>
+        <md-button class="md-raised glyphicon glyphicon-triangle-bottom" ng-click="moveDown()" style="height: 12vh; width: 10vh;"></md-button>
+    </div>
+
+
+    <div id="inputform3" style="width: 50%">
+        <testgelaende reihenfolge="1" modus="2" elements-loaded="getBloecke()" ausgewaehlt="updateBlock(id, blockArt, inhalt)"></testgelaende>
+    </div>
+</div>

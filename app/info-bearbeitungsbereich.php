@@ -1,8 +1,5 @@
 <?php
 
-session_start();
-require_once  "database_connection.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +7,7 @@ require_once  "database_connection.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="yogaparty, yoga">
 
     <title>yogaparty</title>
     <link rel="icon" href="resources/icons/bdl.ico">
@@ -63,15 +61,17 @@ require_once  "database_connection.php";
     <script src="components/accountseite/auswahl.js"></script>
     <script src="components/accountseite/blockkomponente.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
-    <script src="components/accountseite/vorschau.js"></script>
+    <script src="components/profilseite/aktuell-text.js"></script>
     <script src="components/accountseite/bearbeiten-bereich.js"></script>
     <script src="components/accountseite/loeschen-bereich.js"></script>
     <script src="components/infoseite/info-bearbeiten.js"></script>
     <script src="components/infoseite/info-content-bearbeiten.js"></script>
     <script src="components/infoseite/info-header-bearbeiten.js"></script>
 </head>
-<body>
+
+<body layout="column" ng-cloak>
     <navigation></navigation>
-    <blockkomponente></blockkomponente>
+    <info-bearbeiten></info-bearbeiten>
 </body>
+
 </html>

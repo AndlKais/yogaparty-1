@@ -6,7 +6,7 @@
     <meta name="keywords" content="yogaparty, yoga">
 
     <title>yogaparty</title>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="resources/icons/bdl.ico">
 
     <link rel="stylesheet" href="vendor/material-icons-2.2.0/material-icons.css">
     <link rel="stylesheet" href="vendor/roboto/roboto.css">
@@ -55,10 +55,18 @@
     <script src="components/profilseite/calendarcontact.js"></script>
     <script src="components/profilseite/aktuell.js"></script>
     <script src="components/accountseite/auswahl.js"></script>
-    <script src="components/accountseite/edit.js"></script>
+    <script src="components/accountseite/blockkomponente.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
     <script src="components/profilseite/aktuell-text.js"></script>
+
     <script src="components/impressum.js"></script>
+
+    <script src="components/accountseite/bearbeiten-bereich.js"></script>
+    <script src="components/accountseite/loeschen-bereich.js"></script>
+    <script src="components/infoseite/info-bearbeiten.js"></script>
+    <script src="components/infoseite/info-content-bearbeiten.js"></script>
+    <script src="components/infoseite/info-header-bearbeiten.js"></script>
+
 </head>
 
 <body layout="column" ng-cloak>
@@ -66,7 +74,6 @@
 <ui-view>
     <slider-profile></slider-profile>
     <div class="container hintergrundbild" style="width: 100%; height: auto">
-
         <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
             <aktuell flex></aktuell>
             <map id="mapdiv" flex flex-xs="95" style="width: 50%; padding-bottom: 7.5%"></map>
@@ -79,12 +86,10 @@
                 <h1 style="width: 100%; margin: auto; text-align: center">Hier könnte Ihre Werbung stehen</h1>
             </div>
         </div>
-
-        <!--<calendarcontact></calendarcontact>-->
         <testgelaende></testgelaende>
     </div>
 </ui-view>
-<md-button href="accountseite.php">Zur Accountseite</md-button>
+<!--<md-button href="accountseite.php">Zur Accountseite</md-button>-->
 
 </body>
 
