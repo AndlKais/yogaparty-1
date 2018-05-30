@@ -7,8 +7,24 @@ app.component("infoContentBearbeiten", {
 });
 
 
-app.controller("InfoContentBearbeitenController", function () {
+app.controller("InfoContentBearbeitenController", function ($mdToast) {
+
+let $ctrl = this;
+
+$ctrl.ueberpruefen = function () {
 
 
+
+
+    if(!($ctrl.passwort === $ctrl.passwortWH)){
+        $mdToast.show(
+            $mdToast.simple()
+                .textContent('Passwort stimmt nicht überein')
+                .position('bottom')
+                .hideDelay(3000)
+        );
+    };
+
+}
 
 });
