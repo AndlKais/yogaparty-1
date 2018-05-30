@@ -664,7 +664,7 @@ loeschenbereich > div> div > testgelaende > div > bild-text-left > md-card > div
 }
 
 bearbeitenbereich > div > div > testgelaende > div{
-
+    height: 95vh;
     overflow: auto;
     width: 100%;
 }

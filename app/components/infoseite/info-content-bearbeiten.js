@@ -3,18 +3,23 @@
 app.component("infoContentBearbeiten", {
     templateUrl: "components/infoseite/info-content-bearbeiten.html",
     controller: "InfoContentBearbeitenController",
-    bindings: {}
+    bindings: {
+        vname: "@",
+        nname: "@",
+        email: "@",
+        telefonnummer: "@",
+        passwort: "@",
+        passwortWH: "@",
+        adresse: "@",
+        adresszusatz: "@",
+        kurzbeschreibung: "@"
+    }
 });
 
 
 app.controller("InfoContentBearbeitenController", function ($mdToast) {
 
 let $ctrl = this;
-
-$ctrl.ueberpruefen = function () {
-
-
-
 
     if(!($ctrl.passwort === $ctrl.passwortWH)){
         $mdToast.show(
@@ -25,6 +30,6 @@ $ctrl.ueberpruefen = function () {
         );
     };
 
-}
+
 
 });
