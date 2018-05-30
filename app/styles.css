@@ -29,6 +29,7 @@ body, html{
 }
 
 
+
 p {
     font-size: 1.5em;
     line-height: 1.7em;
@@ -213,7 +214,7 @@ Slideshow css?
     background: #98ff98;
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     cursor: pointer;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -664,11 +665,22 @@ loeschenbereich > div> div > testgelaende > div > bild-text-left > md-card > div
 }
 
 bearbeitenbereich > div > div > testgelaende > div{
-    height: 95vh;
+    height: 90vh;
     overflow: auto;
     width: 100%;
 }
 
+loeschenbereich > div> div > testgelaende > div > * > md-card{
+    margin-bottom: 45px;
+}
+
+@media screen and (max-width: 960px){
+    bearbeitenbereich > div > div > testgelaende > div{
+        /*overflow: visible; !important;
+
+         */
+    }
+}
 /* -----------------------
 loeschen button
  -----------------------*/

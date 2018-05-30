@@ -1,0 +1,218 @@
+<div ng-cloak>
+    <md-content>
+        <md-card>
+            <md-tabs md-dynamic-height md-border-bottom md-selected="myTabIndex">
+                <md-tab label="Impressum">
+                    <md-content class="md-padding">
+
+                        <h1 class="md-display-2"><b>Impressum</b></h1>
+                        <p style="font-size: 1em; font-weight: 400;line-height: 20px;">
+                            <strong>Firmenwortlaut (laut Firmenbuch): </strong>
+                            <br>
+                            SV-wtu e.U. (FN 304472d)
+                            <br>
+
+                            <strong>Adresse: </strong>
+                            <br>
+                            Zehetnergasse 32/10
+                            <br>
+                            1140 Wien
+                            <br>
+                            <strong>Geschäftsführer: </strong>
+                            Katharina Kovar
+                            <br>
+                            <strong>Telefonnummer der Geschäftsführerin: </strong>
+                            +43 699 17 13 20 12
+                            <br>
+                            <strong>E-Mail: </strong>
+                            Katharina.Kovar@SV-wtu.at
+                            <br>
+                            <strong>Firmen-Inhaber: </strong>
+                            Simon Skerlan
+                            <br>
+
+                            <strong>Unternehmensbezeichnung (selbstgewählt): </strong>
+                            SV-wtu Premium Event Services
+                            <br>
+
+                            <strong>Firmenbuchnummer:  </strong>
+                            304472d
+                            <br>
+
+                            <strong>Firmengericht: </strong>
+                            Handelsgericht Wien
+                            <br>
+
+                            <strong>Rechtsform: </strong>
+                            e.U.
+                            <br>
+
+                            <strong>GLN (der öffentlichen Verwaltung): </strong>
+                            9110017199473
+                            <br>
+
+                            <strong>GISA-Zahl: </strong>
+                            26626277
+                            <br>
+                            27144930
+                            <br>
+                            29431779
+                            <br>
+
+                            <strong>UID-Nummer: </strong>
+                            ATU64131736
+                            <br>
+
+                            <strong>
+                                Behörde gem. ECG (E-Commerce Gesetz): </strong>
+                            Magistratisches Bezirksamt des XIV. Bezirkes
+                            <br>
+                            <br>
+
+                        </p>
+
+                        <h2>
+                            <b>Offenlegung nach Mediengesetz</b>
+                                </h2>
+                        <p style="font-size: 1em; font-weight: 400;line-height: 20px;">
+                            <strong>Medieninhaber: </strong>
+                            Ing. Simon Skerlan
+                            <br>
+                            <strong>Firmensitz (Ort der Hauptniederlassung): </strong>
+                            Wien
+                            <br>
+                            <strong>Unternehmensgegenstand: </strong>
+                            Technische Beratung, Vermietung, Installation und Betrieb veranstaltungstechnischer Anlagen
+                            <br>
+
+                            <strong>Blattlinie: </strong>
+                            Die Webseite der SV-wtu eU dient der Vermarktung der Dienstleistungen und der Darstellung der SV-wtu eU.
+                            <br>
+
+                        </p>
+
+
+
+
+
+                        <a style="color: red; cursor: pointer;
+    text-decoration: none;" ng-click="myTabIndex = myTabIndex + 1">Zum Kontaktformular</a>
+                        <h2>Copyright</h2>
+                        <p style="font-size: 1em; font-weight: 400;line-height: 20px;">Die Urheber- und Nutzungsrechte der zur Verfügung gestellten Information sowie alle sonstigen damit zusammenhängende Schutzrechte, liegen bei der SV-wtu Premium Event Services . Die Vervielfältigung von Texten und Daten einschließlich der (digitalen) Speicherung und Nutzung auf optischen und elektronischen Datenträgern darf nur mit vorheriger elektronischer Zustimmung durch die SV-wtu Premium Event Services  erfolgen. Die Verwendung der Texte und Daten einschließlich Einspeisung in Online-Dienste, Datenbanken oder Websites durch unberechtigte Dritte sowie die Veränderung oder Verfälschung von Informationen ist untersagt. Der Download sowie der Ausdruck zum persönlichen, nicht kommerziellen Gebrauch ist jedoch gestattet.</p>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Kontakt">
+                    <md-content class="md-padding">
+                        <div layout="column">
+                            <h1 class="md-display-2"><b>Kontakt</b></h1>
+                            <md-input-container class="md-block" >
+                                <label>Kategorie</label>
+                                <md-select required name="prob" ng-model="$ctrl.art">
+                                    <md-option>-Bitte auswählen-</md-option>
+                                    <md-option value="Problem">Problem</md-option>
+                                    <md-option value="Frage">Frage</md-option>
+                                    <md-option value="Idee">Idee</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container class="md-block" >
+                                <label>Betreff</label>
+                                <input required ng-model="$ctrl.betreff">
+                            </md-input-container>
+                            <md-input-container class="md-block" >
+                                <label>Nachricht</label>
+                                <textarea required ng-model="$ctrl.nachricht" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                            <md-input-container  class="md-block" >
+                                <label>Anrede</label>
+                                <md-select required name="geschlecht" ng-model="$ctrl.geschlecht">
+                                    <md-option>-Bitte auswählen-</md-option>
+                                    <md-option value="Herr">Herr</md-option>
+                                    <md-option value="Frau">Frau</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <div layout="row" >
+                                <md-input-container class="md-block" flex="50">
+                                    <label>Vorname</label>
+                                    <input required ng-model="$ctrl.vorname">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex="50">
+                                    <label>Nachname</label>
+                                    <input required ng-model="$ctrl.nachname">
+                                </md-input-container>
+                            </div>
+                            <md-input-container class="md-block" >
+                                <label>Telefon</label>
+                                <input ng-model="$ctrl.telefon">
+                            </md-input-container>
+                            <md-input-container class="md-block" >
+                                <label>E-Mail</label>
+                                <input type="email" required ng-model="$ctrl.email">
+                            </md-input-container>
+                            <md-input-container class="md-block" >
+                                <md-checkbox aria-label="check" ng-model="$ctrl.bedingungen" class="md-primary" required>Nutzungsbedingungen
+                                </md-checkbox>
+                            </md-input-container>
+                            <div>
+                                <md-button class="md-raised md-primary" type="submit">Senden</md-button>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Entwicklerteam">
+                    <md-content class="md-padding" flex style="flex-wrap: wrap;">
+                        <h1 class="md-display-2"><b>Das Entwicklerteam</b></h1>
+                        <p style="margin-bottom: 40px;">Das Yogaparty Team wurde im Rahmen des Unterrichtsgegendstandes ITP2 im 4. Jahrgang der HTL Rennweg für das Projekt des 2. Semesters geformt. Unser Team wird geleitet von Stefan Kaiser.</p>
+                        <div class="team" layout="row" layout-align="space-around center" style="align-items: baseline; flex-wrap: wrap" flex>
+                            <div class="teammember" layout="column" style="text-align: center; margin: 10px; width: 175px;">
+                                <div style="background-image: url('images/stefan.png'); background-repeat: no-repeat; background-size: contain; width:175px; height:175px;">
+                                </div>
+                                <div layout="column" style="border-bottom: 2px solid blue;">
+                                    <h3>Stefan Kaiser</h3>
+                                    <p>Scrum Master</p>
+                                </div>
+                                <p style="font-size: small;">Stefan ist der Leiter des Teams und kümmert sich um die Verteilung der Arbeit und ist für die Kommunikation mit dem Projektauftraggeber und den anderen Teams zuständig.</p>
+                            </div>
+                            <div class="teammember" layout="column" style="text-align: center; margin: 10px; width: 175px;">
+                                <div style="background-image: url('images/andreas.png'); background-repeat: no-repeat; background-size: contain; width:175px; height:175px;">
+                                </div>
+                                <div layout="column" style="border-bottom: 2px solid blue;">
+                                    <h3>Andreas Kaiser</h3>
+                                    <p>Interner Product Owner, Design</p>
+                                </div>
+                                <p style="font-size: small;">Andreas ist der Projektstellvertreter. Seine Aufgabe ist es wenn der Projektauftrag nicht ....Er arbeitet im Frontend und als Unterstützung beim </p>
+                            </div>
+                            <div class="teammember" layout="column" style="text-align: center; margin: 10px; width: 175px;">
+                                <div style="background-image: url('images/dusan.png'); background-repeat: no-repeat; background-size: contain; width:175px; height:175px;">
+                                </div>
+                                <div layout="column" style="border-bottom: 2px solid blue;">
+                                    <h3>Dusan Resavac</h3>
+                                    <p>Frontend, Backend</p>
+                                </div>
+                                <p style="font-size: small;">Dusan arbeitet an der Umsetzung des Backends, als auch des Frontends.</p>
+                            </div>
+                            <div class="teammember" layout="column" style="text-align: center; margin: 10px; width: 175px;">
+                                <div style="background-image: url('images/moritz.png'); background-repeat: no-repeat; background-size: contain; width:175px; height:175px;">
+                                </div>
+                                <div layout="column" style="border-bottom: 2px solid blue;">
+                                    <h3>Moritz Pöchhacker</h3>
+                                    <p>Backend</p>
+                                </div>
+                                <p style="font-size: small;">Moritz ist für das Backend zuständig.</p>
+                            </div>
+                            <div class="teammember" layout="column" style="text-align: center; margin: 10px; width: 175px;">
+                                <div style="background-image: url('images/bild04.jpg'); background-repeat: no-repeat; background-size: contain; width:175px; height:175px;">
+                                </div>
+                                <div layout="column" style="border-bottom: 2px solid blue;">
+                                    <h3>Jean Awad</h3>
+                                    <p>Frontend</p>
+                                </div>
+                                <p style="font-size: small;">Jean arbeitet an der Umsetzung des Frontends.</p>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-card>
+    </md-content>
+</div>
+
