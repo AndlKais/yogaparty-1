@@ -213,7 +213,7 @@ Slideshow css?
     background: #98ff98;
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     cursor: pointer;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -669,6 +669,17 @@ bearbeitenbereich > div > div > testgelaende > div{
     width: 100%;
 }
 
+loeschenbereich > div> div > testgelaende > div > * > md-card{
+    margin-bottom: 45px;
+}
+
+@media screen and (max-width: 960px){
+    bearbeitenbereich > div > div > testgelaende > div{
+        /*overflow: visible; !important;
+
+         */
+    }
+}
 
 .x {
     z-index: 1000000;
