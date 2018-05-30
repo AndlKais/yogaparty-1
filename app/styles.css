@@ -656,11 +656,14 @@ loeschenbereich > div> div > testgelaende > div > bild-text-left > md-card > div
 }
 
 bearbeitenbereich > div > div > testgelaende > div{
-    height: 95vh;
+
     overflow: auto;
     width: 100%;
 }
 
+/* -----------------------
+loeschen button
+ -----------------------*/
 
 .x {
     z-index: 1000000;
@@ -779,11 +782,26 @@ info-header-bearbeiten
     margin-bottom: 17px;
 }
 
+/* -----------------------
+info-section
+ -----------------------*/
+
 .test{
-    background-color: #292a33;
+    background-color: #7C005A;
     color: #fffcf5;
     font-family: PF Din,Arial Black,sans-serif;
     letter-spacing: .6px;
     line-height: 22px;
     line-height: 2.2rem;
+    padding: 13px 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: capitalize;
+}
+
+.test2{
+    flex: 1;
+    padding: 0 10px;
+    text-align: right;
 }
