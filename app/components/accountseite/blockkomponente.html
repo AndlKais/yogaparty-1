@@ -44,7 +44,7 @@
                                 <span style="font-size: 2rem"><b>Hintergrundfarbe auswählen:</b></span>
                                 <div md-color-picker ng-model="$ctrl.backgroundC" ng-change="$ctrl.updateValidity()"></div>
                                 <span ng-if="$ctrl.showFileChooser">Erlaubte Datentypen: <b>alle Bildformate</b></span>
-                                <!--<file-chooser ng-if="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>-->
+                                <file-chooser ng-if="$ctrl.showFileChooser" file-chosen="$ctrl.getFile(file)"></file-chooser>
                             <div align="center">
                             <md-button style="margin-top: 15px;" ng-click="$ctrl.checkFormular();" ng-show="$ctrl.ausgewaehlt" class="md-primary md-raised">Speichern</md-button>
                             <md-button ng-show="$ctrl.ausgewaehlt" class="md-warn md-raised">Abbrechen</md-button>
