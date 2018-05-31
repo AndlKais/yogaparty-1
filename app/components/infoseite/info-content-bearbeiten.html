@@ -14,37 +14,49 @@
             <div layout="row">
                 <div class="form-group" flex>
                     <span>Vorname:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.vname" ng-pattern="/^[a-zA-Z -]+$/"/>
+                    <input class="form-control" type="text" ng-model="$ctrl.vname" pattern="/^[a-zA-Z -]+$/" required/>
                 </div>
                 <div class="form-group" flex style="margin-left: 10px">
                     <span>Nachname:</span>
-                    <input class="form-control" type="text" id="nname"/>
+                    <input class="form-control" type="text" ng-model="$ctrl.nname" required/>
                 </div>
             </div>
             <br>
-            <div class="form-group">
-                <span>Email:</span>
-                <input class="form-control" type="email" id="email"/>
+            <div layout="row">
+                <div class="form-group" flex>
+                    <span>Email:</span>
+                    <input class="form-control" type="email" ng-model="$ctrl.email" required/>
+                </div>
+                <div class="form-group" flex style="margin-left: 10px">
+                    <span>Telefonnummer:</span>
+                    <input class="form-control" type="tel" ng-model="$ctrl.telefonnummer"/>
+                </div>
             </div>
             <br>
             <div class="form-group">
                 <span>Passwort:</span>
-                <input class="form-control" type="password" ng-model="$ctrl.passwort"/>
+                <input class="form-control" type="password" ng-model="$ctrl.passwort" required/>
             </div>
             <br>
             <div class="form-group">
                 <span>Passwort wiederholen:</span>
-                <input class="form-control" type="password" ng-model="$ctrl.passwortWH"/>
+                <input class="form-control" type="password" ng-model="$ctrl.passwortWH" required/>
             </div>
             <br>
-            <div class="form-group">
-                <span>Adresse:</span>
-                <input class="form-control" type="text" id="adresse"/>
+            <div layout="row">
+                <div class="form-group" flex="80">
+                    <span>Adresse:</span>
+                    <input class="form-control" type="text" ng-model="$ctrl.adresse" pattern="/[A-Za-z][a-z]{7,}[a-z 0-9\-\/]+/"/>
+                </div>
+                <div class="form-group" flex="20" style="margin-left: 10px">
+                    <span>Adresszusatz:</span>
+                    <input class="form-control" type="text" ng-model="$ctrl.adresszusatz" pattern="/[A-Za-z][a-z]{7,}[a-z 0-9\-\/]+/"/>
+                </div>
             </div>
             <br>
             <div class="form-group">
                 <span>Kurzbeschreibung:</span>
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control" style="max-width: 100%; min-width: 100%" ng-model="$ctrl.kurzbeschreibung"></textarea>
             </div>
         </div>
         <br>
