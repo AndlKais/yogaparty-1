@@ -3,16 +3,8 @@
 app.component("infoContentBearbeiten", {
     templateUrl: "components/infoseite/info-content-bearbeiten.html",
     controller: "InfoContentBearbeitenController",
-    bindings: {
-        vname: "@",
-        nname: "@",
-        email: "@",
-        telefonnummer: "@",
-        passwort: "@",
-        passwortWH: "@",
-        adresse: "@",
-        adresszusatz: "@",
-        kurzbeschreibung: "@"
+    bindings:{
+
     }
 });
 
