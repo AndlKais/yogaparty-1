@@ -71,22 +71,30 @@ if($response['everythingOk']) {
                     $fileIdName = "BBCText_ID";
                     break;
             }
+            $tempID = intval($fileToId[$indexFiles]->id);
+
             if ($stmt = $mysqli->prepare(
                 "SELECT CONCAT(bPfad,bName) AS 'datei' FROM {$fileBlockArt} WHERE {$fileIdName} = ?")) {
 
-                $stmt->bind_param("i", intval($fileToId[$indexFiles]->id));
+                $stmt->bind_param("i", $tempID);
 
                 if (!$stmt->execute()) {
                     $response['fileExecute'] = false;
                     $response['everythingOk'] = false;
                 }
 
-                $stmt->bind_result($result);
+                $stmt->bind_result($resultBild);
+
+                while ($stmt->fetch()) {
+                        $result = $resultBild;
+                }
+
                 $stmt->close();
 
                 if (file_exists($result)) {
                     if (!unlink($result)) {
                         $response['deleteFile'] = false;
+                        $response['everythingOk'] = false;
                     }
                 }
                 //echo $_FILES["file" . $indexFiles]['tmp_name'];
