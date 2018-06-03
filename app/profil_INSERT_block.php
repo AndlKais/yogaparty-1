@@ -2,15 +2,26 @@
 
 require_once "database_connection.php";
 
-$titel = htmlspecialchars($_POST['titel']);
-$beschreibung = htmlspecialchars($_POST['beschreibung']);
-$ausgewaehlt = htmlspecialchars($_POST['ausgewaehlt']);
-$backgroundC = htmlspecialchars($_POST['backgroundC']);
-$color = htmlspecialchars($_POST['color']);
+$titel = mysqli_real_escape_string($mysqli, $_POST['titel']);
+$beschreibung = mysqli_real_escape_string($mysqli, $_POST['beschreibung']);
+$ausgewaehlt = mysqli_real_escape_string($mysqli, $_POST['ausgewaehlt']);
+$backgroundC = mysqli_real_escape_string($mysqli, $_POST['backgroundC']);
+$color = mysqli_real_escape_string($mysqli, $_POST['color']);
 $response['everythingOk'] = true;
 
-if(strlen($backgroundC) < 4 || strlen($backgroundC) > 30){
+/*
+$beschreibung = str_replace("\"", "\\\"", $beschreibung);
+$beschreibung = str_replace("'", "\\'", $beschreibung);
+
+$titel = str_replace("\"", "\\\"", $titel);
+$titel = str_replace("'", "\\'", $titel);
+*/
+if(strlen($backgroundC) < 4 || strlen($backgroundC) > 30 || strpos($backgroundC, "\"") > -1 || strpos($backgroundC, "'") > -1){
     $backgroundC = "#fffaef";
+}
+
+if(strlen($color) < 4 || strlen($color) > 30 || strpos($color, "\"") > -1 || strpos($color, "'") > -1){
+    $color = "#000000";
 }
 
 /*
@@ -20,7 +31,7 @@ if(strlen($backgroundC) < 4 || strlen($backgroundC) > 30){
  */
 $seitenID = 1;
 
-if($getPos = $mysqli->prepare("select max(position) from psblock where FK_Seiten_ID=?")) {
+if($getPos = $mysqli->prepare("select max(position) from PSBlock where FK_Seiten_ID=?")) {
     $getPos->bind_param('i', $seitenID);
     $getPos->execute();
     $getPos->store_result();
@@ -50,9 +61,9 @@ if($ausgewaehlt == "BBCT" || $ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL"){
 
 if($response['everythingOk'] && ($ausgewaehlt == "BTCT" || $ausgewaehlt == "BBCT" || $ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL")) {
     if ($ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL") {
-        $query = "INSERT INTO psblock (`blockart`, `position`, `FK_Seiten_ID`, `bgcolor`, `color`) VALUES ('" . substr($ausgewaehlt, 0, -1) . "', $position, $seitenID, '$backgroundC', '$color')";
+        $query = "INSERT INTO PSBlock (`blockart`, `position`, `FK_Seiten_ID`, `bgcolor`, `color`) VALUES ('" . substr($ausgewaehlt, 0, -1) . "', $position, $seitenID, '$backgroundC', '$color')";
     } else {
-        $query = "INSERT INTO psblock (`blockart`, `position`, `FK_Seiten_ID`, `bgcolor`, `color`) VALUES ('$ausgewaehlt', $position, $seitenID, '$backgroundC', '$color')";
+        $query = "INSERT INTO PSBlock (`blockart`, `position`, `FK_Seiten_ID`, `bgcolor`, `color`) VALUES ('$ausgewaehlt', $position, $seitenID, '$backgroundC', '$color')";
     }
 
     $insertPDBlock = mysqli_query($mysqli, $query);
