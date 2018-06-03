@@ -3,7 +3,7 @@
         <span>Daten</span>
     </div>
     <div class="test2">
-        <div class="glyphicon glyphicon-edit" style="font-size: 21px;">
+        <div class="glyphicon glyphicon-edit" style="font-size: 21px;" ng-click="$ctrl.edit">
         </div>
     </div>
 </div>
@@ -14,60 +14,60 @@
             <div layout="row">
                 <div class="form-group" flex>
                     <span>Vorname:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.vname" pattern="/^[a-zA-Z -]+$/" required/>
+                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.vorname" name="vname" />
                 </div>
                 <div class="form-group" flex style="margin-left: 10px">
                     <span>Nachname:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.nname" required/>
+                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.nachname" name="nname"/>
                 </div>
             </div>
             <br>
             <div layout="row">
                 <div class="form-group" flex>
                     <span>Email:</span>
-                    <input class="form-control" type="email" ng-model="$ctrl.email" required/>
+                    <input class="form-control" type="email" ng-model="$ctrl.getRequest.email" name="email"/>
                 </div>
                 <div class="form-group" flex style="margin-left: 10px">
                     <span>Telefonnummer:</span>
-                    <input class="form-control" type="tel" ng-model="$ctrl.telefonnummer"/>
+                    <input class="form-control" type="tel" ng-model="$ctrl.getRequest.telefonnummer" name="telefonnummer"/>
                 </div>
             </div>
             <br>
             <div class="form-group">
                 <span>Passwort:</span>
-                <input class="form-control" type="password" ng-model="$ctrl.passwort" required/>
+                <input class="form-control" type="password" ng-model="$ctrl.getRequest.passwort" name="passwort" />
             </div>
             <br>
             <div class="form-group">
                 <span>Passwort wiederholen:</span>
-                <input class="form-control" type="password" ng-model="$ctrl.passwortWH" required/>
+                <input class="form-control" type="password" name="passwortWH" ng-model="$ctrl.getRequest.passwortWH" />
             </div>
             <br>
             <div layout="row">
                 <div class="form-group" flex="80">
                     <span>Adresse:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.adresse" pattern="/[A-Za-z][a-z]{7,}[a-z 0-9\-\/]+/"/>
+                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.adresse" name="adresse" pattern="/[A-Za-z][a-z]{7,}[a-z 0-9\-\/]+/">
                 </div>
                 <div class="form-group" flex="20" style="margin-left: 10px">
                     <span>Adresszusatz:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.adresszusatz" pattern="/[A-Za-z][a-z]{7,}[a-z 0-9\-\/]+/"/>
+                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.adresszusatz" name="adresszusatz" />
                 </div>
             </div>
             <br>
             <div layout="row">
                 <div class="form-group" flex="20">
                     <span>PLZ:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.plz" pattern=""/>
+                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.plz" name="plz"/>
                 </div>
                 <div class="form-group" flex="80" style="margin-left: 10px">
                     <span>Ort:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.ort" pattern=""/>
+                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.ort" name="ort" />
                 </div>
             </div>
             <br>
             <div class="form-group">
                 <span>Land:</span>
-                <select class="form-control">
+                <select class="form-control" ng-model="$ctrl.getRequest.land" name="land">
                     <option value="AF">Afghanistan</option>
                     <option value="AX">Åland Islands</option>
                     <option value="AL">Albania</option>
@@ -322,7 +322,7 @@
             <br>
             <div class="form-group">
                 <span>Kurzbeschreibung:</span>
-                <textarea class="form-control" style="max-width: 100%; min-width: 100%" ng-model="$ctrl.kurzbeschreibung"></textarea>
+                <textarea class="form-control" style="max-width: 100%; min-width: 100%" ng-model="$ctrl.kurzbeschreibung" name="kurzbeschreibung"></textarea>
             </div>
         </div>
         <br>
