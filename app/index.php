@@ -75,7 +75,7 @@
     <slider-profile></slider-profile>
     <div class="container hintergrundbild" style="width: 100%; height: auto">
         <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
-            <aktuell flex></aktuell>
+            <userinfos flex></userinfos>
             <map id="mapdiv" flex flex-xs="95" style="width: 50%; padding-bottom: 7.5%"></map>
         </div>
         <div layout-gt-xs="row" layout-xs="column">

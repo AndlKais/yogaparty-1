@@ -1,9 +1,23 @@
 <div id="vid" style="padding: 15%;" layout-align="center center">
-    <p style="text-align: center; margin: 0; font-size: 40px">Frau Musterfrau</p>
+    <p style="text-align: center; margin: 0; font-size: 40px">{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}</p>
     <img style="border-radius: 50%; max-width: 100%; margin-top: 5%; margin-bottom: 25%" src="resources/pictures/profil.jpg">
-    <div>
 
-    </div>
+    <div><p>{{$ctrl.getRequest.email}}</p></div>
+    <div><p>{{$ctrl.getRequest.telefonnummer}}</p></div>
+    <div><p>{{$ctrl.getRequest.adresse}}</p></div>
+    <div><p>{{$ctrl.getRequest.adresszusatz}}</p></div>
+    <div><p>{{$ctrl.getRequest.plz}}</p></div>
+    <div><p>{{$ctrl.getRequest.ort}}</p></div>
+    <div><p>{{$ctrl.getRequest.land}}</p></div>
+    <div><p>{{$ctrl.getRequest.pbname}}</p></div>
+    <div><p>{{$ctrl.getRequest.pbpfad}}</p></div>
+    <div><p>{{$ctrl.getRequest.pbversteckt}}</p></div>
+
+
+
+
+
+
     </div>
 
 

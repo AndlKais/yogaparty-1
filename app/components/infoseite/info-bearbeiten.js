@@ -93,6 +93,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             );
         }
     }
+    /*
     this.$onInit = function(){
         $http.post("profil_bearbeiten_GET.php", {
         }).then(function (data) {
@@ -102,6 +103,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             }
         );
     }
+    */
 
     $ctrl.edit = function () {
 
