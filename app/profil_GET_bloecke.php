@@ -4,20 +4,39 @@ require_once "database_connection.php";
 
 $data = json_decode(file_get_contents("php://input"));
 
+/**
+ * Es Wird überprüft, ob man ohne Daten auf die Seite kommt
+ */
 if(count($data) > 0){
 
-    $profil = intval(htmlspecialchars($data->profil));
-    $modus = intval(htmlspecialchars($data->modus));
+    /**
+     * Daten werden auf richtige Datentypen gebracht und escaped
+     */
+    $profil = intval(mysqli_real_escape_string($mysqli, $data->profil));
+    $modus = intval(mysqli_real_escape_string($mysqli, $data->modus));
     $query = "SELECT * FROM PSBlock WHERE FK_Seiten_ID = " . $profil . " order by position";
     $result = mysqli_query($mysqli, $query);
 
+    /**
+     * Falls der Lehrer Blöcke hat
+     */
     if(mysqli_num_rows($result) > 0){
         $output = array();
 
         while($row = mysqli_fetch_array($result)) {
+            /**
+             * Wenn in der Datenbank keine Farbe gesetzt wurde, wird die Standard-Farbe gesetzt
+             */
             $backgroundColor = $row['bgcolor'] ? $row['bgcolor'] : "#fffaef";
             $color = $row['color'] ? $row['color'] : "#000000";
             $query2 = "";
+
+            /**
+             * Je nach Blockart, muss eine andere Komponente benutzt werden, weswegen es einige IFs gibt.
+             * Außerdem gibt die Blockart an, von welcher Tabelle man den Titel, den Text und möglicherweise das Bild holen muss.
+             * Außerdem muss beachtet werden, in welchem Modus sich das Testgelände befindet, damit zwischen Optionen
+             * löschen/bearbeiten/anzeigen unterschieden werden kann und sich die Attribute dementsprechend verändern.
+             */
 
             if ($row['blockart'] === "BBT") {
                 $query2 = "SELECT * FROM B_Bild_Text where BBText_ID = " . $row['Block_ID'];

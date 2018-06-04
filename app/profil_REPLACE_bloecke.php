@@ -166,7 +166,7 @@ if($response['everythingOk']) {
             for ($indexPos = 1, $anzahlPos = count($pos); $indexPos <= $anzahlPos; $indexPos++) {
 
                 if ($stmt = $mysqli->prepare(
-                    "UPDATE psblock SET POSITION = ? WHERE Block_ID = ?")) {
+                    "UPDATE PSBlock SET POSITION = ? WHERE Block_ID = ?")) {
 
                     $stmt->bind_param("ii", $indexPos, intval($pos[$indexPos - 1]));
 

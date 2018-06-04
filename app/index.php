@@ -53,7 +53,7 @@
     <script src="components/profilseite/testgelaende.js"></script>
     <script src="components/profilseite/sliderprofile.js"></script>
     <script src="components/profilseite/calendarcontact.js"></script>
-    <script src="components/profilseite/aktuell.js"></script>
+    <script src="components/profilseite/userinfos.js"></script>
     <script src="components/accountseite/auswahl.js"></script>
     <script src="components/accountseite/blockkomponente.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
