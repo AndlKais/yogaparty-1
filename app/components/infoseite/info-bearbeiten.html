@@ -1,10 +1,10 @@
 <div>
     <div class="card hovercard" style="height: 25vh">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="resources/pictures/header-bild.jpg">
+            <img class="card-bkimg" alt="" src="{{$ctrl.getRequest.profilbildpfad}}{{$ctrl.getRequest.profilbildname}}">
         </div>
         <div class="useravatar">
-            <img alt="" class="pb-image" src="resources/pictures/header-bild.jpg" ng-click="$ctrl.changepicture()">
+            <img alt="" class="pb-image" src="{{$ctrl.getRequest.profilbildpfad}}{{$ctrl.getRequest.profilbildname}}" ng-click="$ctrl.changepicture()">
             <input type="file" style="visibility: hidden" accept="image/*" class="form-control">
         </div>
         <div class="card-info"> <span class="card-title" name="vname">{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}</span>
@@ -59,7 +59,8 @@
             <div layout="row">
                 <div class="form-group" flex="80">
                     <span>Adresse:</span>
-                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.adresse" name="adresse" pattern="/[A-Za-z][a-z]{7,}[a-z 0-9\-\/]+/">
+                    <input class="form-control" type="text" ng-model="$ctrl.getRequest.adresse" name="adresse">
+                    <!--/*pattern="/[A-Za-z][a-z]{7,}[a-z 0-9\-\/]+/"*/-->
                 </div>
                 <div class="form-group" flex="20" style="margin-left: 10px">
                     <span>Adresszusatz:</span>

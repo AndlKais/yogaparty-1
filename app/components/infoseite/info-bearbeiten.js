@@ -45,7 +45,8 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     "plz": $ctrl.getRequest.plz,
                     "ort": $ctrl.getRequest.ort,
                     "land": $ctrl.getRequest.land,
-                    "profilname": $ctrl.getRequest.profilbildname
+                    "profilbildname": $ctrl.getRequest.profilbildname,
+                    "profilbildpfad": $ctrl.getRequest.profilbildpfad
                     //"kurzbeschreibung": $ctrl.kurzbeschreibung
                 }
             ).then(function (response) {
@@ -54,13 +55,13 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                 }
             );
         }
-        $ctrl.fd.append("neuesBild", that.beschreibung);
     }
     this.$onInit = function(){
         $http.post("profil_bearbeiten_GET.php", {
         }).then(function (data) {
                 $log.debug(data.data);
                 $ctrl.getRequest = data.data;
+                console.log($ctrl.getRequest);
             }
         );
     }

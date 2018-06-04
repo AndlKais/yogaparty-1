@@ -60,6 +60,12 @@ if (count($data) > 0) {
         $stmt->bind_param('ssb',$pbname, $pbpfad, intval($pbversteckt));
         $stmt->execute();
         $stmt->close();
+
+        $target_dir = "../uploads/";
+        $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["file"]["name"]),PATHINFO_EXTENSION));
+        $target_file =  $target_dir.$pbname." . $imageFileType;
+    }else{
+        
     }
 }
 
