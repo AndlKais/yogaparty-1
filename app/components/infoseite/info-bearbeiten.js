@@ -15,7 +15,9 @@ app.component("infoBearbeiten", {
         passwortWH: "@",
         adresse: "@",
         adresszusatz: "@",
-        kurznachname: "@"
+        kurznachname: "@",
+        profilbildpfad: "@",
+        profilbildname: "@"
     }
 });
 
@@ -63,18 +65,21 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             }else{
                 that.fd.append("file", null);
             }
-            that.fd.append("vorname", that.vorname);
-            that.fd.append("nachname", that.nachname);
-            that.fd.append("email", that.email);
-            that.fd.append("telefonnummer", that.telefonnummer);
-            that.fd.append("passwort", that.passwort);
-            that.fd.append("passwortWH", that.passwortWH);
-            that.fd.append("adresszusatz", that.adresszusatz);
-            that.fd.append("plz", that.plz);
-            that.fd.append("ort", that.ort);
-            that.fd.append("land", that.land);
-            that.fd.append("profilbildname", that.profilbildname);
-            that.fd.append("profilbildpfad", that.profilbildpfad);
+            that.fd.append("vorname", $ctrl.getRequest.vorname);
+            that.fd.append("nachname", $ctrl.getRequest.nachname);
+            that.fd.append("email", $ctrl.getRequest.email);
+            that.fd.append("telefonnummer", $ctrl.getRequest.telefonnummer);
+            that.fd.append("passwort", $ctrl.getRequest.passwort);
+            that.fd.append("passwortWH", $ctrl.getRequest.passwortWH);
+            that.fd.append("adresse", $ctrl.getRequest.adresse);
+            that.fd.append("adresszusatz", $ctrl.getRequest.adresszusatz);
+            that.fd.append("plz", $ctrl.getRequest.plz);
+            that.fd.append("ort", $ctrl.getRequest.ort);
+            that.fd.append("land", $ctrl.getRequest.land);
+            that.fd.append("profilbildname", $ctrl.getRequest.profilbildname);
+            that.fd.append("profilbildpfad", $ctrl.getRequest.profilbildpfad);
+            //console.log("typisch andy");
+            //console.log(that.fd);
             $http({
                 method: 'post',
                 url: 'profil_bearbeiten_UPDATE.php',
@@ -116,7 +121,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     console.log($ctrl.file);
                     let reader = new FileReader();
                     reader.readAsDataURL($ctrl.file[0]);
-                    $ctrl.file = reader.readAsDataURL($ctrl.file[0]);
+                    //$ctrl.file = reader.readAsDataURL($ctrl.file[0]);
                     //$log.debug(reader);
                     reader.addEventListener("load", function () {
                         //$log.debug(reader);
