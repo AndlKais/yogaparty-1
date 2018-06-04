@@ -44,7 +44,8 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     "adresszusatz": $ctrl.getRequest.adresszusatz,
                     "plz": $ctrl.getRequest.plz,
                     "ort": $ctrl.getRequest.ort,
-                    "land": $ctrl.getRequest.land
+                    "land": $ctrl.getRequest.land,
+                    "profilname": $ctrl.getRequest.profilbildname
                     //"kurzbeschreibung": $ctrl.kurzbeschreibung
                 }
             ).then(function (response) {

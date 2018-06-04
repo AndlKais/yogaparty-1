@@ -50,5 +50,16 @@ if (count($data) > 0) {
         $stmt->execute();
         $stmt->close();
     }
+
+
+    $query2 = "update Profilseite set profB_name=?, profB_pfad=?, pb_versteckt=?";
+    if($stmt2 = $mysqli->prepare($query2)){
+        $pbname = mysqli_real_escape_string($mysqli,$data->profilbildbname);
+        $pbpfad = mysqli_real_escape_string($mysqli,$data->profilbildpfad);
+        $pbversteckt = mysqli_real_escape_string($mysqli,$data->profilbildversteckt);
+        $stmt->bind_param('ssb',$pbname, $pbpfad, intval($pbversteckt));
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
