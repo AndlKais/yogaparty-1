@@ -72,6 +72,7 @@
 </head>
 
 <body layout="column" ng-cloak>
+<navigation></navigation>
 <impressum></impressum>
 </body>
 </html>
