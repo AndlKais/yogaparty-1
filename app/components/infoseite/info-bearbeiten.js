@@ -15,7 +15,7 @@ app.component("infoBearbeiten", {
         passwortWH: "@",
         adresse: "@",
         adresszusatz: "@",
-        kurzbeschreibung: "@"
+        kurznachname: "@"
     }
 });
 
@@ -23,6 +23,7 @@ app.component("infoBearbeiten", {
 app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
 
     let $ctrl = this;
+    $ctrl.file;
     $ctrl.ueberpruefen = function () {
         if ($ctrl.getRequest.passwort !== $ctrl.getRequest.passwortWH) {
             $mdToast.show(
@@ -32,7 +33,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     .hideDelay(3000)
             );
         }else {
-            let that = this;
+            /*
             $http.post("profil_bearbeiten_UPDATE.php", {
                     "vorname": $ctrl.getRequest.vorname,
                     "nachname": $ctrl.getRequest.nachname,
@@ -47,9 +48,40 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     "land": $ctrl.getRequest.land,
                     "profilbildname": $ctrl.getRequest.profilbildname,
                     "profilbildpfad": $ctrl.getRequest.profilbildpfad
-                    //"kurzbeschreibung": $ctrl.kurzbeschreibung
+                    //"kurznachname": $ctrl.kurznachname
                 }
             ).then(function (response) {
+                    $log.debug(response);
+                    window.location.reload(true);
+                }
+            );
+            */
+            let that = this;
+            that.fd = new FormData();
+            if($ctrl.file){
+                that.fd.append("file", $ctrl.file[0]);
+            }else{
+                that.fd.append("file", null);
+            }
+            that.fd.append("vorname", that.vorname);
+            that.fd.append("nachname", that.nachname);
+            that.fd.append("email", that.email);
+            that.fd.append("telefonnummer", that.telefonnummer);
+            that.fd.append("passwort", that.passwort);
+            that.fd.append("passwortWH", that.passwortWH);
+            that.fd.append("adresszusatz", that.adresszusatz);
+            that.fd.append("plz", that.plz);
+            that.fd.append("ort", that.ort);
+            that.fd.append("land", that.land);
+            that.fd.append("profilbildname", that.profilbildname);
+            that.fd.append("profilbildpfad", that.profilbildpfad);
+            $http({
+                method: 'post',
+                url: 'profil_bearbeiten_UPDATE.php',
+                data: that.fd,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity
+            }).then(function (response) {
                     $log.debug(response);
                     window.location.reload(true);
                 }
@@ -84,6 +116,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     console.log($ctrl.file);
                     let reader = new FileReader();
                     reader.readAsDataURL($ctrl.file[0]);
+                    $ctrl.file = reader.readAsDataURL($ctrl.file[0]);
                     //$log.debug(reader);
                     reader.addEventListener("load", function () {
                         //$log.debug(reader);
