@@ -74,9 +74,9 @@
 <ui-view>
     <slider-profile></slider-profile>
     <div class="container hintergrundbild" style="width: 100%; height: auto">
-        <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
+        <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px; padding-bottom: 3%">
             <userinfos flex></userinfos>
-            <map id="mapdiv" flex flex-xs="95" style="width: 50%; padding-bottom: 7.5%"></map>
+            <map id="mapdiv" flex flex-xs="95" style="width: 50%"></map>
         </div>
         <div layout-gt-xs="row" layout-xs="column">
             <div style="width: 50%; margin-left: 15px" class="newsdiv">

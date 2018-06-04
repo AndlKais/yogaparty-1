@@ -1,24 +1,18 @@
 <div id="vid" style="padding: 15%;" layout-align="center center">
-    <p style="text-align: center; margin: 0; font-size: 40px">{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}</p>
-    <img style="border-radius: 50%; max-width: 100%; margin-top: 5%; margin-bottom: 25%" src="resources/pictures/profil.jpg">
-
-    <div><p>{{$ctrl.getRequest.email}}</p></div>
-    <div><p>{{$ctrl.getRequest.telefonnummer}}</p></div>
-    <div><p>{{$ctrl.getRequest.adresse}}</p></div>
-    <div><p>{{$ctrl.getRequest.adresszusatz}}</p></div>
-    <div><p>{{$ctrl.getRequest.plz}}</p></div>
-    <div><p>{{$ctrl.getRequest.ort}}</p></div>
-    <div><p>{{$ctrl.getRequest.land}}</p></div>
-    <div><p>{{$ctrl.getRequest.pbname}}</p></div>
-    <div><p>{{$ctrl.getRequest.pbpfad}}</p></div>
-    <div><p>{{$ctrl.getRequest.pbversteckt}}</p></div>
-
-
-
-
-
-
-    </div>
+    <p style="text-align: center; margin: 0; font-size: 60px">{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}
+    <img style="border-radius: 50%; max-width: 100%; margin-top: 5%; margin-bottom: 25%" src="{{$ctrl.getRequest.profilbildpfad}}{{$ctrl.getRequest.profilbildname}}">
+<div layout="column" style="font-size: 25px; text-align: center">
+    <div>E-Mail: {{$ctrl.getRequest.email}}</div>
+    <div>Telefonnummer: +43{{$ctrl.getRequest.telefonnummer}}</div>
+    <div>Adresse: {{$ctrl.getRequest.adresse}} {{$ctrl.getRequest.adresszusatz}}</div>
+    <div>{{$ctrl.getRequest.plz}} {{$ctrl.getRequest.ort}}</div>
+    <div>Land: {{$ctrl.getRequest.land}}</div>
+    <div>{{$ctrl.getRequest.pbname}}</div>
+    <div>{{$ctrl.getRequest.pbpfad}}</div>
+    <div>{{$ctrl.getRequest.pbversteckt}}</div>
+</div>
+</div>
+   
 
 
 <style>
