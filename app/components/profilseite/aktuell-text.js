@@ -4,7 +4,7 @@ app.component("aktuellText", {
     templateUrl: "components/profilseite/aktuell-text.html",
     controller: "AktuellTextController",
     bindings: {
-        $vname: "@",
+        /*$vname: "@",
         $nname: "@",
         $email: "@",
         $telefonnummer: "@?",
@@ -15,7 +15,7 @@ app.component("aktuellText", {
         $plz: "@",
         $ort: "@",
         $land: "@",
-        $kurzbeschreibung: "@"
+        $kurzbeschreibung: "@"*/
     }
 });
 
