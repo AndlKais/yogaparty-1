@@ -53,21 +53,23 @@ if (count($_POST) > 0) {
     }
 
 
+    if (count($_FILES) > 0) {
     $query2 = "update Profilseite set profB_name=?, profB_pfad=?/*, pb_versteckt=?*/ WHERE Seiten_ID=?";
-    if($stmt2 = $mysqli->prepare($query2)){
-        $imageFileType = strtolower(pathinfo("../uploads/" . basename($_FILES["file"]["name"]),PATHINFO_EXTENSION));
-        $pbname = ('ProfilBild_'.$seitenID.'.'.$imageFileType);
+    if($stmt2 = $mysqli->prepare($query2)) {
+        $imageFileType = strtolower(pathinfo("../uploads/" . basename($_FILES["file"]["name"]), PATHINFO_EXTENSION));
+        $pbname = ('ProfilBild_' . $seitenID . '.' . $imageFileType);
         //echo $pbname;
         $pbpfad = "../uploads/";
         //$pbversteckt = mysqli_real_escape_string($mysqli,$_POST['profilbildversteckt']);
-        $stmt2->bind_param('ssi',$pbname, $pbpfad, $seitenID/*, intval($pbversteckt)*/);
+        $stmt2->bind_param('ssi', $pbname, $pbpfad, $seitenID/*, intval($pbversteckt)*/);
         $stmt2->execute();
         $stmt2->close();
 
         $target_dir = "../uploads/";
         //$imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["file"]["name"]),PATHINFO_EXTENSION));
-        $target_file =  "ProfilBild_1.".$imageFileType;
+        $target_file = "ProfilBild_1." . $imageFileType;
         move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $target_file);
+    }
     }
 }
 

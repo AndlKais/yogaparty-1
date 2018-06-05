@@ -63,7 +63,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             if($ctrl.file){
                 that.fd.append("file", $ctrl.file[0]);
             }else{
-                that.fd.append("file", null);
+                //that.fd.append("file", null);
             }
             that.fd.append("vorname", $ctrl.getRequest.vorname);
             that.fd.append("nachname", $ctrl.getRequest.nachname);
