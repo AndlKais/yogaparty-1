@@ -11,14 +11,14 @@ email varchar(30),
 telefonnummer integer,
 passwort varchar(30),
 adresse varchar(30),
-adresszusatz integer,
+adresszusatz varchar(20),
 plz integer,
 ort varchar(30),
 land varchar(30),
 ist_freigegeben boolean
 );
 
-insert into YogaLehrer (vorname, nachname, email, telefonnummer, passwort, adresse, adresszusatz, plz, ort, land, ist_freigegeben) values ('Jens', 'Oberberger', 'Jens.Wappler@trashmail.com', 0664653721, 'Blaumeisenmaschine', 'Baumgasse', 27, 1030, 'Wupperntal', 'AT',true);
+insert into YogaLehrer (vorname, nachname, email, telefonnummer, passwort, adresse, adresszusatz, plz, ort, land, ist_freigegeben) values ('Jens', 'Oberberger', 'jens.oberberger@gmail.com', 0664653721, 'asdf', 'Rennweg', '89b', 1030, 'Wien', 'AT',true);
 
 create table if not exists Zertifikat (
 Zert_ID integer primary key auto_increment,
