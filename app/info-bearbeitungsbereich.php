@@ -45,7 +45,6 @@
     <script src="components/calendar/fullcalendar.js"></script>
     <script src="components/calendar/gcal.js"></script>
     <script src="components/calendar/calendar.js"></script>
-
     <script src="app.js"></script>
     <script src="main.js"></script>
     <script src="components/navigation.js"></script>
