@@ -7,17 +7,17 @@
             <img alt="" class="pb-image" src="{{$ctrl.getRequest.profilbildpfad}}{{$ctrl.getRequest.profilbildname}}" ng-click="$ctrl.changepicture()">
             <input type="file" style="visibility: hidden" accept="image/*" class="form-control">
         </div>
-        <div class="card-info"> <span class="card-title" name="vname">{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}</span>
+        <div class="card-info">
+            <span class="card-title" name="vname">{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}</span>
         </div>
     </div>
 </div>
 <div class="test">
     <div style="margin-left: 15px">
-        <span>Daten</span>
+        <div style="font-family: 'Hans Kendrick'; font-weight: bold; font-size: 21px;">Daten</div>
     </div>
     <div class="test2">
-        <div class="glyphicon glyphicon-edit" style="font-size: 21px;" ng-click="$ctrl.edit">
-        </div>
+        <div class="glyphicon glyphicon-edit" style="font-size: 21px;" ng-click="$ctrl.edit"></div>
     </div>
 </div>
 <br>
