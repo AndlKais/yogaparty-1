@@ -32,9 +32,9 @@
                         <div class="dropdown">
                             <button type="button" class="close dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a>Bearbeiten</a></li>
-                                <li><a>CSS</a></li>
-                                <li><a>JavaScript</a></li>
+                                <li><a ng-click="$ctrl.add()">Hinzufuegen</a></li>
+                                <li><a ng-click="$ctrl.edit()">Bearbeiten</a></li>
+                                <li><a>Loeschen</a></li>
                             </ul>
                         </div>
 
@@ -43,14 +43,18 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <textarea class="form-control" style="height: 500px; width: 100%"></textarea>
+                            <div ng-show="$ctrl.addgeklickt"><span>Titel:</span><input type="text" class="form-control" ng-model="$ctrl.titel"><br></div>
+                            <textarea class="form-control" style="height: 500px; width: 100%" ng-show="$ctrl.addgeklickt" ng-model="$ctrl.beschreibung">Dies ist ein Test. Wird gleich wieder entfernt</textarea>
+                            <textarea class="form-control" style="height: 500px; width: 100%" ng-disabled="$ctrl.geklickt" ng-hide="$ctrl.addgeklickt">Dies ist ein Test. Wird gleich wieder entfernt</textarea>
 
 
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-hide="$ctrl.geklickt && $ctrl.addgeklickt">Save</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -77,6 +81,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
