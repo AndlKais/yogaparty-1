@@ -23,7 +23,10 @@
     @media screen and (max-width: 850px){
         auswahl > div {
             height: 200px;
-            layout: column;
+        }
+        auswahl > div > div{
+            flex: 30% !important;
+            padding: 5px !important;
         }
     }
     @media screen and (max-width: 650px){
@@ -38,17 +41,17 @@
     }
 </style>
 
-<div layout="row" layout-align="space-around center">
-    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BTCT', $event);">
+<div layout="row" layout-wrap layout-align="space-around center">
+    <div flex-xs="20" flex-gt-xs="20" layout-align="center center" ng-click="$ctrl.blockAuswahl('BTCT', $event);">
         <img flex src="resources/icons/Titel Text.svg">
     </div>
-    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBCT', $event)">
+    <div flex-xs="20" flex-gt-xs="20" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBCT', $event)">
         <img flex src="resources/icons/Titel Bild Text.svg">
     </div>
-    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBTL', $event)">
+    <div flex-xs="20" flex-gt-xs="20" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBTL', $event)">
         <img flex src="resources/icons/BildLTextR.svg">
     </div>
-    <div flex="20" layout="column" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBTR', $event)">
+    <div flex-xs="20" flex-gt-xs="20" layout-align="center center" ng-click="$ctrl.blockAuswahl('BBTR', $event)">
         <img flex src="resources/icons/BildRTextL.svg">
     </div>
     <!--

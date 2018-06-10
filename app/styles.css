@@ -212,6 +212,12 @@ Slideshow css?
     }
 }
 
+@media screen and (max-width: 800px){
+    .container-fluid {
+        padding-left: 5px !important;
+    }
+}
+
 #sidebar.active {
     right: 0;
 }
@@ -471,6 +477,16 @@ info-header-bearbeiten
     border-radius: 50%;
     border: 5px solid rgba(255, 255, 255, 0.5);
 }
+
+@media screen and (max-height: 650px){
+    .card.hovercard .useravatar img {
+        width: 70px;
+        height: 70px;
+        max-width: 70px;
+        max-height: 70px;
+    }
+}
+
 .card.hovercard .card-info {
     position: absolute;
     bottom: 14px;
@@ -521,4 +537,14 @@ info-section
     flex: 1;
     padding: 0 10px;
     text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    .margin10 {
+        margin-left: 0 !important;
+    }
+    .address{
+        width: 100%; !important;
+        flex: 100 !important;
+    }
 }
