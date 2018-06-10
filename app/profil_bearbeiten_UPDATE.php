@@ -2,35 +2,6 @@
 
 require_once "database_connection.php";
 
-//$_POST = json_decode(file_get_contents("php://input"));
-//echo json_encode($_POST);
-//echo json_encode($_POST -> $vname);
-/*$query = "insert into YogaLehrer (vorname, nachname, email, telefonnummer, passwort, adresse, adresszusatz, plz, ort, land) values (?,?,?,?,?,?,?,?,?,?)";
-echo json_encode($_POST);
-if($stmt = $mysqli->prepare($query)){
-    $vname = mysqli_real_escape_string($mysqli,$_POST['vorname);
-    $nname = mysqli_real_escape_string($mysqli,$_POST['nachname);
-    $email = mysqli_real_escape_string($mysqli,$_POST['email);
-    $telefonnummer = mysqli_real_escape_string($mysqli, $_POST['telefonnummer);
-    $passwort = mysqli_real_escape_string($mysqli,$_POST['passwort);
-    //$passwortWH = mysqli_real_escape_string($mysqli,$_POST['passwortWH);
-    $adresse = mysqli_real_escape_string($mysqli,$_POST['adresse);
-    $adresszusatz = mysqli_real_escape_string($mysqli,$_POST['adresszusatz);
-    $plz = mysqli_real_escape_string($mysqli,$_POST['plz);
-    $ort = mysqli_real_escape_string($mysqli,$_POST['ort);
-    $land = mysqli_real_escape_string($mysqli,$_POST['land);
-    //$kurzbeschreibung = mysqli_real_escape_string($mysqli,$_POST['kurzbeschreibung);
-    $stmt->bind_param('sssisssiss',$vname, $nname, $email, $telefonnummer, $passwort, $adresse, $adresszusatz, $plz, $ort, $land);
-    $stmt->execute();
-    $stmt->close();
-}else {
-    //$mysqli -> error();
-    /*while ($row = $temp->fetch_assoc()) {
-        if(){
-
-        }
-    */
-/*}*/
 $seitenID = 1;
 if (count($_POST) > 0) {
     $query = "update YogaLehrer set vorname=?, nachname=?, email=?, telefonnummer=?, passwort=?, adresse=?, adresszusatz=?, plz=?, ort=?, land=? where Lehrer_ID=?";
