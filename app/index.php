@@ -29,8 +29,8 @@
     <script src="vendor/angularjs-1.6.9/angular-animate.min.js"></script>
     <script src="vendor/angularjs-1.6.9/angular-aria.min.js"></script>
     <script src="vendor/angularjs-1.6.9/i18n/angular-locale_de.js"></script>
-    <script src="tinycolor.js"></script>
-    <script src="vendor/mdColorPicker.js"></script>
+    <script src="vendor/tinycolor/tinycolor.js"></script>
+    <script src="vendor/mdColorPicker/mdColorPicker.js"></script>
 
     <script src="vendor/angular-material-1.1.7/angular-material.min.js"></script>
     <script src="vendor/angular-ui-router-1.0.8/angular-ui-router.min.js"></script>
@@ -64,8 +64,6 @@
     <script src="components/accountseite/bearbeiten-bereich.js"></script>
     <script src="components/accountseite/loeschen-bereich.js"></script>
     <script src="components/infoseite/info-bearbeiten.js"></script>
-    <script src="components/infoseite/info-content-bearbeiten.js"></script>
-    <script src="components/infoseite/info-header-bearbeiten.js"></script>
 
 </head>
 

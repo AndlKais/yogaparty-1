@@ -276,7 +276,7 @@ Slideshow css?
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #E2B6FF;
+    background: #cf8eff;
 }
 
 #sidebar ul li > a, a[aria-expanded="true"] {
@@ -305,7 +305,7 @@ a[aria-expanded="true"]::before {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    /*background: #6d7fcc;*/
 }
 
 ul.CTAs {
@@ -321,11 +321,7 @@ ul.CTAs a {
 }
 a.download {
     background: #fff;
-    color: #7386D5;
-}
-a.article, a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
+    /*color: #7386D5;*/
 }
 
 ul > li > a{
@@ -334,7 +330,7 @@ ul > li > a{
 
 /*--------------------------------------
 Colorpicker css?
- --------------------------------------*/
+ --------------------------------------
 
 md-color-picker .md-color-picker-input-container,
 [md-color-picker] .md-color-picker-input-container {
@@ -458,7 +454,9 @@ md-color-picker .md-color-picker-input-container .md-color-picker-clear,
     padding-top: 2px;
     background: rgba(255, 255, 255, 0.25);
     color: #eee;
-    /* hack for https://github.com/angular/material/issues/4237 */
+    */
+/* hack for https://github.com/angular/material/issues/4237 */
+/*
     max-width: none !important;
 }
 .md-color-picker-container .md-color-picker-preview .md-color-picker-tabs .md-tab.md-active {
@@ -643,6 +641,7 @@ md-color-picker .md-color-picker-input-container .md-color-picker-clear,
     background-position: 0 0, 4px 4px;
 }
 
+*/
 
 .md-cancel-button:hover, .md-cancel-button:focus {
     color: rgb(63,81,181) !important;
