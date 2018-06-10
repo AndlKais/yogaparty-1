@@ -486,6 +486,14 @@ info-header-bearbeiten
         max-height: 70px;
     }
 }
+@media screen and (max-height: 520px){
+    .card.hovercard .useravatar img {
+        width: 60px;
+        height: 60px;
+        max-width: 60px;
+        max-height: 60px;
+    }
+}
 
 .card.hovercard .card-info {
     position: absolute;

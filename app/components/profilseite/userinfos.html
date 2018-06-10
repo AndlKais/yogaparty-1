@@ -1,14 +1,13 @@
 <div id="vid" style="padding: 4%;" layout-align="center center" layout="column">
-    <div class="head" style="text-align: center; margin: 0; font-size: 4em">
+    <div class="head" style="text-align: center; margin: 0; font-size: 3.8em">
         {{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}
     </div>
     <img style="border-radius: 50%; max-height: 400px; max-width: 100%; margin-top: 4%; margin-bottom: 4%" src="{{$ctrl.getRequest.profilbildpfad}}{{$ctrl.getRequest.profilbildname}}">
-    <div class="bod" layout="column" style="font-size: 25px; text-align: center">
+    <div class="bod" layout="column" style="font-size: 24px; text-align: center">
         <div>E-Mail: {{$ctrl.getRequest.email}}</div>
         <div>Telefonnummer: +43{{$ctrl.getRequest.telefonnummer}}</div>
         <div>Adresse: {{$ctrl.getRequest.adresse}} {{$ctrl.getRequest.adresszusatz}}</div>
-        <div>{{$ctrl.getRequest.plz}} {{$ctrl.getRequest.ort}}</div>
-        <div>Land: {{$ctrl.getRequest.land}}</div>
+        <div>{{$ctrl.getRequest.plz}} {{$ctrl.getRequest.ort}}; Land: {{$ctrl.getRequest.land}}</div>
         <div>{{$ctrl.getRequest.pbname}}</div>
         <div>{{$ctrl.getRequest.pbpfad}}</div>
         <div>{{$ctrl.getRequest.pbversteckt}}</div>
