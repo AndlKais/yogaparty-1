@@ -22,13 +22,19 @@ app.component("aktuellText", {
 
 app.controller("AktuellTextController", function () {
 
-let $ctrl = this;
+    let $ctrl = this;
 
-$ctrl.$onInit = function(){
+    $ctrl.$onInit = function(){
+        this.geklickt=true;
+        this.addgeklickt=false;
+    }
 
-}
+    $ctrl.edit = function () {
+        this.geklickt = false;
+    }
 
-$ctrl.edit = function () {
-    this.geklickt = true;
-}
+    $ctrl.add = function () {
+        this.addgeklickt = true;
+    }
 });
+
