@@ -9,8 +9,21 @@ app.component("blockkomponente", {
 
 app.controller("blockKomponenteController", function ($log, $mdDialog, $http) {
     this.formInvalid = true;
+
     this.backgroundC = "#fffaef";
     this.color = "#000000";
+
+    this.$onInit = function () {
+        let that = this;
+        $http.get("profil_GET_lastColorInserted.php")
+            .then(function (response) {
+                $log.debug("RESPONSE - profil_GET_lastColorInserted.php");
+                $log.debug(response);
+
+                that.backgroundC = response.data.hasMoreThanZeroBlocks && response.data.resBColor != null ? response.data.resBColor : "#fffaef";
+                that.color = response.data.hasMoreThanZeroBlocks && response.data.resColor != null ? response.data.resColor : "#000000";
+            });
+    };
 
     this.updateValidity = function () {
         //$log.debug(" formular.$valid: " + this.formular.$valid + " file: " + this.file);
@@ -145,7 +158,7 @@ app.controller("blockKomponenteController", function ($log, $mdDialog, $http) {
                         .clickOutsideToClose(true)
                         .title('Status')
                         .textContent(response.data.everythingOk ?
-                            "Ihr Eingaben wuden erfolgreich hochgeladen - schauen Sie sich die Änderungen gleich auf Ihrer Profilseite an." :
+                            "Ihr Eingaben wurden erfolgreich hochgeladen - schauen Sie sich die Änderungen gleich auf Ihrer Profilseite an." :
                             "Es ist ein Fehler aufgetreten - überprüfen Sie, ob Ihr die Große von 5 MB nicht überschreitet und aktualisieren Sie die Seite."
                         )
                         .ariaLabel('OffscreenAlert')

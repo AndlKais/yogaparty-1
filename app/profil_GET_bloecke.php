@@ -51,19 +51,19 @@ if(count($data) > 0){
                         "blockart" => "bild-text-right"));*/
                     if($row2['bildR']) {
                         if($modus === 1) {
-                            array_push($output, "<bild-text-right style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-right>");
+                            array_push($output, "<bild-text-right style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-text-right>");
                         }elseif($modus === 2) {
-                            array_push($output, "<bild-text-right style='color:" . $color . ";background-color:" . $backgroundColor . ";' bearbeite-block='\$ctrl.bearbeiteBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-right>");
+                            array_push($output, "<bild-text-right style='color:" . $color . ";background-color:" . $backgroundColor . ";' bearbeite-block='\$ctrl.bearbeiteBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-text-right>");
                         }elseif($modus === 3){
-                            array_push($output, "<bild-text-right style='color:" . $color . ";background-color:" . $backgroundColor . ";' loesche-block='\$ctrl.loescheBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-right>");
+                            array_push($output, "<bild-text-right style='color:" . $color . ";background-color:" . $backgroundColor . ";' loesche-block='\$ctrl.loescheBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-text-right>");
                         }
                     }else{
                         if($modus === 1) {
-                            array_push($output, "<bild-text-left style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-left>");
+                            array_push($output, "<bild-text-left style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-text-left>");
                         }elseif($modus === 2){
-                            array_push($output, "<bild-text-left style='color:" . $color . ";background-color:" . $backgroundColor . ";' bearbeite-block='\$ctrl.bearbeiteBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-left>");
+                            array_push($output, "<bild-text-left style='color:" . $color . ";background-color:" . $backgroundColor . ";' bearbeite-block='\$ctrl.bearbeiteBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-text-left>");
                         }elseif($modus === 3){
-                            array_push($output, "<bild-text-left style='color:" . $color . ";background-color:" . $backgroundColor . ";' loesche-block='\$ctrl.loescheBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-text-left>");
+                            array_push($output, "<bild-text-left style='color:" . $color . ";background-color:" . $backgroundColor . ";' loesche-block='\$ctrl.loescheBlock(id)' id='" . $row2['BBText_ID'] . "' titel='" . $row2['titel'] . "' text='" . $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-text-left>");
                         }
                     }
                 }
@@ -74,11 +74,11 @@ if(count($data) > 0){
                 if (mysqli_num_rows($result) > 0) {
                     $row2 = mysqli_fetch_array($result2);
                     if($modus === 1) {
-                        array_push($output, "<bild-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-center-text>");
+                        array_push($output, "<bild-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-center-text>");
                     }elseif($modus === 2){
-                        array_push($output, "<bild-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' bearbeite-block='\$ctrl.bearbeiteBlock(id)' id='" . $row2['BBCText_ID'] . "' titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-center-text>");
+                        array_push($output, "<bild-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' bearbeite-block='\$ctrl.bearbeiteBlock(id)' id='" . $row2['BBCText_ID'] . "' titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-center-text>");
                     }elseif($modus === 3){
-                        array_push($output, "<bild-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' loesche-block='\$ctrl.loescheBlock(id)' id='" . $row2['BBCText_ID'] . "' titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bName'] . "'></bild-center-text>");
+                        array_push($output, "<bild-center-text style='color:" . $color . ";background-color:" . $backgroundColor . ";' loesche-block='\$ctrl.loescheBlock(id)' id='" . $row2['BBCText_ID'] . "' titel='" . $row2['titel'] . "' text='". $row2['text'] . "' bild='" . $row2['bPfad'] . $row2['bZahl'] . $row2['bName'] . "'></bild-center-text>");
                     }
                 }
             }else{

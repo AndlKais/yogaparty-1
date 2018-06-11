@@ -74,7 +74,7 @@ if($response['everythingOk']) {
             $tempID = intval($fileToId[$indexFiles]->id);
 
             if ($stmt = $mysqli->prepare(
-                "SELECT CONCAT(bPfad,bName) AS 'datei' FROM {$fileBlockArt} WHERE {$fileIdName} = ?")) {
+                "SELECT CONCAT(bPfad,bZahl,bName) AS 'datei', bZahl FROM {$fileBlockArt} WHERE {$fileIdName} = ?")) {
 
                 $stmt->bind_param("i", $tempID);
 
@@ -83,16 +83,19 @@ if($response['everythingOk']) {
                     $response['everythingOk'] = false;
                 }
 
-                $stmt->bind_result($resultBild);
+                $stmt->bind_result($resultBild, $resultZahl);
 
                 while ($stmt->fetch()) {
-                        $result = $resultBild;
+                        $resultB = $resultBild;
+                        $resultZ = $resultZahl;
+                        $response['resBild'] = $resultBild;
+                        $response['resZahl'] = $resultZahl;
                 }
 
                 $stmt->close();
 
-                if (file_exists($result)) {
-                    if (!unlink($result)) {
+                if (file_exists($resultB)) {
+                    if (!unlink($resultB)) {
                         $response['deleteFile'] = false;
                         $response['everythingOk'] = false;
                     }
@@ -115,10 +118,11 @@ if($response['everythingOk']) {
 
                 $target_dir = "../uploads/";
                 $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["file" . $indexFiles]["name"]), PATHINFO_EXTENSION));
-                $target_file = "Block_pic_" . intval($fileToId[$indexFiles]->id) . "." . $imageFileType;
+                $target_Zahl = $resultZ+1;
+                $target_file = "-Block_pic_" . $tempID . "." . $imageFileType;
 
                 if ($response["everythingOk"]) {
-                    if (move_uploaded_file($_FILES["file" . $indexFiles]["tmp_name"], $target_dir . $target_file)) {
+                    if (move_uploaded_file($_FILES["file" . $indexFiles]["tmp_name"], $target_dir . $target_Zahl . $target_file)) {
 
                         /**
                          *
@@ -127,9 +131,9 @@ if($response['everythingOk']) {
                          */
                         //echo "UPDATE {$fileBlockArt} SET bPfad = '" . $target_dir . "', bName = '" . $target_file . "'  WHERE {$fileIdName} = " . intval($fileToId[$indexFiles]->id);
                         if ($stmt = $mysqli->prepare(
-                            "UPDATE {$fileBlockArt} SET bPfad = ?, bName = ?  WHERE {$fileIdName} = ?")) {
+                            "UPDATE {$fileBlockArt} SET bPfad = ?, bName = ?, bZahl = ? WHERE {$fileIdName} = ?")) {
 
-                            $stmt->bind_param("ssi", $target_dir, $target_file, intval($fileToId[$indexFiles]->id));
+                            $stmt->bind_param("ssii", $target_dir, $target_file, $target_Zahl, $tempID);
 
                             if (!$stmt->execute()) {
                                 $response['fileUpdate'] = false;

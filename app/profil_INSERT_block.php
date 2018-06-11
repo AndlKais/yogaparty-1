@@ -52,7 +52,7 @@ if($ausgewaehlt == "BBCT" || $ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL"){
         $response['everythingOk'] = false;
     }
 
-// Überprüfe, ob sie Datei zu groß ist
+// Überprüfe, ob die Datei zu groß ist
     if ($_FILES["file"]["size"] > 5000000 || $_FILES["file"]["size"] == 0) {
         $response['fileSize'] = false;
         $response['everythingOk'] = false;
@@ -80,20 +80,20 @@ if($response['everythingOk'] && ($ausgewaehlt == "BTCT" || $ausgewaehlt == "BBCT
     }elseif ($ausgewaehlt == "BBCT" || $ausgewaehlt == "BBTR" || $ausgewaehlt == "BBTL"){
         $target_dir = "../uploads/";
         $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["file"]["name"]),PATHINFO_EXTENSION));
-        $target_file = "Block_pic_" . $psBlockID . "." . $imageFileType;
+        $target_file = "-Block_pic_" . $psBlockID . "." . $imageFileType;
 
         // if everything is ok, try to upload file
         if($response['everythingOk']){
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $target_file)) {
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . 1 . $target_file)) {
                 $response['fileUpload'] = true;
                 if($ausgewaehlt == "BBCT"){
-                    $query = "INSERT INTO B_Bild_C_Text (`BBCText_ID`, `bName`, `bPfad`, `titel`, `text`) VALUES ($psBlockID, '$target_file', '$target_dir', '$titel', '$beschreibung')";
+                    $query = "INSERT INTO B_Bild_C_Text (`BBCText_ID`, `bName`, `bPfad`, `bZahl`, `titel`, `text`) VALUES ($psBlockID, '$target_file', '$target_dir', 1, '$titel', '$beschreibung')";
                     $insertSpecificBlock = mysqli_query($mysqli, $query);
                 }elseif ($ausgewaehlt == "BBTR"){
-                    $query = "INSERT INTO B_Bild_Text (`BBText_ID`, `bildR`, `bName`, `bPfad`, `titel`, `text`) VALUES ($psBlockID, true, '$target_file', '$target_dir', '$titel', '$beschreibung')";
+                    $query = "INSERT INTO B_Bild_Text (`BBText_ID`, `bildR`, `bName`, `bPfad`, `bZahl`, `titel`, `text`) VALUES ($psBlockID, true, '$target_file', '$target_dir', 1, '$titel', '$beschreibung')";
                     $insertSpecificBlock = mysqli_query($mysqli, $query);
                 }elseif ($ausgewaehlt == "BBTL"){
-                    $query = "INSERT INTO B_Bild_Text (`BBText_ID`, `bildR`, `bName`, `bPfad`, `titel`, `text`) VALUES ($psBlockID, false, '$target_file', '$target_dir', '$titel', '$beschreibung')";
+                    $query = "INSERT INTO B_Bild_Text (`BBText_ID`, `bildR`, `bName`, `bPfad`, `bZahl`, `titel`, `text`) VALUES ($psBlockID, false, '$target_file', '$target_dir', 1, '$titel', '$beschreibung')";
                     $insertSpecificBlock = mysqli_query($mysqli, $query);
                 }
             } else {
