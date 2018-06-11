@@ -564,7 +564,7 @@ Gecko Engine - Firefox regeln
 @-moz-document url-prefix() {
     md-dialog {
         position: absolute;
-        top: 20vh;
+        top: 5vh;
         left: auto;
     }
 }

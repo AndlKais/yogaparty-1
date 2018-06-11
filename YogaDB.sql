@@ -18,7 +18,7 @@ land varchar(30),
 ist_freigegeben boolean
 );
 
-insert into YogaLehrer (Lehrer_ID, vorname, nachname, email, telefonnummer, passwort, adresse, adresszusatz, plz, ort, land, ist_freigegeben) values (1, 'Jens', 'Oberberger', 'Jens.Wappler@trashmail.com', 0664653721, 'Blaumeisenmaschine', 'Baumgasse', 27, 1030, 'Wupperntal', 'AT',true);
+insert into YogaLehrer (Lehrer_ID, vorname, nachname, email, telefonnummer, passwort, adresse, adresszusatz, plz, ort, land, ist_freigegeben) values (1, 'Jens', 'Oberberger', 'Jens.Wappler@trashmail.com', 0664653721, 'Blaumeisenmaschine', 'Rennweg', '69b', 1030, 'Wien', 'AT',true);
 
 create table if not exists Zertifikat (
 Zert_ID integer primary key auto_increment,
