@@ -1,16 +1,33 @@
-<div id="vid" style="padding: 15%;" layout-align="center center">
-    <p style="text-align: center; margin: 0; font-size: 40px">Frau Musterfrau</p>
-    <img style="border-radius: 50%; max-width: 100%; margin-top: 5%; margin-bottom: 25%" src="resources/pictures/profil.jpg">
-    <div>
-
+<div id="vid" style="padding: 4%;" layout-align="center center" layout="column">
+    <div class="head" style="text-align: center; margin: 0; font-size: 3.8em">
+        {{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}}
     </div>
+    <img style="border-radius: 50%; max-height: 400px; max-width: 100%; margin-top: 4%; margin-bottom: 4%" src="{{$ctrl.getRequest.profilbildpfad}}{{$ctrl.getRequest.profilbildname}}">
+    <div class="bod" layout="column" style="font-size: 24px; text-align: center">
+        <div>E-Mail: {{$ctrl.getRequest.email}}</div>
+        <div>Telefonnummer: +43{{$ctrl.getRequest.telefonnummer}}</div>
+        <div>Adresse: {{$ctrl.getRequest.adresse}} {{$ctrl.getRequest.adresszusatz}}</div>
+        <div>{{$ctrl.getRequest.plz}} {{$ctrl.getRequest.ort}}; Land: {{$ctrl.getRequest.land}}</div>
+        <div>{{$ctrl.getRequest.pbname}}</div>
+        <div>{{$ctrl.getRequest.pbpfad}}</div>
+        <div>{{$ctrl.getRequest.pbversteckt}}</div>
     </div>
+</div>
+   
 
 
 <style>
     @media screen and (max-width: 600px){
         #vid{
             padding: 2% !important;
+        }
+    }
+    @media screen and (max-width: 800px){
+        .head{
+            font-size: 2.5em !important;
+        }
+        .bod{
+            font-size: 1.4em !important;
         }
     }
 </style>

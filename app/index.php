@@ -29,8 +29,8 @@
     <script src="vendor/angularjs-1.6.9/angular-animate.min.js"></script>
     <script src="vendor/angularjs-1.6.9/angular-aria.min.js"></script>
     <script src="vendor/angularjs-1.6.9/i18n/angular-locale_de.js"></script>
-    <script src="tinycolor.js"></script>
-    <script src="vendor/mdColorPicker.js"></script>
+    <script src="vendor/tinycolor/tinycolor.js"></script>
+    <script src="vendor/mdColorPicker/mdColorPicker.js"></script>
 
     <script src="vendor/angular-material-1.1.7/angular-material.min.js"></script>
     <script src="vendor/angular-ui-router-1.0.8/angular-ui-router.min.js"></script>
@@ -43,7 +43,7 @@
     <script src="components/calendar/calendar.js"></script>
 
     <script src="app.js"></script>
-    <script src="main.js"></script>
+    <script src="components/main.js"></script>
     <script src="components/navigation.js"></script>
     <script src="components/bloecke/bildcentertext.js"></script>
     <script src="components/bloecke/titel-center-text.js"></script>
@@ -64,8 +64,6 @@
     <script src="components/accountseite/bearbeiten-bereich.js"></script>
     <script src="components/accountseite/loeschen-bereich.js"></script>
     <script src="components/infoseite/info-bearbeiten.js"></script>
-    <script src="components/infoseite/info-content-bearbeiten.js"></script>
-    <script src="components/infoseite/info-header-bearbeiten.js"></script>
 
 </head>
 
@@ -74,9 +72,9 @@
 <ui-view>
     <slider-profile></slider-profile>
     <div class="container hintergrundbild" style="width: 100%; height: auto">
-        <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px">
-            <aktuell flex></aktuell>
-            <map id="mapdiv" flex flex-xs="95" style="width: 50%; padding-bottom: 7.5%"></map>
+        <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px; padding-bottom: 3%">
+            <userinfos flex></userinfos>
+            <map id="mapdiv" flex flex-xs="95" style="width: 50%"></map>
         </div>
         <div layout-gt-xs="row" layout-xs="column">
             <div style="width: 50%; margin-left: 15px" class="newsdiv">
@@ -89,8 +87,6 @@
         <testgelaende></testgelaende>
     </div>
 </ui-view>
-<!--<md-button href="accountseite.php">Zur Accountseite</md-button>-->
-
 </body>
 
 </html>

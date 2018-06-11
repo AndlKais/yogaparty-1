@@ -2,6 +2,4 @@
 
 app.service("YogapartyService", function () {
 
-
-
 });
