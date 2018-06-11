@@ -55,7 +55,6 @@
     <script src="components/calendar/calendar.js"></script>
 
     <script src="app.js"></script>
-    <script src="components/main.js"></script>
     <script src="components/navigation.js"></script>
     <script src="components/bloecke/bildcentertext.js"></script>
     <script src="components/bloecke/titel-center-text.js"></script>

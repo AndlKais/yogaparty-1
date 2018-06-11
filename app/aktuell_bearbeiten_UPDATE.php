@@ -11,7 +11,7 @@ if (count($_POST) > 0) {
         $datum = mysqli_real_escape_string($mysqli, $_POST['datum']);
         $datum = date("Y-m-d");
 
-        $stmt->bind_param('sss', $titel, $bezeichnung, $datum);
+        $stmt->bind_param('sssi', $titel, $bezeichnung, $datum, $seitenID);
         $stmt->execute();
         $stmt->close();
     }
