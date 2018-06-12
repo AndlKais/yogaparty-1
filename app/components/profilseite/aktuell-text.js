@@ -21,8 +21,16 @@ app.controller("AktuellTextController", function ($http,$log) {
         this.addgeklickt=false;
         this.editgeklickt = false;
         $http.post("aktuell_bearbeiten_GET.php",{}).then(function (data) {
+            $log.debug('onInit response');
             $log.debug(data.data);
-            $ctrl.getRequest = data.data;
+            $ctrl.newseintraege = data.data;
+            $ctrl.temp = data.data;
+            for(let i = 0; i < $ctrl.newseintraege.length; i++){
+                $ctrl.newseintraege[i].id = i;
+                $ctrl.temp[i].id = i;
+            }
+
+
         });
 
 
@@ -34,12 +42,11 @@ app.controller("AktuellTextController", function ($http,$log) {
         this.editgeklickt = true;
     }
 
-    $ctrl.update = function(){
+    $ctrl.update = function(id){
         let that = this;
         that.fd = new FormData();
-        that.fd.append("titel", $ctrl.getRequest.titel);
-        that.fd.append("beschreibung", $ctrl.getRequest.beschreibung);
-        that.fd.append("datum", $ctrl.getRequest.datum);
+        that.fd.append("titel", $ctrl.temp[id].titel);
+        that.fd.append("beschreibung", $ctrl.temp[id].beschreibung);
         $http({
             method: 'post',
             url: 'aktuell_bearbeiten_UPDATE.php',
@@ -50,6 +57,8 @@ app.controller("AktuellTextController", function ($http,$log) {
             console.log("aktuell_bearbeiten")
             $log.debug(response);
         });
+        console.log("-----update aktuell--------");
+        console.log(that.fd.titel);
     }
 
     $ctrl.test = function () {
@@ -71,18 +80,27 @@ app.controller("AktuellTextController", function ($http,$log) {
         }).then(response => {
             $log.debug("response");
             $log.debug(response.data);
+            that.getRequest.titel = response.data;
         });
-        //this.addgeklickt = true;
+        this.geklickt = false;
     }
 
-    $ctrl.delete = function () {
+    $ctrl.delete = function (id) {
         let that = this;
-        $http.post("aktuell_bearbeiten_DELETE.php",{
-                "titel": $ctrl.titel,
-                "beschreibung": $ctrl.beschreibung
+        that.fd = new FormData();
+        that.fd.append("titel", $ctrl.temp[id].titel);
+        that.fd.append("beschreibung", $ctrl.temp[id].beschreibung);
+        $http({
+            method: 'post',
+            url: 'aktuell_bearbeiten_DELETE.php',
+            data: that.fd,
+            headers: {'Content-Type': undefined},
+            transformRequest: angular.identity
             }
+
         ).then(function (result) {
             $log.debug(result);
+
         });
     }
 });

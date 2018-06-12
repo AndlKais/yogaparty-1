@@ -6,9 +6,19 @@ $id = 1;
 
 $output;
 
-
-
 if ($stmt = $mysqli->prepare('SELECT titel, beschreibung, datum, vorname, nachname from Aktuelles join YogaLehrer on YogaLehrer.Lehrer_ID = Aktuelles.FK_Lehrer where YogaLehrer.Lehrer_ID = ?')) {
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $output[] = $row;
+    }
+    $stmt->close();
+
+    echo json_encode($output);
+}
+
+/*if ($stmt = $mysqli->prepare('SELECT titel, beschreibung, datum, vorname, nachname from Aktuelles join YogaLehrer on YogaLehrer.Lehrer_ID = Aktuelles.FK_Lehrer where YogaLehrer.Lehrer_ID = ?')) {
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $stmt->bind_result($titel,$beschreibung, $datum, $vorname, $nachname);
@@ -22,4 +32,4 @@ if ($stmt = $mysqli->prepare('SELECT titel, beschreibung, datum, vorname, nachna
     $stmt->close();
 
     echo json_encode($output);
-}
+}*/
