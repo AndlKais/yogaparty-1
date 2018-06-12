@@ -5,7 +5,7 @@ app.component("aktuellText", {
     controller: "AktuellTextController",
     bindings: {
         titel: "@",
-        bezeichnung: "@",
+        beschreibung: "@",
         vorname: "@",
         nachname: "@"
     }
@@ -19,6 +19,7 @@ app.controller("AktuellTextController", function ($http,$log) {
     $ctrl.$onInit = function(){
         this.geklickt=true;
         this.addgeklickt=false;
+        this.editgeklickt = false;
         $http.post("aktuell_bearbeiten_GET.php",{}).then(function (data) {
             $log.debug(data.data);
             $ctrl.getRequest = data.data;
@@ -30,14 +31,14 @@ app.controller("AktuellTextController", function ($http,$log) {
 
 
     $ctrl.edit = function () {
-        this.geklickt = false;
+        this.editgeklickt = true;
     }
 
-    $ctrl.save = function(){
+    $ctrl.update = function(){
         let that = this;
         that.fd = new FormData();
         that.fd.append("titel", $ctrl.getRequest.titel);
-        that.fd.append("bezeichnung", $ctrl.getRequest.bezeichnung);
+        that.fd.append("beschreibung", $ctrl.getRequest.beschreibung);
         that.fd.append("datum", $ctrl.getRequest.datum);
         $http({
             method: 'post',
@@ -51,8 +52,38 @@ app.controller("AktuellTextController", function ($http,$log) {
         });
     }
 
-    $ctrl.add = function () {
+    $ctrl.test = function () {
         this.addgeklickt = true;
+    }
+
+    $ctrl.add = function () {
+        let that = this;
+        that.fd = new FormData();
+        that.fd.append("titel", $ctrl.titel);
+        that.fd.append("beschreibung", $ctrl.beschreibung);
+        //that.fd.append("datum", that.datum);
+        $http({
+            method: 'post',
+            url: 'aktuell_bearbeiten_INSERT.php',
+            data: that.fd,
+            headers: {'Content-Type': undefined},
+            transformRequest: angular.identity
+        }).then(response => {
+            $log.debug("response");
+            $log.debug(response.data);
+        });
+        //this.addgeklickt = true;
+    }
+
+    $ctrl.delete = function () {
+        let that = this;
+        $http.post("aktuell_bearbeiten_DELETE.php",{
+                "titel": $ctrl.titel,
+                "beschreibung": $ctrl.beschreibung
+            }
+        ).then(function (result) {
+            $log.debug(result);
+        });
     }
 });
 

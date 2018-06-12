@@ -8,13 +8,13 @@ $output;
 
 
 
-if ($stmt = $mysqli->prepare('SELECT titel, bezeichnung, datum, vorname, nachname from Aktuelles join YogaLehrer on YogaLehrer.Lehrer_ID = Aktuelles.FK_Lehrer where YogaLehrer.Lehrer_ID = ?')) {
+if ($stmt = $mysqli->prepare('SELECT titel, beschreibung, datum, vorname, nachname from Aktuelles join YogaLehrer on YogaLehrer.Lehrer_ID = Aktuelles.FK_Lehrer where YogaLehrer.Lehrer_ID = ?')) {
     $stmt->bind_param('i', $id);
     $stmt->execute();
-    $stmt->bind_result($titel,$bezeichnung, $datum, $vorname, $nachname);
+    $stmt->bind_result($titel,$beschreibung, $datum, $vorname, $nachname);
     while ($stmt->fetch()) {
         $output['titel'] = $titel;
-        $output['bezeichnung'] = $bezeichnung;
+        $output['beschreibung'] = $beschreibung;
         $output['datum'] = $datum;
         $output['vorname'] = $vorname;
         $output['nachname'] = $nachname;
