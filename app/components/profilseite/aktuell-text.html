@@ -1,12 +1,19 @@
 <md-list flex>
     <md-divider></md-divider>
-    <div ng-show="$ctrl.addgeklickt">
-    <md-subheader>{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}} - <span class="label label-default">15.3.2018</span></md-subheader>
-    <md-list-item class="md-7-line">
-        <div class="md-list-item-text" layout="column">
-            <h4><a href="#" style="text-decoration: none; color: black;" data-toggle='modal' data-target='#news1'><b>{{$ctrl.getRequest.titel}}</b></a></h4>
-        </div>
-    </md-list-item>
+
+        <md-subheader>{{$ctrl.getRequest.vorname}} {{$ctrl.getRequest.nachname}} - <span class="label label-default">15.3.2018</span></md-subheader>
+        <button type="button" style="float: right" class="close btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-option-vertical"></span></button>
+        <ul class="dropdown-menu">
+            <!--<li><a ng-click="$ctrl.test()">Hinzufuegen</a></li>-->
+            <li><a ng-click="$ctrl.edit()">Bearbeiten</a></li>
+            <li><a>Loeschen</a></li>
+        </ul>
+        <div ng-hide="$ctrl.geklickt">
+        <md-list-item class="md-7-line">
+            <div class="md-list-item-text" layout="column">
+                <h4><a href="#" style="text-decoration: none; color: black;" data-toggle='modal' data-target='#news1'><b>{{$ctrl.getRequest.titel}}</b></a></h4>
+            </div>
+        </md-list-item>
     </div>
     <md-button class="md-primary md-raised" data-toggle='modal' data-target='#news1' ng-hide="$ctrl.addgeklickt">News hinzufügen</md-button>
     <md-divider></md-divider>
@@ -27,7 +34,7 @@
 </md-list>
 
 <div>
-    <div class="modal fade in" id="news1" tabindex="-1" role="dialog" aria-labelledby="news1">
+    <div class="modal fade in" id="news1" tabindex="-1" role="dialog" aria-labelledby="hinzufuegen">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form>
@@ -35,19 +42,18 @@
                         <div class="dropdown">
                             <button type="button" style="float: left" class="close btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-option-vertical"></span></button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a ng-click="$ctrl.test()">Hinzufuegen</a></li>
+                                <!--<li><a ng-click="$ctrl.test()">Hinzufuegen</a></li>-->
                                 <li><a ng-click="$ctrl.edit()">Bearbeiten</a></li>
                                 <li><a>Loeschen</a></li>
                             </ul>
                         </div>
-                        <h4 class="modal-title" id="myModalLabel1">{{$ctrl.getRequest.titel}}</h4>
+                        <!--<h4 class="modal-title" id="myModalLabel1">{{$ctrl.getRequest.titel}}</h4>-->
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <div ng-show="$ctrl.addgeklickt"><span>Titel:</span><input type="text" class="form-control" ng-model="$ctrl.titel" value="{{$ctrl.getRequest.titel}}"><br></div>
                             <span ng-show="$ctrl.editgeklickt">Beschreibung:</span><textarea class="form-control" style="height: 500px; width: 100%" ng-show="$ctrl.editgeklickt" ng-model="$ctrl.beschreibung">{{$ctrl.getRequest.bezeichnung}}</textarea>
-                            <span ng-show="$ctrl.addgeklickt">Beschreibung:</span><textarea class="form-control" style="height: 500px; width: 100%" ng-show="$ctrl.addgeklickt" ng-model="$ctrl.beschreibung">{{$ctrl.getRequest.bezeichnung}}</textarea>
-                            <span ng-hide="$ctrl.addgeklickt">Beschreibung:</span><textarea class="form-control" style="height: 500px; width: 100%" ng-disabled="$ctrl.geklickt" ng-hide="$ctrl.addgeklickt">{{$ctrl.getRequest.bezeichnung}}</textarea>
+                            <!--<span ng-hide="$ctrl.addgeklickt">Beschreibung:</span><textarea class="form-control" style="height: 500px; width: 100%" ng-disabled="$ctrl.geklickt" ng-hide="$ctrl.addgeklickt">{{$ctrl.getRequest.bezeichnung}}</textarea>-->
 
 
                         </div>
@@ -65,7 +71,7 @@
 </div>
 <div>
     <div>
-        <div class="modal fade in" id="news2" tabindex="-1" role="dialog" aria-labelledby="news2">
+        <div class="modal fade in" id="news2" tabindex="-1" role="dialog" aria-labelledby="bearbeiten">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form>
@@ -76,35 +82,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <p></p>
-
-
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div>
-    <div>
-        <div class="modal fade in" id="news3" tabindex="-1" role="dialog" aria-labelledby="news3">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">
-                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>-->
-                            <h4 class="modal-title" id="myModalLabel3">Die neuen Yoga-Artikel sind diese Woche eingetroffen</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <p></p>
+                                <div ng-show="$ctrl.addgeklickt"><span>Titel:</span><input type="text" class="form-control" ng-model="$ctrl.titel" value="{{$ctrl.getRequest.titel}}"><br></div>
+                                <span ng-show="$ctrl.addgeklickt">Beschreibung:</span><textarea class="form-control" style="height: 500px; width: 100%" ng-show="$ctrl.addgeklickt" ng-model="$ctrl.beschreibung">{{$ctrl.getRequest.bezeichnung}}</textarea
 
                             </div>
 
