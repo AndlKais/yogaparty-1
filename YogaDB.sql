@@ -19,7 +19,7 @@ create table if not exists YogaLehrer (
   ist_freigegeben boolean
 );
 
-insert into YogaLehrer (Lehrer_ID, vorname, nachname, email, telefonnummer, passwort, adresse, adresszusatz, plz, ort, land, kurzbeschreibung, ist_freigegeben) values (1, 'Jens', 'Oberberger', 'jens.oberberger@gmail.com', 0664653721, 'Blaumeisenmaschine', 'Rennweg', '89b', 1030, 'Wien', 'AT', 'Best YogaLehrer of the world', true);
+insert into YogaLehrer (Lehrer_ID, vorname, nachname, email, telefonnummer, passwort, adresse, adresszusatz, plz, ort, land, kurzbeschreibung, ist_freigegeben) values (1, 'Jens', 'Oberberger', 'jens.oberberger@gmail.com', 0664653721, 'Blaumeisenmaschine', 'Simmeringer Hauptstraße', '109', 1030, 'Wien', 'AT', 'Best YogaLehrer of the world', true);
 
 create table if not exists Zertifikat (
   Zert_ID integer primary key auto_increment,
