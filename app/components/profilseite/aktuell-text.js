@@ -50,6 +50,9 @@ app.controller("AktuellTextController", function ($http,$log) {
         that.fd = new FormData();
         that.fd.append("titel", $ctrl.temp[id].titel);
         that.fd.append("beschreibung", $ctrl.temp[id].beschreibung);
+        that.fd.append("aktuell_ID", $ctrl.temp[id].aktuell_ID);
+        console.log("mmmmmmmmmmmmm");
+        console.log($ctrl.temp[id].aktuell_ID);
         $http({
             method: 'post',
             url: 'aktuell_bearbeiten_UPDATE.php',
@@ -59,7 +62,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         }).then(function (response) {
             console.log("aktuell_bearbeiten")
             $log.debug(response);
-            window.location.reload(true);
+            /*window.location.reload(true);*/
         });
         console.log("-----update aktuell--------");
         console.log(that.fd.titel);

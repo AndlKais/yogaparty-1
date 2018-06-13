@@ -6,7 +6,7 @@ $id = 1;
 
 $output;
 
-if ($stmt = $mysqli->prepare('SELECT titel, beschreibung, datum, vorname, nachname from Aktuelles join YogaLehrer on YogaLehrer.Lehrer_ID = Aktuelles.FK_Lehrer where YogaLehrer.Lehrer_ID = ?')) {
+if ($stmt = $mysqli->prepare('SELECT aktuell_ID, titel, beschreibung, datum, vorname, nachname from Aktuelles join YogaLehrer on YogaLehrer.Lehrer_ID = Aktuelles.FK_Lehrer where YogaLehrer.Lehrer_ID = ?')) {
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $result = $stmt->get_result();
