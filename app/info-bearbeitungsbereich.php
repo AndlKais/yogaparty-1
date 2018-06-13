@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="vendor/mCustomScrollbar/mCustomScrollBar.min.css">
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
 
     <script src="vendor/jquery-3.2.1/jquery.min.js"></script>
@@ -42,7 +42,7 @@
     <script src="vendor/mdColorPicker/mdColorPicker.js"></script>
     <link rel="stylesheet" href="vendor/mdColorPicker/mdColorPicker.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="vendor/mCustomScrollbar/mCustomScrollbar.concat.min.js"></script>
 
     <script src="components/calendar/fullcalendar.js"></script>
     <script src="components/calendar/gcal.js"></script>

@@ -12,7 +12,7 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
     $scope.htmlVerbindungen = {};
 
     let ursprung = [];
-    
+
     $scope.getBloecke = function() {
         $log.debug("WIRD AUSGEFÜHRT");
         let elemente = angular.element(document.querySelector("testgelaende[reihenfolge='1'] > div"))[0];
@@ -185,14 +185,14 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         for(let i = 0; i < $scope.files.length; i++){
             if($scope.files[i].id === $scope.htmlVerbindungen.id){
                 $log.debug("ID = ID");
-                $scope.files[i].file = file;
+                $scope.files[i].file = file[0];
                 alreadyInFiles = true;
                 pos = i;
             }
         }
 
         if(!alreadyInFiles){
-            $scope.files.push({ "id": $scope.htmlVerbindungen.id, "file": file });
+            $scope.files.push({ "id": $scope.htmlVerbindungen.id, "file": file[0] });
             $scope.fileToId.push({
                 "id": $scope.htmlVerbindungen.id,
                 "blockArt": $scope.htmlVerbindungen.blockArt
@@ -210,7 +210,7 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
 
 
         let reader = new FileReader();
-        reader.readAsDataURL($scope.files[pos].file[0]);
+        reader.readAsDataURL($scope.files[pos].file);
 
         reader.addEventListener("load", function () {
             if(element) {
@@ -227,9 +227,9 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             let curAenderungen = $scope.aenderungen[i];
 
             if(curUrsprung.titel !== curAenderungen.titel ||
-               curUrsprung.beschreibung !== curAenderungen.beschreibung ||
-               curUrsprung.color !== curAenderungen.color ||
-               curUrsprung.backgroundC !== curAenderungen.backgroundC){
+                curUrsprung.beschreibung !== curAenderungen.beschreibung ||
+                curUrsprung.color !== curAenderungen.color ||
+                curUrsprung.backgroundC !== curAenderungen.backgroundC){
                 //$log.debug("CHANGE INHALT OHNE BILD");
                 changesMade = true;
                 $scope.changes.inhalt = true;
@@ -271,39 +271,40 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                     .ok('Okay!')
             );
         }else{
+            console.log($scope.files);
             $scope.fd = new FormData();
             $scope.fdFiles = new FormData();
             for(let i = 0; i < $scope.files.length; i++){
-                    $scope.fdFiles.append("file" + (i % 3), $scope.files[i].file[0]);
-                    if((i+1) % 3 === 0){
-                        let tempFileToId = [];
-                        tempFileToId.push($scope.fileToId[i-2]);
-                        tempFileToId.push($scope.fileToId[i-1]);
-                        tempFileToId.push($scope.fileToId[i]);
-                        //$scope.fdFiles.append("fileToId", JSON.stringify($scope.fileToId[i]));
-                        $scope.fdFiles.append("fileToId", JSON.stringify(tempFileToId));
-                        $http({
-                            method: 'post',
-                            url: 'profil_REPLACE_bloecke.php',
-                            data: $scope.fdFiles,
-                            headers: {'Content-Type': undefined},
-                            transformRequest: angular.identity
-                        }).then(function (response) {
-                            $mdDialog.show(
-                                $mdDialog.alert()
-                                    .clickOutsideToClose(true)
-                                    .title(response.data.everythingOk ? 'Yeah' : 'Oh nein')
-                                    .htmlContent(response.data.everythingOk ? '<h4>Ihre Blöcke wurden erfolgreich aktualisiert!</h4>' : '<h4>:( Es ist ein Fehler aufgetreten. Dev. Error - Console</h4>')
-                                    .ariaLabel('StatusMeldung BearbeitenBereich')
-                                    .ok('Okay')
-                            );
-                            $log.debug(response);
-                        });
-                        $scope.fdFiles = new FormData();
-                        tempFileToId = [];
-                    }
-                    //$scope.fdFiles.delete("file0");
-                    //$scope.fdFiles.delete("fileToId");
+                $scope.fdFiles.append("file" + (i % 3), $scope.files[i].file);
+                if((i+1) % 3 === 0){
+                    let tempFileToId = [];
+                    tempFileToId.push($scope.fileToId[i-2]);
+                    tempFileToId.push($scope.fileToId[i-1]);
+                    tempFileToId.push($scope.fileToId[i]);
+                    //$scope.fdFiles.append("fileToId", JSON.stringify($scope.fileToId[i]));
+                    $scope.fdFiles.append("fileToId", JSON.stringify(tempFileToId));
+                    $http({
+                        method: 'post',
+                        url: 'profil_REPLACE_bloecke.php',
+                        data: $scope.fdFiles,
+                        headers: {'Content-Type': undefined},
+                        transformRequest: angular.identity
+                    }).then(function (response) {
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .clickOutsideToClose(true)
+                                .title(response.data.everythingOk ? 'Yeah' : 'Oh nein')
+                                .htmlContent(response.data.everythingOk ? '<h4>Ihre Blöcke wurden erfolgreich aktualisiert!</h4>' : '<h4>:( Es ist ein Fehler aufgetreten. Dev. Error - Console</h4>')
+                                .ariaLabel('StatusMeldung BearbeitenBereich')
+                                .ok('Okay')
+                        );
+                        $log.debug(response);
+                    });
+                    $scope.fdFiles = new FormData();
+                    tempFileToId = [];
+                }
+                //$scope.fdFiles.delete("file0");
+                //$scope.fdFiles.delete("fileToId");
             }
 
             if($scope.files.length % 3 !== 0){
@@ -340,16 +341,16 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             $scope.fd.append("ursprung", JSON.stringify(ursprung));
             $scope.fd.append("pos", JSON.stringify($scope.posAenderungen));
             $scope.fd.append("changes", JSON.stringify($scope.changes));
-/*            $http({
-                method: 'post',
-                url: 'profil_REPLACE_bloecke.php',
-                data: $scope.fd,
-                headers: {'Content-Type': undefined},
-                transformRequest: angular.identity
-            }).then(function (response) {
-                $log.debug(response);
-            });
-  */        $timeout(function (){ $scope.showLoadingScreen(); }, 20);
+            /*            $http({
+                            method: 'post',
+                            url: 'profil_REPLACE_bloecke.php',
+                            data: $scope.fd,
+                            headers: {'Content-Type': undefined},
+                            transformRequest: angular.identity
+                        }).then(function (response) {
+                            $log.debug(response);
+                        });
+              */        $timeout(function (){ $scope.showLoadingScreen(); }, 20);
 
             $http.post("profil_REPLACE_bloecke.php", {
                 "aenderungen": $scope.aenderungen,

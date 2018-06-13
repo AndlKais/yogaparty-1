@@ -21,7 +21,7 @@ require_once  "database_connection.php";
 
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="vendor/mCustomScrollbar/mCustomScrollBar.min.css">
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
 
     <script src="vendor/jquery-3.2.1/jquery.min.js"></script>
@@ -44,7 +44,7 @@ require_once  "database_connection.php";
     <script src="vendor/angular-ui-router-1.0.8/angular-ui-router.min.js"></script>
     <script src="vendor/js/bootstrap.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="vendor/mCustomScrollbar/mCustomScrollbar.concat.min.js"></script>
 
     <script src="components/calendar/fullcalendar.js"></script>
     <script src="components/calendar/gcal.js"></script>
