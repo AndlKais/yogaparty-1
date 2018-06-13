@@ -15,7 +15,7 @@ app.component("infoBearbeiten", {
         passwortWH: "@",
         adresse: "@",
         adresszusatz: "@",
-        kurznachname: "@",
+        kurzbeschreibung: "@",
         profilbildpfad: "@",
         profilbildname: "@"
     }
@@ -107,6 +107,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
         that.fd.append("plz", $ctrl.getRequest.plz);
         that.fd.append("ort", $ctrl.getRequest.ort);
         that.fd.append("land", $ctrl.getRequest.land);
+        that.fd.append("kurzbeschreibung", $ctrl.getRequest.kurzbeschreibung)
         that.fd.append("profilbildname", $ctrl.getRequest.profilbildname);
         that.fd.append("profilbildpfad", $ctrl.getRequest.profilbildpfad);
         //console.log("typisch andy");

@@ -4,7 +4,7 @@ require_once "database_connection.php";
 
 $seitenID = 1;
 if (count($_POST) > 0) {
-    $query = "update YogaLehrer set vorname=?, nachname=?, email=?, telefonnummer=?, passwort=?, adresse=?, adresszusatz=?, plz=?, ort=?, land=? where Lehrer_ID=?";
+    $query = "update YogaLehrer set vorname=?, nachname=?, email=?, telefonnummer=?, passwort=?, adresse=?, adresszusatz=?, plz=?, ort=?, land=?, kurzbeschreibung=? where Lehrer_ID=?";
     if($stmt = $mysqli->prepare($query)){
         $vname = mysqli_real_escape_string($mysqli,$_POST['vorname']);
         $nname = mysqli_real_escape_string($mysqli,$_POST['nachname']);
@@ -17,8 +17,8 @@ if (count($_POST) > 0) {
         $plz = mysqli_real_escape_string($mysqli,$_POST['plz']);
         $ort = mysqli_real_escape_string($mysqli,$_POST['ort']);
         $land = mysqli_real_escape_string($mysqli,$_POST['land']);
-        //$kurzbeschreibung = mysqli_real_escape_string($mysqli,$_POST['kurzbeschreibung);
-        $stmt->bind_param('sssisssissi',$vname, $nname, $email, $telefonnummer, $passwort, $adresse, $adresszusatz, $plz, $ort, $land, $seitenID);
+        $kurzbeschreibung = mysqli_real_escape_string($mysqli, $_POST['kurzbeschreibung']);
+        $stmt->bind_param('sssisssisssi',$vname, $nname, $email, $telefonnummer, $passwort, $adresse, $adresszusatz, $plz, $ort, $land, $kurzbeschreibung, $seitenID);
         $stmt->execute();
         $stmt->close();
     }
