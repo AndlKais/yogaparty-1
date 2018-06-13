@@ -68,8 +68,10 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
         if ($ctrl.formular.$valid) {
             if ($ctrl.getRequest.passwort === $ctrl.getRequest.passwortWH) {
                 $ctrl.edit();
+                window.location.href = "index.php";
             } else if ($ctrl.getRequest.passwortWH === "") {
                 $ctrl.edit();
+                window.location.href = "index.php";
             } else {
                 $mdToast.show(
                     $mdToast.simple()
@@ -87,7 +89,6 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             );
 
         }
-        window.location.href = "index.php";
     };
 
     $ctrl.edit = function () {
