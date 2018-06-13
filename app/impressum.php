@@ -50,12 +50,11 @@
 
     <script src="vendor/mCustomScrollbar/mCustomScrollbar.concat.min.js"></script>
 
-    <script src="components/calendar/fullcalendar.js"></script>
+    <!--<script src="components/calendar/fullcalendar.js"></script>
     <script src="components/calendar/gcal.js"></script>
-    <script src="components/calendar/calendar.js"></script>
+    <script src="components/calendar/calendar.js"></script>-->
 
     <script src="app.js"></script>
-    <script src="components/main.js"></script>
     <script src="components/navigation.js"></script>
     <script src="components/bloecke/bildcentertext.js"></script>
     <script src="components/bloecke/titel-center-text.js"></script>
@@ -70,6 +69,7 @@
     <script src="components/accountseite/edit.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
     <script src="components/profilseite/aktuell-text.js"></script>
+    <script src="components/profilseite/werbebereich.js"></script>
     <script src="components/impressum.js"></script>
 </head>
 

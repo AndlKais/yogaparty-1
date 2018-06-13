@@ -15,7 +15,7 @@ app.component("infoBearbeiten", {
         passwortWH: "@",
         adresse: "@",
         adresszusatz: "@",
-        kurznachname: "@",
+        kurzbeschreibung: "@",
         profilbildpfad: "@",
         profilbildname: "@"
     }
@@ -68,8 +68,10 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
         if ($ctrl.formular.$valid) {
             if ($ctrl.getRequest.passwort === $ctrl.getRequest.passwortWH) {
                 $ctrl.edit();
+                window.location.href = "index.php";
             } else if ($ctrl.getRequest.passwortWH === "") {
                 $ctrl.edit();
+                window.location.href = "index.php";
             } else {
                 $mdToast.show(
                     $mdToast.simple()
@@ -85,6 +87,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     .position('bottom')
                     .hideDelay(3000)
             );
+
         }
     };
 
@@ -107,6 +110,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
         that.fd.append("plz", $ctrl.getRequest.plz);
         that.fd.append("ort", $ctrl.getRequest.ort);
         that.fd.append("land", $ctrl.getRequest.land);
+        that.fd.append("kurzbeschreibung", $ctrl.getRequest.kurzbeschreibung)
         that.fd.append("profilbildname", $ctrl.getRequest.profilbildname);
         that.fd.append("profilbildpfad", $ctrl.getRequest.profilbildpfad);
         //console.log("typisch andy");
@@ -119,7 +123,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             transformRequest: angular.identity
         }).then(function (response) {
                 $log.debug(response);
-                window.location.reload(true);
+                window.location.href = "index.php";
             }
         );
     };

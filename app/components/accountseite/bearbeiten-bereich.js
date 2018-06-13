@@ -307,6 +307,9 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                 //$scope.fdFiles.delete("fileToId");
             }
 
+            console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
+            console.log($scope.files);
+
             if($scope.files.length % 3 !== 0){
                 let tempFileToId = [];
                 let laenge = $scope.files.length;

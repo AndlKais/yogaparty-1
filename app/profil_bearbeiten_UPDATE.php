@@ -4,7 +4,7 @@ require_once "database_connection.php";
 
 $seitenID = 1;
 if (count($_POST) > 0) {
-    $query = "update YogaLehrer set vorname=?, nachname=?, email=?, telefonnummer=?, passwort=?, adresse=?, adresszusatz=?, plz=?, ort=?, land=? where Lehrer_ID=?";
+    $query = "update YogaLehrer set vorname=?, nachname=?, email=?, telefonnummer=?, passwort=?, adresse=?, adresszusatz=?, plz=?, ort=?, land=?, kurzbeschreibung=? where Lehrer_ID=?";
     if($stmt = $mysqli->prepare($query)){
         $vname = mysqli_real_escape_string($mysqli,$_POST['vorname']);
         $nname = mysqli_real_escape_string($mysqli,$_POST['nachname']);
@@ -17,8 +17,8 @@ if (count($_POST) > 0) {
         $plz = mysqli_real_escape_string($mysqli,$_POST['plz']);
         $ort = mysqli_real_escape_string($mysqli,$_POST['ort']);
         $land = mysqli_real_escape_string($mysqli,$_POST['land']);
-        //$kurzbeschreibung = mysqli_real_escape_string($mysqli,$_POST['kurzbeschreibung);
-        $stmt->bind_param('sssisssissi',$vname, $nname, $email, $telefonnummer, $passwort, $adresse, $adresszusatz, $plz, $ort, $land, $seitenID);
+        $kurzbeschreibung = mysqli_real_escape_string($mysqli, $_POST['kurzbeschreibung']);
+        $stmt->bind_param('sssisssisssi',$vname, $nname, $email, $telefonnummer, $passwort, $adresse, $adresszusatz, $plz, $ort, $land, $kurzbeschreibung, $seitenID);
         $stmt->execute();
         $stmt->close();
     }
@@ -41,6 +41,37 @@ if (count($_POST) > 0) {
         $target_file = "ProfilBild_1." . $imageFileType;
         move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $target_file);
     }
+    }
+
+    $tempID = intval($fileToId[$indexFiles]->id);
+
+        if ($stmt = $mysqli->prepare(
+            "SELECT CONCAT(profB_name,profB_pfad) AS 'datei', bZahl FROM {$fileBlockArt} WHERE {$fileIdName} = ?")) {
+
+        $stmt->bind_param("i", $seitenID);
+
+        if (!$stmt->execute()) {
+            $response['fileExecute'] = false;
+            $response['everythingOk'] = false;
+        }
+
+        $stmt->bind_result($resultBild, $resultZahl);
+
+        while ($stmt->fetch()) {
+            $resultB = $resultBild;
+            $resultZ = $resultZahl;
+            $response['resBild'] = $resultBild;
+            $response['resZahl'] = $resultZahl;
+        }
+
+        $stmt->close();
+
+        if (file_exists($resultB)) {
+            if (!unlink($resultB)) {
+                $response['deleteFile'] = false;
+                $response['everythingOk'] = false;
+            }
+        }
     }
 }
 

@@ -38,12 +38,11 @@
 
     <script src="vendor/mCustomScrollbar/mCustomScrollbar.concat.min.js"></script>
 
-    <script src="components/calendar/fullcalendar.js"></script>
+    <!--<script src="components/calendar/fullcalendar.js"></script>
     <script src="components/calendar/gcal.js"></script>
-    <script src="components/calendar/calendar.js"></script>
+    <script src="components/calendar/calendar.js"></script>-->
 
     <script src="app.js"></script>
-    <script src="components/main.js"></script>
     <script src="components/navigation.js"></script>
     <script src="components/bloecke/bildcentertext.js"></script>
     <script src="components/bloecke/titel-center-text.js"></script>
@@ -58,6 +57,7 @@
     <script src="components/accountseite/blockkomponente.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>
     <script src="components/profilseite/aktuell-text.js"></script>
+    <script src="components/profilseite/werbebereich.js"></script>
 
     <script src="components/impressum.js"></script>
 
@@ -80,8 +80,8 @@
             <div style="width: 50%; margin-left: 15px" class="newsdiv">
                 <aktuell-text></aktuell-text>
             </div>
-            <div style="width: 50%;" layout-align="center center" class="newsdiv">
-                <h1 style="width: 100%; margin: auto; text-align: center">Hier könnte Ihre Werbung stehen</h1>
+            <div style="width: 50%; margin-bottom: auto; margin-top: auto" layout-align="center center" class="newsdiv">
+                <werbebereich></werbebereich>
             </div>
         </div>
         <testgelaende></testgelaende>
