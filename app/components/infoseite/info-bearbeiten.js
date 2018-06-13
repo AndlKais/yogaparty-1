@@ -85,7 +85,9 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
                     .position('bottom')
                     .hideDelay(3000)
             );
+
         }
+        window.location.href = "index.php";
     };
 
     $ctrl.edit = function () {
@@ -120,7 +122,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             transformRequest: angular.identity
         }).then(function (response) {
                 $log.debug(response);
-                window.location.reload(true);
+                window.location.href = "index.php";
             }
         );
     };

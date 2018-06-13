@@ -20,6 +20,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         this.geklickt=true;
         this.addgeklickt=false;
         this.editgeklickt = false;
+        this.options= true;
         $http.post("aktuell_bearbeiten_GET.php",{}).then(function (data) {
             $log.debug('onInit response');
             $log.debug(data.data);
@@ -28,6 +29,9 @@ app.controller("AktuellTextController", function ($http,$log) {
             for(let i = 0; i < $ctrl.newseintraege.length; i++){
                 $ctrl.newseintraege[i].id = i;
                 $ctrl.temp[i].id = i;
+                if($ctrl.newseintraege == null){
+                    $ctrl.options=false;
+                }
             }
 
 
@@ -35,7 +39,6 @@ app.controller("AktuellTextController", function ($http,$log) {
 
 
     }
-
 
 
     $ctrl.edit = function () {
@@ -56,6 +59,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         }).then(function (response) {
             console.log("aktuell_bearbeiten")
             $log.debug(response);
+            window.location.reload(true);
         });
         console.log("-----update aktuell--------");
         console.log(that.fd.titel);
@@ -81,6 +85,7 @@ app.controller("AktuellTextController", function ($http,$log) {
             $log.debug("response");
             $log.debug(response.data);
             that.getRequest.titel = response.data;
+            window.location.reload(true);
         });
         this.geklickt = false;
     }
@@ -100,7 +105,7 @@ app.controller("AktuellTextController", function ($http,$log) {
 
         ).then(function (result) {
             $log.debug(result);
-
+            window.location.reload(true);
         });
     }
 });

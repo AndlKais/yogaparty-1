@@ -46,9 +46,9 @@ require_once  "database_connection.php";
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script src="components/calendar/fullcalendar.js"></script>
+    <!--<script src="components/calendar/fullcalendar.js"></script>
     <script src="components/calendar/gcal.js"></script>
-    <script src="components/calendar/calendar.js"></script>
+    <script src="components/calendar/calendar.js"></script>-->
 
     <script src="app.js"></script>
     <script src="components/navigation.js"></script>
@@ -61,6 +61,7 @@ require_once  "database_connection.php";
     <script src="components/profilseite/sliderprofile.js"></script>
     <script src="components/profilseite/calendarcontact.js"></script>
     <script src="components/profilseite/userinfos.js"></script>
+    <script src="components/profilseite/werbebereich.js"></script>
     <script src="components/accountseite/auswahl.js"></script>
     <script src="components/accountseite/blockkomponente.js"></script>
     <script src="components/accountseite/fileChooser.js"></script>

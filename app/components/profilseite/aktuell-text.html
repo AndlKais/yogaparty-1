@@ -1,8 +1,10 @@
-<md-list flex>
-    <md-button class="md-primary md-raised" data-toggle='modal' data-target='#hinzufuegen'>News hinzufügen</md-button>
+<md-list flex >
+    <div layout="row" layout-align="center center">
+    <md-button style="margin: 0 auto;" class="md-primary md-raised" data-toggle='modal' data-target='#hinzufuegen'>Ankündigung hinzufügen</md-button>
+    </div>
     <div ng-repeat="newseintrag in $ctrl.newseintraege">
         <div><md-subheader>{{newseintrag.vorname}} {{newseintrag.nachname}} - <span class="label label-default">{{newseintrag.datum}}</span></md-subheader></div>
-        <button type="button" style="float: right" class="close btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-option-vertical"></span></button>
+        <button type="button" style="float: right" class="close btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-show="$ctrl.options"><span class="glyphicon glyphicon-option-vertical"></span></button>
         <ul class="dropdown-menu" style="position: relative; float: right">
             <!--<li><a ng-click="$ctrl.test()">Hinzufuegen</a></li>-->
             <li><a data-toggle='modal' data-target='#{{newseintrag.id}}'>Bearbeiten</a></li>
@@ -11,11 +13,38 @@
         <div>
             <md-list-item class="md-7-line">
                 <div class="md-list-item-text" layout="column">
-                    <h4><a href="#" style="text-decoration: none; color: black;"><b>{{newseintrag.titel}}</b></a></h4>
+                    <h4><a href="#" style="text-decoration: none; color: black;" data-toggle='modal' data-target='#{{newseintrag.id}}2'><b>{{newseintrag.titel}}</b></a></h4>
                 </div>
             </md-list-item>
         </div>
         <md-divider></md-divider>
+        <div>
+            <div class="modal fade in" id="{{newseintrag.id}}2" tabindex="-1" role="dialog" aria-labelledby="anzeigen">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header" layout="row" layout-align="space-between center">
+                                <h4 class="modal-title" id="myModalLabel1">{{newseintrag.titel}}</h4>
+                                <div flex></div>
+                                <h4 class="modal-title">{{newseintrag.datum}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+
+                                <div>{{newseintrag.beschreibung}}</div>
+
+                                </div>
+
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div>
             <div>
                 <div class="modal fade in" id="{{newseintrag.id}}" tabindex="-1" role="dialog" aria-labelledby="{{newseintrag.titel}}">
@@ -94,3 +123,5 @@
         </div>
     </div>
 </div>
+
+
