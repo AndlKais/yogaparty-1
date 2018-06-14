@@ -219,6 +219,10 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         });
     };
 
+
+
+
+
     $scope.changesMade = function (){
         let changesMade = false;
         $scope.changes = {"inhalt": false, "pos": false, "files": false};
@@ -236,12 +240,14 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             }
         }
 
-        for(let i = 1; i <= $scope.posAenderungen.length; i++){
-            if(i !== parseInt($scope.posAenderungen[i-1])){
-                //$log.debug("CHANGE POSAENDERUNGEN");
-                changesMade = true;
-                $scope.changes.pos = true;
-                break;
+        if($scope.anfangspos.length === $scope.posAenderungen.length){
+            for(let i = 0; i < $scope.anfangspos.length; i++){
+                if(parseInt($scope.anfangspos[i]) !== parseInt($scope.posAenderungen[i])){
+                    //$log.debug("CHANGE POSAENDERUNGEN");
+                    changesMade = true;
+                    $scope.changes.pos = true;
+                    break;
+                }
             }
         }
 
@@ -253,6 +259,11 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
 
         return changesMade;
     };
+
+
+
+
+
 
     $scope.saveAllChanges = function () {
         /*$log.debug(ursprung);
