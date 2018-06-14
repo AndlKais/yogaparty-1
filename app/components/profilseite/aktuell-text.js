@@ -88,9 +88,9 @@ app.controller("AktuellTextController", function ($http,$log) {
             $log.debug("response");
             $log.debug(response.data);
             that.getRequest.titel = response.data;
-            window.location.reload(true);
         });
         this.geklickt = false;
+        window.location.reload(true);
     }
 
     $ctrl.delete = function (id) {
