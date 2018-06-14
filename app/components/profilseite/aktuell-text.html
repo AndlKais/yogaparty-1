@@ -1,6 +1,6 @@
 <md-list flex >
     <div layout="row" layout-align="center center">
-    <md-button style="margin: 0 auto;" class="md-primary md-raised" data-toggle='modal' data-target='#hinzufuegen'>Ankündigung hinzufügen</md-button>
+    <md-button style="margin: 0 auto;" class="btn btn-primary" data-toggle='modal' data-target='#hinzufuegen'>Ankündigung hinzufügen</md-button>
     </div>
     <div ng-repeat="newseintrag in $ctrl.newseintraege">
         <div><md-subheader>{{newseintrag.vorname}} {{newseintrag.nachname}} - <span class="label label-default">{{newseintrag.datum}}</span></md-subheader></div>

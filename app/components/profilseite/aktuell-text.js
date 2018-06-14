@@ -62,7 +62,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         }).then(function (response) {
             console.log("aktuell_bearbeiten")
             $log.debug(response);
-            /*window.location.reload(true);*/
+            window.location.reload(true);
         });
         console.log("-----update aktuell--------");
         console.log(that.fd.titel);
