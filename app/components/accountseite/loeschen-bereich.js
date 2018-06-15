@@ -33,7 +33,7 @@ app.controller("LoeschenBereichController", function ($log, $http, $mdDialog) {
                     .title('Löschen bestätigen?')
                     .htmlContent("<h3>Möchten Sie die entfernten Blöcke für immer löschen?</h3> <br> <h4>Sie können bei \"Hinzufügen\" gleich einen neuen Block erstellen oder bei \"Bearbeiten\" einen vorhandenen Block ändern - probieren Sie es gleich aus! :)</h4>")
                     .ariaLabel('OffscreenAlert')
-                    .ok('Ja für immmmmmer')
+                    .ok('Ja')
                     .openFrom({
                         top: -50,
                         width: 30,
