@@ -1,16 +1,10 @@
 <nav class="navbar navbar-default" style="color:black;margin-bottom: 0; background-color: #98ff98; border: none; border-radius: unset;">
     <div class="container-fluid" style="display:flex; align-items:center; margin-top: auto; margin-bottom: auto;">
-
         <h1 style="margin:10px 0 10px 10px; text-align: left; color: white">
             <img id="navbar-image" alt="Brand"  style=" height: 70px; padding-right: 15px"src="resources/pictures/blume-des-lebens3.png" >
             <a id="navbar-text" style="color:black; text-decoration: none" href="index.php">yogaparty</a>
         </h1>
-        <div flex>
-
-        </div>
-        <div class="navbar-header">
-
-        </div>
+        <div flex></div>
     </div>
 </nav>
 <div style=" padding-top: 50px; text-align: center">
@@ -30,13 +24,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <span>Name:</span><input type="text" class="form-control" ng-model="$ctrl.titel"><br>
                             <span>Passwort:</span><input type="password" class="form-control" ng-model="$ctrl.passwd">
-                            <!--<span ng-hide="$ctrl.addgeklickt">Beschreibung:</span><textarea class="form-control" style="height: 500px; width: 100%" ng-disabled="$ctrl.geklickt" ng-hide="$ctrl.addgeklickt">{{$ctrl.getRequest.bezeichnung}}</textarea>-->
-
-
                         </div>
-
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="$ctrl.weiter()">Weiter</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
