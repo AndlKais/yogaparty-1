@@ -11,7 +11,7 @@ app.controller("landingController", function () {
 
     $ctrl.weiter = function () {
         if ($ctrl.passwd === "test123") {
-            window.location.href = "";
+            window.location.href = "profilseite.php";
         } else {
             window.location.reload(true);
         }
