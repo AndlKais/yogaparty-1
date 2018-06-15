@@ -28,9 +28,13 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
     $ctrl.file;
 
     this.$onInit = function () {
+        $ctrl.entsperren = true;
         $http.post("profil_bearbeiten_GET.php", {}).then(function (data) {
             $log.debug(data.data);
             $ctrl.getRequest = data.data;
+            if($ctrl.getRequest == null){
+                $ctrl.entsperren = false;
+            }
             //console.log($ctrl.getRequest);
         });
 
@@ -68,10 +72,10 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
         if ($ctrl.formular.$valid) {
             if ($ctrl.getRequest.passwort === $ctrl.getRequest.passwortWH) {
                 $ctrl.edit();
-                window.location.href = "index.php";
+                window.location.href = "profilseite.php";
             } else if ($ctrl.getRequest.passwortWH === "") {
                 $ctrl.edit();
-                window.location.href = "index.php";
+                window.location.href = "profilseite.php";
             } else {
                 $mdToast.show(
                     $mdToast.simple()
@@ -123,7 +127,7 @@ app.controller("InfoBearbeitenController", function ($http, $log, $mdToast) {
             transformRequest: angular.identity
         }).then(function (response) {
                 $log.debug(response);
-                window.location.href = "index.php";
+                window.location.href = "profilseite.php";
             }
         );
     };

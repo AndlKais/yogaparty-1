@@ -1,7 +1,7 @@
 "use strict";
 
 app.component("sliderProfile", {
-    templateUrl: "components/profilseite/sliderprofile.html",
+    templateUrl: "components/profilseite/slider.html",
     controller: "sliderprofileController",
     bindings: {
 

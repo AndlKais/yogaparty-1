@@ -46,10 +46,6 @@ require_once  "database_connection.php";
 
     <script src="vendor/mCustomScrollbar/mCustomScrollbar.concat.min.js"></script>
 
-    <!--<script src="components/calendar/fullcalendar.js"></script>
-    <script src="components/calendar/gcal.js"></script>
-    <script src="components/calendar/calendar.js"></script>-->
-
     <script src="app.js"></script>
     <script src="components/navigation.js"></script>
     <script src="components/bloecke/bildcentertext.js"></script>
@@ -58,7 +54,7 @@ require_once  "database_connection.php";
     <script src="components/bloecke/bildtextleft.js"></script>
     <script src="components/bloecke/bildtextright.js"></script>
     <script src="components/profilseite/testgelaende.js"></script>
-    <script src="components/profilseite/sliderprofile.js"></script>
+    <script src="components/profilseite/slider.js"></script>
     <script src="components/profilseite/calendarcontact.js"></script>
     <script src="components/profilseite/userinfos.js"></script>
     <script src="components/profilseite/werbebereich.js"></script>
