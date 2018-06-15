@@ -26,7 +26,6 @@ app.controller("blockKomponenteController", function ($log, $mdDialog, $http) {
     };
 
     this.updateValidity = function () {
-        //$log.debug(" formular.$valid: " + this.formular.$valid + " file: " + this.file);
         if (this.showFileChooser) {
             this.formInvalid = !this.file || !this.formular.$valid;
         } else {
@@ -50,14 +49,11 @@ app.controller("blockKomponenteController", function ($log, $mdDialog, $http) {
             if(this.file) {
                 let reader = new FileReader();
                 reader.readAsDataURL(this.file[0]);
-                //$log.debug(reader);
                 reader.addEventListener("load", function () {
-                    //$log.debug(reader);
                     if(document.getElementsByClassName("preview-image")) {
                         document.getElementsByClassName("preview-image")[0].src = reader.result;
                     }
                 });
-                //$log.debug(that.tempBlock);
             }
             this.tempBlock = "<bild-center-text style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-center-text>";
         }else if(this.ausgewaehlt === "BBTR"){
@@ -71,29 +67,22 @@ app.controller("blockKomponenteController", function ($log, $mdDialog, $http) {
                         document.getElementsByClassName("preview-image")[0].src = reader.result;
                     }
                 });
-                //$log.debug(that.tempBlock);
             }
             this.tempBlock = "<bild-text-right style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-text-right>";
         }else if(this.ausgewaehlt === "BBTL"){
             if(this.file) {
                 let reader = new FileReader();
                 reader.readAsDataURL(this.file[0]);
-                //$log.debug(reader);
                 reader.addEventListener("load", function () {
-                    //$log.debug(reader);
                     if(document.getElementsByClassName("preview-image")) {
                         document.getElementsByClassName("preview-image")[0].src = reader.result;
                     }
                 });
-                //$log.debug(that.tempBlock);
             }
             this.tempBlock = "<bild-text-left style='color:" + this.color + ";background-color:" + this.backgroundC + ";' titel='" + tempTitel + "' text='" + tempBeschreibung + "' bild=''></bild-text-left>";
         }
 
     };
-
-
-
 
     this.checkFormular = function () {
         if(this.formInvalid && this.showFileChooser){
@@ -132,7 +121,6 @@ app.controller("blockKomponenteController", function ($log, $mdDialog, $http) {
             let that = this;
             this.backgroundC = this.backgroundC ? this.backgroundC : "#fffaef";
             this.color = this.color ? this.color : "#000000";
-            //console.log(this.backgroundC + " " + this.color);
             that.fd = new FormData();
             if(that.file){
                 that.fd.append("file", that.file[0]);

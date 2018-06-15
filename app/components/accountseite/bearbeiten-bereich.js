@@ -53,10 +53,7 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             $scope.posAenderungen.push(elemente.childNodes[i].getAttribute("id"));
             $scope.anfangspos.push(elemente.childNodes[i].getAttribute("id"));
         }
-        //$scope.aenderungen = ursprung;
-        //$scope.anfangspos = $scope.posAenderungen;
     };
-
 
     $scope.updateBlock = function (id, blockArt, inhalt) {
         $scope.temp.file = !$scope.temp.file;
@@ -74,8 +71,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             };
         });
     };
-
-
 
     $scope.moveUp = function (){
         if(!$scope.htmlVerbindungen.id) {
@@ -103,9 +98,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         }
     };
 
-
-
-
     $scope.moveDown = function (){
         if(!$scope.htmlVerbindungen.id) {
             $mdToast.show(
@@ -131,9 +123,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             }
         }
     };
-
-
-
 
     $scope.updateChanges = function (reference) {
 
@@ -219,10 +208,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         });
     };
 
-
-
-
-
     $scope.changesMade = function (){
         let changesMade = false;
         $scope.changes = {"inhalt": false, "pos": false, "files": false};
@@ -234,7 +219,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                 curUrsprung.beschreibung !== curAenderungen.beschreibung ||
                 curUrsprung.color !== curAenderungen.color ||
                 curUrsprung.backgroundC !== curAenderungen.backgroundC){
-                //$log.debug("CHANGE INHALT OHNE BILD");
                 changesMade = true;
                 $scope.changes.inhalt = true;
             }
@@ -243,7 +227,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         if($scope.anfangspos.length === $scope.posAenderungen.length){
             for(let i = 0; i < $scope.anfangspos.length; i++){
                 if(parseInt($scope.anfangspos[i]) !== parseInt($scope.posAenderungen[i])){
-                    //$log.debug("CHANGE POSAENDERUNGEN");
                     changesMade = true;
                     $scope.changes.pos = true;
                     break;
@@ -252,7 +235,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         }
 
         if($scope.files.length !== 0){
-            //$log.debug("CHANGE FILES");
             changesMade = true;
             $scope.changes.files = true;
         }
@@ -260,18 +242,7 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
         return changesMade;
     };
 
-
-
-
-
-
     $scope.saveAllChanges = function () {
-        /*$log.debug(ursprung);
-        $log.debug($scope.aenderungen);
-        $log.debug($scope.posAenderungen);
-        $log.debug($scope.files);
-        $log.debug("-----------------");
-        $log.debug($scope.changesMade());*/
         if(!$scope.changesMade()) {
             $mdDialog.show(
                 $mdDialog.alert()
@@ -282,7 +253,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                     .ok('Okay!')
             );
         }else{
-            console.log($scope.files);
             $scope.fd = new FormData();
             $scope.fdFiles = new FormData();
             for(let i = 0; i < $scope.files.length; i++){
@@ -314,12 +284,7 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                     $scope.fdFiles = new FormData();
                     tempFileToId = [];
                 }
-                //$scope.fdFiles.delete("file0");
-                //$scope.fdFiles.delete("fileToId");
             }
-
-            console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
-            console.log($scope.files);
 
             if($scope.files.length % 3 !== 0){
                 let tempFileToId = [];
@@ -350,21 +315,12 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                 });
             }
 
-            //$scope.fd.append("fileToId", JSON.stringify($scope.fileToId));
             $scope.fd.append("aenderungen", JSON.stringify($scope.aenderungen));
             $scope.fd.append("ursprung", JSON.stringify(ursprung));
             $scope.fd.append("pos", JSON.stringify($scope.posAenderungen));
             $scope.fd.append("changes", JSON.stringify($scope.changes));
-            /*            $http({
-                            method: 'post',
-                            url: 'profil_REPLACE_bloecke.php',
-                            data: $scope.fd,
-                            headers: {'Content-Type': undefined},
-                            transformRequest: angular.identity
-                        }).then(function (response) {
-                            $log.debug(response);
-                        });
-              */        $timeout(function (){ $scope.showLoadingScreen(); }, 20);
+
+            $timeout(function (){ $scope.showLoadingScreen(); }, 20);
 
             $http.post("profil_REPLACE_bloecke.php", {
                 "aenderungen": $scope.aenderungen,
@@ -376,7 +332,6 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
                 $log.debug(response);
             });
         }
-
     };
 
     $scope.showLoadingScreen = function () {
@@ -391,5 +346,4 @@ app.controller("BearbeitenBereichController", function ($log, $scope, $mdToast, 
             $scope.serverConnection = { "changing": false };
         }
     };
-
 });

@@ -13,13 +13,7 @@ app.controller("userinfosController", function ($http, $log) {
         $http.post("profil_GET_info.php", {}).then(function (data) {
             $log.debug(data.data);
             $ctrl.getRequest = data.data;
-            //console.log($ctrl.getRequest);
         })}
-
-
-
-
-
 });
 
 

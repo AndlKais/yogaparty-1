@@ -25,9 +25,7 @@ app.controller("testgelaendeController", ['$http', '$log', '$compile', '$scope',
         let nodes = angular.element(document.querySelector("testgelaende[reihenfolge='" + this.reihenfolge + "'] > div").children);
         for(let i = 0; i < nodes.length; i++) {
             if(nodes[i].getAttribute("id") != id){
-                //nodes[i].style.display = "none";
             }else{
-                //nodes[i].style.display = "block";
             }
         }
 
@@ -67,19 +65,6 @@ app.controller("testgelaendeController", ['$http', '$log', '$compile', '$scope',
                 let node = $compile($ctrl.ausgabe[i])($scope);
                 $log.debug($ctrl.ausgabe[i]);
                 angular.element(document.getElementsByClassName("bloeckeAnzeigen")[$ctrl.reihenfolge ? $ctrl.reihenfolge - 1 : 0]).append(node);
-
-                /*  let node = document.createElement($ctrl.ausgabe[i].blockart);
-
-                  for(let key in $ctrl.ausgabe[i]) {
-                      if(key !== "blockart") {
-                          let attribut = document.createAttribute(key);
-                          attribut.value = $ctrl.ausgabe[i][key];
-                          node.setAttributeNode(attribut);
-                      }
-                      document.getElementById("test").appendChild(node);
-                  }
-                  //document.getElementById('test').appendChild(node);
-                  $log.debug($ctrl.ausgabe[i]);*/
             }
             $ctrl.elementsLoaded();
         });
