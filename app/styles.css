@@ -59,7 +59,68 @@ p {
     }
 }
 
+/*--------------------
+Auswahl
+-------------------- */
 
+auswahl > div {
+    width: 100%;
+    height: 250px;
+    background-color: #FFE1C7;
+}
+
+auswahl img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+auswahl > div > div {
+    height: 70%;
+    box-shadow: 2px 2px 5px 0px rgba(122,122,122,0.55);
+    border-top: 4px solid #A63333;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #DFFFDF;
+    text-align: center;
+}
+@media screen and (max-width: 850px){
+    auswahl > div {
+        height: 200px;
+    }
+    auswahl > div > div{
+        flex: 30% !important;
+        padding: 5px !important;
+    }
+}
+@media screen and (max-width: 650px){
+    auswahl > div {
+        height: 150px;
+    }
+}
+@media screen and (max-width: 400px){
+    auswahl > div {
+        height: 120px;
+    }
+}
+
+/*--------------------
+Userinfos
+-------------------- */
+
+@media screen and (max-width: 600px){
+    #vid{
+        padding: 2% !important;
+    }
+}
+@media screen and (max-width: 800px){
+    .head{
+        font-size: 2.5em !important;
+    }
+    .bod{
+        font-size: 1.4em !important;
+    }
+}
 
 /*--------------------
 Accountseite css?

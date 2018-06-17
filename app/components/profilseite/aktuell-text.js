@@ -21,7 +21,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         this.addgeklickt=false;
         this.editgeklickt = false;
         this.options= true;
-        $http.post("aktuell_bearbeiten_GET.php",{}).then(function (data) {
+        $http.post("aktuell_GET.php",{}).then(function (data) {
             $log.debug('onInit response');
             $log.debug(data.data);
             $ctrl.newseintraege = data.data;
@@ -55,7 +55,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         console.log($ctrl.temp[id].aktuell_ID);
         $http({
             method: 'post',
-            url: 'aktuell_bearbeiten_UPDATE.php',
+            url: 'aktuell_UPDATE.php',
             data: that.fd,
             headers: {'Content-Type': undefined},
             transformRequest: angular.identity
@@ -80,7 +80,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         //that.fd.append("datum", that.datum);
         $http({
             method: 'post',
-            url: 'aktuell_bearbeiten_INSERT.php',
+            url: 'aktuell_INSERT.php',
             data: that.fd,
             headers: {'Content-Type': undefined},
             transformRequest: angular.identity
@@ -88,9 +88,9 @@ app.controller("AktuellTextController", function ($http,$log) {
             $log.debug("response");
             $log.debug(response.data);
             that.getRequest.titel = response.data;
-            window.location.reload(true);
         });
         this.geklickt = false;
+        window.location.reload(true);
     }
 
     $ctrl.delete = function (id) {
@@ -100,7 +100,7 @@ app.controller("AktuellTextController", function ($http,$log) {
         that.fd.append("beschreibung", $ctrl.temp[id].beschreibung);
         $http({
             method: 'post',
-            url: 'aktuell_bearbeiten_DELETE.php',
+            url: 'aktuell_DELETE.php',
             data: that.fd,
             headers: {'Content-Type': undefined},
             transformRequest: angular.identity

@@ -62,7 +62,7 @@
     <script src="components/bloecke/bildtextleft.js"></script>
     <script src="components/bloecke/bildtextright.js"></script>
     <script src="components/profilseite/testgelaende.js"></script>
-    <script src="components/profilseite/sliderprofile.js"></script>
+    <script src="components/profilseite/slider.js"></script>
     <script src="components/profilseite/calendarcontact.js"></script>
     <script src="components/profilseite/aktuell.js"></script>
     <script src="components/accountseite/auswahl.js"></script>

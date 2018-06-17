@@ -25,9 +25,7 @@ app.controller("testgelaendeController", ['$http', '$log', '$compile', '$scope',
         let nodes = angular.element(document.querySelector("testgelaende[reihenfolge='" + this.reihenfolge + "'] > div").children);
         for(let i = 0; i < nodes.length; i++) {
             if(nodes[i].getAttribute("id") != id){
-                //nodes[i].style.display = "none";
             }else{
-                //nodes[i].style.display = "block";
             }
         }
 

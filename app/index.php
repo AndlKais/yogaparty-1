@@ -50,7 +50,7 @@
     <script src="components/bloecke/bildtextleft.js"></script>
     <script src="components/bloecke/bildtextright.js"></script>
     <script src="components/profilseite/testgelaende.js"></script>
-    <script src="components/profilseite/sliderprofile.js"></script>
+    <script src="components/profilseite/slider.js"></script>
     <script src="components/profilseite/calendarcontact.js"></script>
     <script src="components/profilseite/userinfos.js"></script>
     <script src="components/accountseite/auswahl.js"></script>
@@ -58,6 +58,7 @@
     <script src="components/accountseite/fileChooser.js"></script>
     <script src="components/profilseite/aktuell-text.js"></script>
     <script src="components/profilseite/werbebereich.js"></script>
+    <script src="components/landing.js"></script>
 
     <script src="components/impressum.js"></script>
 
@@ -67,26 +68,7 @@
 
 </head>
 
-<body layout="column" ng-cloak>
-<navigation></navigation>
-<ui-view>
-    <slider-profile></slider-profile>
-    <div class="container hintergrundbild" style="width: 100%; height: auto">
-        <div id="aktuelldiv" layout-gt-xs="row" layout-xs="column" style="margin-top: 10px; padding-bottom: 3%">
-            <userinfos flex></userinfos>
-            <map id="mapdiv" flex flex-xs="95" style="width: 50%"></map>
-        </div>
-        <div layout-gt-xs="row" layout-xs="column">
-            <div style="width: 50%; margin-left: 15px" class="newsdiv">
-                <aktuell-text></aktuell-text>
-            </div>
-            <div style="width: 50%; margin-bottom: auto; margin-top: auto" layout-align="center center" class="newsdiv">
-                <werbebereich></werbebereich>
-            </div>
-        </div>
-        <testgelaende></testgelaende>
-    </div>
-</ui-view>
+<body style="background-color: unset;" >
+<landing></landing>
 </body>
-
 </html>

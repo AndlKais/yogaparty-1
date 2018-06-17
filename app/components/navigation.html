@@ -11,13 +11,13 @@
 
         <ul class="list-unstyled components">
             <p>Menü</p>
-            <li class="active">
-                <a href="index.php">Profilseite</a>
+            <li id="profli">
+                <a href="profilseite.php">Profilseite</a>
             </li>
-            <li>
+            <li id="bearbli">
                 <a href="info-bearbeitungsbereich.php">Userinfos bearbeiten</a>
             </li>
-            <li>
+            <li id="accountli">
                 <a href="accountseite.php">Profilseite bearbeiten</a>
             </li>
             <li>
@@ -31,7 +31,7 @@
         </ul>
         <ul class="list-unstyled CTAs">
 
-            <li><a href="impressum.php" class="download">Impressum</a></li>
+            <li id="impli"><a href="impressum.php" class="download">Impressum</a></li>
 
         </ul>
 
@@ -41,7 +41,7 @@
 
             <h1 style="margin:10px 0 10px 10px; text-align: left; color: white">
                 <img id="navbar-image" alt="Brand"  style=" height: 70px; padding-right: 15px"src="resources/pictures/blume-des-lebens3.png" >
-                <a id="navbar-text" style="color:black; text-decoration: none" href="index.php">yogaparty</a>
+                <a id="navbar-text" style="color:black; text-decoration: none" href="profilseite.php">yogaparty</a>
             </h1>
             <div flex>
 
@@ -57,25 +57,4 @@
 
 </div>
 
-
 <div class="overlay"></div>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#sidebar").mCustomScrollbar({
-            theme: "minimal"
-        });
-
-        $('#dismiss, .overlay').on('click', function () {
-            $('#sidebar').removeClass('active');
-            $('.overlay').fadeOut();
-        });
-
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').addClass('active');
-            $('.overlay').fadeIn();
-            $('.collapse.in').toggleClass('in');
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
-    });
-</script>
