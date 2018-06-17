@@ -63,24 +63,14 @@ app.controller("testgelaendeController", ['$http', '$log', '$compile', '$scope',
             $ctrl.ausgabe = data.data;
             $log.debug(data.data);
 
+            let komplett = "";
+
             for(let i = 0; i < $ctrl.ausgabe.length; i++){
-                let node = $compile($ctrl.ausgabe[i])($scope);
-                $log.debug($ctrl.ausgabe[i]);
-                angular.element(document.getElementsByClassName("bloeckeAnzeigen")[$ctrl.reihenfolge ? $ctrl.reihenfolge - 1 : 0]).append(node);
-
-                /*  let node = document.createElement($ctrl.ausgabe[i].blockart);
-
-                  for(let key in $ctrl.ausgabe[i]) {
-                      if(key !== "blockart") {
-                          let attribut = document.createAttribute(key);
-                          attribut.value = $ctrl.ausgabe[i][key];
-                          node.setAttributeNode(attribut);
-                      }
-                      document.getElementById("test").appendChild(node);
-                  }
-                  //document.getElementById('test').appendChild(node);
-                  $log.debug($ctrl.ausgabe[i]);*/
+                komplett += $ctrl.ausgabe[i];
             }
+
+            angular.element(document.getElementsByClassName("bloeckeAnzeigen")[$ctrl.reihenfolge ? $ctrl.reihenfolge - 1 : 0]).append($compile(komplett)($scope));
+
             $ctrl.elementsLoaded();
         });
     }
